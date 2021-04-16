@@ -1,0 +1,551 @@
+﻿@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="page-header">Orders</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table id="tblOrderLineItems" class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Product ID</th>
+                            <th>Product Code</th>
+                            <th>EAN Code</th>
+                            <th>Short Description</th>
+                            <th>Long Description</th>
+                            <th>Unit Cost</th>
+                            <th>Sales Price</th>
+                            <th>Qty</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr id="trLineEntry">
+                            <td></td>
+                            <td><input id="txtProductStagingID" type="text" class="cellStagingProdID" disabled /></td>
+                            <td><input id="txtProdCode" type="text" class="cellProdCode autocomplete" /></td>
+                            <td><input id="txtEANCode" type="text" class="cellEANCode autocomplete" /></td>
+                            <td><input id="txtShortDesc" type="text" class="cellShortDesc autocomplete" /></td>
+                            <td><input id="txtLongDesc" type="text" class="cellLongDesc autocomplete" /></td>
+                            <td><input id="txtUnitCost" type="text" class="cellUnitCost" disabled /></td>
+                            <td><input id="txtSalesPrice" type="text" class="cellSalesPrice" disabled /></td>
+                            <td><input id="txtQty" type="text" class="cellQty numeric" /></td>
+                            <td><input id="btnAddLineItem" type="button" value="Add" style="display:;" /></td>
+                            <td><input id="btnReset" type="button" value="Reset" /></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- /#tblOrderLineItems -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<style>    
+    input {
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 100%;
+        padding: 0 4px 0 4px;
+    }
+        input:focus {
+            border: 1px solid #808080;
+            outline: none;
+        }
+
+    .numeric {
+    }
+
+    .autocomplete {
+    }
+
+    .cellLineNumber {
+        width: 50px;
+    }
+    .cellStagingProdID {
+        width: 50px;
+    }
+    .cellProdCode {
+    }
+    .cellEANCode {
+    }
+    .cellShortDesc {
+        width: 200px;
+    }
+    .cellLongDesc {
+        width: 300px;
+    }
+    .cellUnitCost {
+        width: 50px;
+    }
+    .cellSalesPrice {
+        width: 50px;
+    }
+    .cellQty {
+        width: 50px;
+    }
+
+    .lineItem {
+    }
+
+    .deleteRow {
+    }
+</style>
+
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+
+@*<script src="~/Scripts/jquery-1.11.3.min.js"></script>*@
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+<script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+
+    $(document).ready(function () {
+
+        EditableGridPageDefaults();
+
+        EditableGridConfig();
+
+        GetLineItems();
+    });
+
+    function EditableGridPageDefaults() {
+
+        $('#btnAddLineItem').click(function () {
+            if (IsLineItemAddValid()) {
+                AddLineItem();
+            }
+        });
+
+        $('#btnReset').click(function () {
+            $('#trLineEntry').find('input:text').val('');
+            $('#txtProdCode').focus();
+        });
+
+        $('#tblOrderLineItems').on('keydown', '#txtQty', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 9) {
+                e.preventDefault();
+
+                AddLineItem();
+            }
+        });
+
+        // Binding keys
+        $(document).bind('keydown', 'ctrl+a', function assets() {
+
+            SaveLineItems();
+
+            return false;
+        });
+        $('#txtProdCode').bind('keydown', 'ctrl+a', function assets() {
+
+            SaveLineItems();
+
+            return false;
+        });
+    }
+
+    function EditableGridConfig() {
+
+        BindAutocomplete();
+
+        $(".numeric").numeric({ decimal: false, negative: false }, function () { alert("Positive integers only"); this.value = ""; this.focus(); });
+
+        $('.deleteRow').click(DeleteRow);
+
+        $('.lineItem .cellQty').blur(UpdateRow);
+
+        $('#txtProdCode').focus();
+    }
+
+    function GetLineItems() {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_GetLineItems", "Home")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                // Clear all inputs in line entry
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblOrderLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplOrderLineItems").tmpl(json).appendTo(templateContainer);
+
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+
+    /* Add **********************************************************************************/
+    function AddLineItem() {
+
+        var lineItem = new Object();
+
+        lineItem.LineNumber = (parseInt($('#tblOrderLineItems tbody').children('tr').length) + 1);
+        lineItem.ProductStagingID = $('#txtProductStagingID').val();
+        lineItem.ProdCode = $('#txtProdCode').val();
+        lineItem.EANCode = $('#txtEANCode').val();
+        lineItem.ShortDesc = $('#txtShortDesc').val();
+        lineItem.LongDesc = $('#txtLongDesc').val();
+        lineItem.UnitCost = $('#txtUnitCost').val();
+        lineItem.SalesPrice = $('#txtSalesPrice').val();
+        lineItem.Qty = $('#txtQty').val();
+
+        var parameters = JSON.stringify({
+            lineItem: lineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_AddLineItem", "Home")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                if (result.Result.search(/error/i) == -1) {
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+
+                    var templateContainer = $("#tblOrderLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+
+                    $("#tmplOrderLineItems").tmpl(json).appendTo(templateContainer);
+
+                    // Reapply plugins/bind controls
+                    EditableGridConfig();
+                }
+                else {
+                    alert(result);
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+                }                
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+
+    function IsLineItemAddValid() {
+        var isAddValid = true;
+
+        if ($('#txtProdCode').val() == '') {
+            $('#txtProdCode').focus();
+
+            alert('Please select a product');
+
+            isAddValid = false;
+        }
+
+        return isAddValid;
+    }
+
+    /* Delete **********************************************************************************/
+    function DeleteRow() {
+
+        var tr = $(this).closest('tr');
+
+        $(this).parents('tr').first().remove();
+
+        //var productstagingid = tr.find(".cellStagingProdID").val();
+        var lineNumber = tr.find(".cellLineNumber").html();
+
+        RemoveLineItem(lineNumber);
+    }
+
+    function RemoveLineItem(lineNumber) {
+
+        var parameters = JSON.stringify({
+            lineNumber: lineNumber
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_RemoveLineItem", "Home")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblOrderLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplOrderLineItems").tmpl(json).appendTo(templateContainer);
+
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+
+    /* Update **********************************************************************************/
+    function UpdateRow() {
+
+        var tr = $(this).closest('tr');
+
+        $(this).parents('tr').first().remove();
+
+        //var lineNumber = tr.find(".cellLineNumber").html();
+        //var productstagingid = tr.find(".cellStagingProdID").val();
+        //var quantity = tr.find(".cellQty").val();
+
+        var lineItem = new Object();
+
+        lineItem.LineNumber = tr.find(".cellLineNumber").html();
+        lineItem.ProductStagingID = tr.find(".cellStagingProdID").val();
+        lineItem.ProdCode = tr.find(".cellProdCode").val();
+        lineItem.EANCode = tr.find(".cellEANCode").val();
+        lineItem.ShortDesc = tr.find(".cellShortDesc").val();
+        lineItem.LongDesc = tr.find(".cellLongDesc").val();
+        lineItem.UnitCost = tr.find(".cellUnitCost").val();
+        lineItem.SalesPrice = tr.find(".cellSalesPrice").val();
+        lineItem.Qty = tr.find(".cellQty").val();
+
+        UpdateLineItem(lineItem);
+    }
+
+    function UpdateLineItem(lineItem) {
+
+        var parameters = JSON.stringify({
+            lineItem: lineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_UpdateLineItem", "Home")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblOrderLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplOrderLineItems").tmpl(json).appendTo(templateContainer);
+
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+
+    /* Save **********************************************************************************/
+    function SaveLineItems() {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_SaveLineItems", "Home")',
+            //data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                var result = result.Result;
+
+                if (result.search(/error/i) == -1) {
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+                    $('#txtProdCode').focus();
+
+                    var templateContainer = $("#tblOrderLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+
+                    $("#tmplOrderLineItems").tmpl(json).appendTo(templateContainer);
+
+                    // Reapply plugins/bind controls
+                    EditableGridConfig();
+                }
+                else {
+                    alert(result);
+
+                    $('#txtProdCode').focus();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }
+
+    /* jQuery UI Autocomplete **********************************************************************************/
+    function BindAutocomplete() {
+        $(".autocomplete").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+
+                // 'this.element' - element the autocomplete widget is attached to
+                var searchType = '';
+                if ($(this.element).hasClass('cellProdCode')) {
+                    searchType = 'ProdCode';
+                }
+                else if ($(this.element).hasClass('cellEANCode')) {
+                    searchType = 'EANCode';
+                }
+                else if ($(this.element).hasClass('cellShortDesc')) {
+                    searchType = 'ShortDesc';
+                }
+                else {
+                    searchType = 'LongDesc';
+                }
+
+                $.ajax({
+                    url: '@Url.Action("EditableGrid_ProductLookup", "Home")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ startsWith: request.term, searchType: searchType }),
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var label = '';
+                            switch (searchType) {
+                                case 'ProdCode':
+                                    label = item.ProdCode;
+                                    break;
+                                case 'EANCode':
+                                    label = item.EANCode;
+                                    break;
+                                case 'ShortDesc':
+                                    label = item.ShortDesc; //(item.ShortDesc == null || item.ShortDesc == '') ? item.ProdCode : item.ShortDesc;
+                                    break;
+                                default:
+                                    label = item.LongDesc;
+                            }
+
+                            return {
+                                value: item.ProdCode,
+                                label: label,
+                                ProductStagingID: item.ProductStagingID,
+                                ProdCode: item.ProdCode,
+                                EANCode: item.EANCode,
+                                ShortDesc: item.ShortDesc,
+                                LongDesc: item.LongDesc,
+                                UnitCost: item.UnitCost,
+                                SalesPrice: item.SalesPrice
+                            }
+                        }));
+                    }
+                });
+            },
+            focus: autocomplete_OnFocus,
+            select: autocomplete_OnSelect
+        });
+    }
+    function autocomplete_OnFocus(event, ui) {
+        //$("#" + event.target.id).val(ui.item.value);
+
+        var tr = $(this).closest('tr');
+
+        tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        tr.find(".cellProdCode").val(ui.item.ProdCode);
+        tr.find(".cellEANCode").val(ui.item.EANCode);
+        tr.find(".cellShortDesc").val(ui.item.ShortDesc);
+        tr.find(".cellLongDesc").val(ui.item.LongDesc);
+        tr.find(".cellUnitCost").val(ui.item.UnitCost);
+        tr.find(".cellSalesPrice").val(ui.item.SalesPrice);
+
+        // This is causing a selection as soon as an item has focus
+        //tr.find(".cellQty").focus();
+
+        return false;
+    }
+    function autocomplete_OnSelect(event, ui) {
+        $("#" + event.target.id).val(ui.item.value);
+
+        var tr = $(this).closest('tr');
+
+        tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        tr.find(".cellProdCode").val(ui.item.ProdCode);
+        tr.find(".cellEANCode").val(ui.item.EANCode);
+        tr.find(".cellShortDesc").val(ui.item.ShortDesc);
+        tr.find(".cellLongDesc").val(ui.item.LongDesc);
+        tr.find(".cellUnitCost").val(ui.item.UnitCost);
+        tr.find(".cellSalesPrice").val(ui.item.SalesPrice);
+
+        var keyCode = event.keyCode || event.which;
+        if (keyCode == 9) {
+            $(this).last("input:text").focus().select();
+        }
+        else {
+            tr.find(".cellQty").focus();
+        }
+
+        //if (tr.hasClass('lineItem')) {
+        //    // We're modifying the grid
+        //    tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        //    tr.find(".cellQty").focus();
+        //}
+        //else {
+        //    $("#txtProductStagingID").val(ui.item.ProductStagingID);
+        //    $('#txtQty').focus();
+        //}
+
+        return false;
+    }
+</script>
+
+<script id="tmplOrderLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+    <tr class="lineItem">
+        <td class="cellLineNumber">${record.LineNumber}</td>
+        <td><input id="txtProductStagingID${record.ProductStagingID}" type="text" class="cellStagingProdID" value="${record.ProductStagingID}" disabled /></td>
+
+        <td><input id="txtProdCode${record.ProductStagingID}" type="text" class="cellProdCode autocomplete" value="${record.ProdCode}" /></td>
+        <td><input id="txtEANCode${record.ProductStagingID}" type="text" class="cellEANCode autocomplete" value="${record.EANCode}" /></td>
+        <td><input id="txtShortDesc${record.ProductStagingID}" type="text" class="cellShortDesc autocomplete" value="${record.ShortDesc}" /></td>
+        <td><input id="txtLongDesc${record.ProductStagingID}" type="text" class="cellLongDesc autocomplete" value="${record.LongDesc}" /></td>
+
+        <td><input id="txtUnitCost${record.ProductStagingID}" type="text" class="cellUnitCost" value="${record.UnitCost}" disabled /></td>
+        <td><input id="txtSalesPrice${record.ProductStagingID}" type="text" class="cellSalesPrice" value="${record.SalesPrice}" disabled /></td>
+        <td><input id="txtQty${record.ProductStagingID}" type="text" class="cellQty numeric" value="${record.Qty}" /></td>
+        <td><input type="button" value="Remove" class="deleteRow" /></td>
+        <td></td>
+    </tr>
+    {{/each}}
+</script>
+
+@*https://www.simple-talk.com/dotnet/.net-framework/-client-side-markup-with-jquery-cloning-and-templates/*@
+@*https://github.com/BorisMoore/jsrender*@
+@*http://www.jsviews.com/#jsviews*@

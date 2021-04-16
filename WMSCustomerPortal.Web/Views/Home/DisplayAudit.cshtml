@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Display Audit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Audit Results</h3>
+
+<input type="button" id="btnTest" value="Reset Table" onclick="ResetDataTable()" style="display:none;" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="dataTableReports">
+                        <thead>
+                            <tr>
+                                <th style="width:70px;">Audit Date</th>
+                                <th style="width:90px;">File Name</th>
+                                <th style="width:150px;">Transaction</th>
+                                <th style="width:100px;">Transaction Type</th>
+                                <th style="width:100px;">User</th>
+                                <th style="width:50px;">Event Status</th>
+                                <th style="width:300px;">Message</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+</style>
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+
+<script>
+    var oReportTable = null;
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        GetAudits();
+
+        WireAdditionalActions();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetAudits();
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function GetAudits() {
+
+        if (oReportTable != null) {
+            oReportTable.destroy();
+        }
+
+        oReportTable = $('#dataTableReports').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("Display", "Home")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                    { "data": "Audit_Date" },
+                    { "data": "Audit_FileName" },
+                    { "data": "Audit_Transaction" },
+                    { "data": "Audit_TransactionType" },
+                    { "data": "Audit_User" },
+                    { "data": "Audit_EventStatus" },
+                    { "data": "Audit_Message" }
+            ]
+        });
+    }
+
+
+    
+
+    function WireAdditionalActions() {
+
+        
+    }
+
+    function ViewLineItems(d) {
+
+        $('#modalViewLineItems').modal({
+            keyboard: false
+        });
+    }
+
+</script>

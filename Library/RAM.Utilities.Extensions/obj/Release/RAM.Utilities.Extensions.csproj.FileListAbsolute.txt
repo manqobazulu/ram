@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Extensions\bin\Release\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Extensions\bin\Release\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Extensions\obj\Release\RAM.Utilities.Extensions.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Extensions\obj\Release\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Extensions\obj\Release\RAM.Utilities.Extensions.pdb

@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Product Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="page-header">Product Main</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results 
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div id="divProductList"></div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<style>
+    .numeric {
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.11.3.min.js"></script>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+
+    $(document).ready(function () {
+
+        //Populates Products Table
+        GetProducts();
+
+        WireAdditionalActions();
+
+    });
+
+    function WireAdditionalActions() {
+
+    }
+
+    function GetProducts() {
+        var showInactive = false; //$('input:checkbox[name=chkShowInactive]').is(':checked');
+
+        var data = JSON.stringify({
+            showInactive: showInactive
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetProductListWithOption", "Home")',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#divProductList').html('');
+
+                var templateContainer = $("div #divProductList").empty();
+                var json = { 'Records': result.aaData };
+
+                $("#tmplProducts").tmpl(json).appendTo(templateContainer);
+
+                $(".numeric").numeric({ decimal: false, negative: false }, function () { alert("Positive integers only"); this.value = ""; this.focus(); });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+            }
+        });
+    }    
+
+</script>
+
+<script id="tmplProducts" type="text/x-jQuery-tmpl">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Code</th>
+                <th>EAN Code</th>
+                <th>Short Description</th>
+                <th>Long Description</th>                
+                <th>Unit Cost</th>
+                <th>Sales Price</th>
+                
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each(i,record) Records}}
+            <tr>
+                <td>${record.ProductStagingID}</td>
+                <td>${record.ProdCode}</td>
+                <td>${record.EANCode}</td>                
+                <td>${record.ShortDesc}</td>
+                <td>${record.LongDesc}</td>
+                <td>${record.UnitCost}</td>
+                <td>${record.SalesPrice}</td>
+                
+                <td><input id="${record.ProductStagingID}" type="text" class="numeric" /></td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</script>

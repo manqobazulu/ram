@@ -1,0 +1,12 @@
+2020-07-26 18:18:54,859 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAgeDetailData(Int32 principalID) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 796
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAgeDetailReport(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 253
+ClientConnectionId:f3bfd64e-cf72-48fd-a8dc-d9aaaa98adbb
+Error Number:-2,State:0,Class:11
+2020-07-26 18:37:11,227 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAgeDetailData(Int32 principalID) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 796
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAgeDetailReport(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 253
+ClientConnectionId:f9e624a3-4498-4ac5-810b-4e6b0f3ce6d5
+Error Number:-2,State:0,Class:11

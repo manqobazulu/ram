@@ -1,0 +1,309 @@
+﻿@{
+    ViewBag.Title = "WebService Audit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">WebService Audit Results</h3>
+
+<input type="button" id="btnTest" value="Reset Table" onclick="ResetDataTable()" style="display:none;" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="dataTableReports">
+                        <thead>
+                            <tr>
+                                <th style="width:70px;">ID</th>
+                                <th style="width:90px;">Date</th>
+                                <th style="width:100px;">Transaction ID</th>
+                                <th style="width:100px;">Transaction Type</th>
+                                <th style="width:100px;">Direction</th>
+                                <th style="width:100px;">Result</th> 
+                                <th style="width:100px;">Transaction Error</th>
+                                <th style="width:50px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="modal fade bs-example-modal-lg" id="modalView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">XML View</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea class="form-control" rows="20" id="comment"></textarea>
+                                <hr />
+                                <div class="form-group" style="float:right;">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+</style>
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+
+<script>
+    var oReportTable = null;
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        GetAudits();
+
+        WireAdditionalActions();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[1, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetAudits();
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function GetAudits() {
+
+        if (oReportTable != null) {
+            oReportTable.destroy();
+        }
+
+        oReportTable = $('#dataTableReports').DataTable({
+            "order": [[1, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("DisplayWs", "Home")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                {
+                    "data": "ID",
+                    "visible": false
+                },
+                { "data": "TransactionDate" },
+                { "data": "TransactionID" },
+                { "data": "TransactionType" },
+                { "data": "Direction" },
+                { "data": "TransactionResult" },
+                { "data": "TransactionError" },
+                {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button view class='btn btn-primary btn-xs'>View XML</button>"
+                }
+            ]
+        });
+    }
+
+    function WireAdditionalActions() {
+        $('#dataTableReports tbody').on('click', 'button[view]', function () {
+            var row = oReportTable.row($(this).parents('tr'));
+            SelectRecordToView(row.data());
+
+        });
+
+        $('#modalView').on('hidden.bs.modal', function (e) {
+            $('#comment').val('');
+            $('#comment').attr('disabled', 'disabled');
+        });
+    }
+
+    function SelectRecordToView(d) {
+        var parameters = JSON.stringify({
+            ID: d.ID
+        });
+
+        $.ajax({
+            url: '@Url.Action("getAuditXml", "Home")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+            success: function (response) {
+                var xml_neat = formatXml(response.Result[0].TransactionXml);
+                $('#comment').val(xml_neat);
+                $('#comment').attr('disabled', 'disabled');
+
+                $('#modalView').modal({
+                    keyboard: false
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function formatXml(xml) {
+        var formatted = '';
+        var reg = /(>)(<)(\/*)/g;
+        xml = xml.replace(reg, '$1\r\n$2$3');
+        var pad = 0;
+
+        jQuery.each(xml.split('\r\n'), function (index, node) {
+            var indent = 0;
+            if (node.match(/.+<\/\w[^>]*>$/)) {
+                indent = 0;
+            }
+            else if (node.match(/^<\/\w/)) {
+                if (pad != 0) {
+                    pad -= 1;
+                }
+            }
+            else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
+                indent = 1;
+            }
+            else {
+                indent = 0;
+            }
+            var padding = '';
+            for (var i = 0; i < pad; i++) {
+                padding += '  ';
+            }
+            formatted += padding + node + '\r\n';
+            pad += indent;
+        });
+
+        return formatted;
+    }
+
+    function ViewLineItems(d) {
+        $('#modalViewLineItems').modal({
+            keyboard: false
+        });
+    }
+
+</script>

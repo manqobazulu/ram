@@ -1,0 +1,823 @@
+﻿@{
+    ViewBag.Title = "Product Main";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Product Main</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px;">
+                <div style="float:left;">
+
+                    <div>
+                        <input type="radio" name="status" value="Active"  />
+                        <label>
+                            Show Active
+                        </label>
+                        <input type="radio" name="status" value="Inactive" />
+                        <label>
+                            Show Inactive
+                        </label>
+
+                    </div>
+
+
+                    @*<button id="btnRefreshProduct" type="button" class="btn btn-primary btn-xs">Refresh</button>*@
+                </div>
+                <div style="float:right;">
+                    <button id="btnAddNew" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add New</button>
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table id="Products" class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Code</th>
+                                <th>EAN Code</th>
+                                <th>Long Description</th>
+                                <th>Short Description</th>
+                                @*<th>Unit Cost</th>*@
+                                <th>Sales Price</th>
+                                <th>Serialised</th>
+                                <th>Expiry Product</th>
+                                <th>Lead Time Days </th>
+                                <th>Active</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="modal fade bs-example-modal-lg" id="modalAddNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">Product Add/Edit</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" id="frmProductAddEdit" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <label>Product ID</label>
+                                        <input class="form-control" placeholder="Product ID" id="txtProductID" name="txtProductID" disabled>
+                                        @*<p class="help-block">Example block-level help text here.</p>*@
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelName">Product Code</label>
+                                        <input class="form-control" placeholder="Product Code" id="txtProductCode" name="txtProductCode" value="NEW">
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelName">EAN Code</label>
+                                        <input class="form-control" placeholder="EAN Code" id="txtEANCode" name="txtEANCode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Long Description</label>
+                                        <input class="form-control" placeholder="Long Description" id="txtLongDescription" name="txtLongDescription">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Short Description</label>
+                                        <input class="form-control" placeholder="Short Description" id="txtShortDescription" name="txtShortDescription">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Sales Price</label>
+                                                <input class="form-control" placeholder="Sales Price" id="txtSalesPrice" name="txtSalesPrice">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label id="lblLeadTime">Lead Time Days</label>
+                                                <input class="form-control" placeholder="Lead Time Days" id="txtLeadTime" name="txtLeadTime">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-6">
+                                            <input type="checkbox" id="chkSerialised">
+                                            <label for="chkSerialised">
+                                                Serialised
+                                            </label>
+                                        </div>
+
+                                        <div class="col-xs-4 col-sm-6">
+                                            <input type="checkbox" id="chkExpiryProduct">
+                                            <label for="chkExpiryProduct">
+                                                Expiry Product
+                                            </label>
+                                        </div>
+
+                                        <div class="col-xs-4 col-sm-6">
+                                            <input type="checkbox" id="chkActive">
+                                            <label for="chkActive">
+                                                Active
+                                            </label>
+                                        </div>
+                                    </div>btnSaveProduct
+                                    <div id="loading" class="spinner">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div style="float:right;">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;
+                                            <button type="button" class="btn btn-primary" id="btnSaveProduct">Save</button>&nbsp;
+                                            <button type="button" class="btn btn-primary" id="btnUpdateProduct">Save</button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<!-- /.modal -->
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+
+    .ContactNumbers {
+    }
+
+    .CustomerLookup {
+    }
+
+    .IncludeHidden {
+    }
+
+</style>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    var oProductTable = null; var showActive; var checkProduct = false;
+
+    $(document).ready(function () {
+
+        if (location.hash.indexOf('reloaded') === -1) {
+            location.hash += 'reloaded';
+            location.reload();
+        }
+
+        $("input.form-control").bestupper(); //forces all inputs to be capitals by using the bestupper plugin
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+        
+        //Populates Products Table
+        GetActiveProducts(true)
+
+        //make sure that we are doing validation on the products if we are going to save
+        ConfigureProductSaveValidation();
+        //Products Table Actions
+        WireAdditionalActions();
+        ProductsTableActions();
+
+    });
+
+    function WireAdditionalActions() {
+
+        $("#chkExpiryProduct").change(function () {
+            //determine the state
+            var showLeadTime = $("#chkExpiryProduct").is(':checked');
+            if ($("#chkExpiryProduct").is(':checked')) {
+                $("#txtLeadTime").show();
+                $("#lblLeadTime").show();
+            }
+            else {
+
+                $("#txtLeadTime").hide();
+                $("#lblLeadTime").hide();
+            }
+
+        });
+
+        $('#btnUpdateProduct').on('click', function (event) {
+
+            event.preventDefault();
+            if (IsProductSaveValid()) {
+                UpdateProduct();
+            }
+        });
+
+        $('#btnSaveProduct').on('click', function (event) {
+
+            event.preventDefault();
+            if (IsProductSaveValid()) {
+                SaveProduct();
+            }
+        });
+
+        //wire the refresh button
+        $('#btnRefreshProduct').on('click', function (event) {
+
+            event.preventDefault();
+            GetActiveProducts(true);
+        });
+
+        $("#btnToggleLeadTime").on("click", function (event) {
+
+            event.preventDefault();
+            //get the session hidden
+            $("#txtLeadTime").hide();
+        });
+
+        var $radios = $('input:radio[name=status]');
+        if ($radios.is(':checked') === false) {
+            $radios.filter('[value=Active]').prop('checked', true);
+        }
+
+        $('input:radio[name=status]:nth(0)').change(function () {
+            GetActiveProducts(true)
+        });
+
+        $('input:radio[name=status]:nth(1)').change(function () {
+            GetActiveProducts(false)
+        });
+
+    }
+
+    function GetActiveProducts(showActive) {
+
+
+        if (oProductTable != null) {
+            oProductTable.destroy();
+        }
+
+        oProductTable = $('#Products').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetProductListWithOption", "MasterData")',
+            //"sAjaxSource": "/WMSWeb/MasterData/GetProductListWithOption",
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                var data = JSON.stringify({
+                    showInactive: showActive
+                });
+                parameters.push({ "name": "formData", "value": data });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal(errorThrown,"","error");
+                    console.log("Error: " + errorThrown);
+                    console.log("responseText: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                            { "data": "ProductStagingID" },
+                            { "data": "ProdCode" },
+                            { "data": "EANCode" },
+                            { "data": "LongDesc" },
+                            { "data": "ShortDesc" },
+                            { "data": "SalesPrice" },
+                            { "data": "Serialised" },
+                            { "data": "ExpiryProduct" },
+                            { "data": "LeadTimeDays" },
+                            { "data": "ProdActive" },
+                            {
+                                "targets": 10,
+                                "data": null,
+                                "defaultContent": "<button viewselect class='btn btn-primary btn-xs'>Select</button>"
+
+                            }
+
+            ],
+            "columnDefs": [
+    {
+        // The 'data' parameter refers to the data for the cell (defined by the 'data' option, which defaults to the column being worked with, in this case 'data: 0'
+        "render": function (data, type, row) {
+            return data == 0 ? '<img src="../Content/images/active_no.gif" alt="" class="centered" />' : '<img src="../Content/images/active_yes.gif" alt="Closed" class="centered" />';
+        },
+        "targets": 6
+    },
+    {
+        // The 'data' parameter refers to the data for the cell (defined by the 'data' option, which defaults to the column being worked with, in this case 'data: 0'
+        "render": function (data, type, row) {
+            return data == 0 ? '<img src="../Content/images/active_no.gif" alt="" class="centered" />' : '<img src="../Content/images/active_yes.gif" alt="Closed" class="centered" />';
+        },
+        "targets": 7
+    },
+    {
+        // The 'data' parameter refers to the data for the cell (defined by the 'data' option, which defaults to the column being worked with, in this case 'data: 0'
+        "render": function (data, type, row) {
+            return data == 0 ? '<img src="../Content/images/active_no.gif" alt="" class="centered" />' : '<img src="../Content/images/active_yes.gif" alt="Closed" class="centered" />';
+        },
+        "targets": 9
+    }
+
+            ]
+        });
+    }
+
+    function ProductsTableActions() {
+
+        $('#Products tbody').on('click', 'button[viewselect]', function () {
+
+            $("#btnUpdateProduct").removeAttr("disabled", "disabled");
+            var row = oProductTable.row($(this).parents('tr'));
+            SelectProduct(row.data());
+        });
+
+        $('#btnAddNew').click(function () {
+
+            $("#btnSaveProduct").removeAttr("disabled", "disabled");
+            
+            $('#hiddenAction').val('ADD');
+            $('#txtProductID').val('NEW');
+            $('#txtProductCode').val('').removeAttr('disabled');;
+            $('#txtEANCode').val('').removeAttr('disabled');;
+            $('#txtEANCode').val('');
+            $('#txtLongDescription').val('');
+            $('#txtShortDescription').val('');
+            $('#txtLeadTime').val('0');
+            $('#txtSalesPrice').val('0');
+
+            $("#btnUpdateProduct").hide();
+            $("#btnSaveProduct").show();
+
+            $("#chkSerialised").prop("checked", false);
+            $("#chkExpiryProduct").prop("checked", false);
+
+            if ($("#chkExpiryProduct").is(':checked')) {
+                $("#txtLeadTime").show();
+                $("#lblLeadTime").show();
+            }
+            else {
+
+                $("#txtLeadTime").hide();
+                $("#lblLeadTime").hide();
+            }
+
+            $("#chkActive").prop("checked", true);
+
+            $('#myModalLabel2').text('Product Add');
+            $('button[data-dismiss]').last().text('Cancel');
+
+            $('#txtProductCode').bind('keypress', function (event) {
+                var regex = new RegExp("^[a-zA-Z0-9\b]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            $('#modalAddNew').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+        $('#modalAddNew').on('hidden.bs.modal', function (e) {
+            $('#hiddenAction').val('');
+        });
+    }
+
+    function SelectProduct(d) {
+
+        $('#hiddenAction').val('EDIT');
+
+        $('#txtProductID').val(d.ProductStagingID).attr('disabled', 'disabled');
+        $('#txtProductCode').val(d.ProdCode).attr('disabled', 'disabled');
+        $('#txtEANCode').val(d.EANCode).attr('disabled', 'disabled');
+        $('#txtLongDescription').val(d.LongDesc);
+        $('#txtShortDescription').val(d.ShortDesc);
+        $('#txtLeadTime').val(d.LeadTimeDays);
+        //$('#txtUnitCost').val(d.UnitCost);
+        var FloatSalesPrice = parseFloat($.trim(d.SalesPrice)).toFixed(2);
+        $('#txtSalesPrice').val($.trim(FloatSalesPrice));
+        $("#btnUpdateProduct").show();
+        $("#btnSaveProduct").hide();
+
+        if (d.Serialised) {
+            $("#chkSerialised").prop("checked", true);
+        }
+        else {
+            $("#chkSerialised").prop("checked", false);
+        }
+
+        if (d.ExpiryProduct) {
+            $("#chkExpiryProduct").prop("checked", true);
+        }
+        else {
+            $("#chkExpiryProduct").prop("checked", false);
+        }
+
+        if ($("#chkExpiryProduct").is(':checked')) {
+            $("#txtLeadTime").show();
+            $("#lblLeadTime").show();
+        }
+        else {
+
+            $("#txtLeadTime").hide();
+            $("#lblLeadTime").hide();
+        }
+
+        if (d.ProdActive) {
+            $("#chkActive").prop("checked", true);
+        }
+        else {
+            $("#chkActive").prop("checked", false);
+        }
+
+        // Set modal defaults
+        $('#myModalLabel2').text('Product Edit');
+        $('button[data-dismiss]').last().text('Close');
+
+        $('#modalAddNew').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+    }
+
+    function IsProductSaveValid() {
+
+        var isFormValid = $('#frmProductAddEdit').valid();
+        return isFormValid;
+    }
+
+    //Does a lookup to ensure that an existing product code does not exist
+    function DoesProductExist(productCode) {
+        //do an ajax call to determine
+
+    }
+
+    //configures the inbound masterlineitem validation
+    function ConfigureProductSaveValidation() {
+        //lets add a new custtom validqator method
+
+        var prodCodeVal = "";
+        $('#txtProductCode').val();
+
+        thisValidatedForm = $("#frmProductAddEdit").validate({
+            onsubmit: true,
+            rules: {
+                txtProductCode: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 19,
+                    remote: {
+                        url: '@Url.Action("IsProductCodeDuplicate", "MasterData")', // script to validate in server side
+                        type: "POST"//,
+                        //data: { prodCode: prodCodeVal }
+                    }
+                },
+
+                txtEANCode: {
+                    required: true,
+                    //digits: true,
+                    maxlength: 40,
+                    remote: {
+                        url: '@Url.Action("IsEANCodeDuplicate", "MasterData")', // script to validate in server side
+                        type: "POST"//,
+                        //data: { prodCode: prodCodeVal }
+                    }
+                },
+                txtLongDescription: {
+                    required: true,
+                    maxlength: 40
+
+                },
+                txtShortDescription: {
+                    required: true,
+                    maxlength: 20
+                },
+                txtLeadTime: {
+                    digits: true
+                },
+                txtSalesPrice: {
+                    number: true
+                }
+            },
+            messages: {
+                txtProductCode: {
+                    required: "Please enter a valid Product Code",
+                    minlength: "The Product Code name must consist of at least 3 characters",
+                    maxlength: "The Product Code name cannot be longer than 19 characters",
+                    remote: "Product Code already in use"
+                },
+                txtEANCode: {
+                    required: "Please enter a valid EAN Code",
+                    maxlength: "Cannot be longer than 40 characters",
+                    remote: "EAN Code already in use"
+                },
+                txtLongDescription: {
+                    required: "Please enter a valid Long Description",
+                    maxlength: "Cannot be longer than 40 characters"
+
+                },
+                txtShortDescription: {
+                    required: "Please enter a valid Short Description",
+                    maxlength: "Cannot be longer than 20 characters"
+                },
+
+                txtLeadTime: {
+                    digits: "Please enter a valid Lead Time value"
+
+                },
+                txtSalesPrice: {
+                    number: "Please enter a valid Sales Price value"
+
+                }
+
+            }
+        });
+
+    }
+
+    //Save the line item
+    function SaveProduct() {
+
+        $("#btnSaveProduct").attr("disabled", "disabled");
+        var productRecord = new Object();
+
+        productRecord.ProductStagingID = $.trim($('#txtProductID').val());
+
+        var vProductCode = $.trim($('#txtProductCode').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, ''));
+        var vEANCode = $.trim($('#txtEANCode').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, ''));
+        var vShortDescription = $.trim($('#txtShortDescription').val());
+        var vLongDescription = $.trim($('#txtLongDescription').val());
+
+        productRecord.ProdCode = vProductCode;
+        productRecord.EANCode = vEANCode;
+        productRecord.ShortDesc = vShortDescription;
+        productRecord.LongDesc = vLongDescription;
+
+        var SalesPrice = $.trim($('#txtSalesPrice').val());
+        var FloatSalesPrice = parseFloat(SalesPrice).toFixed(2);
+
+        productRecord.SalesPrice = FloatSalesPrice;
+
+        if ($('#chkExpiryProduct').is(":checked")) {
+            productRecord.ExpiryProduct = true;
+        } else {
+            productRecord.ExpiryProduct = false;
+
+        }
+
+        if ($('#chkSerialised').is(":checked")) {
+            productRecord.Serialised = true;
+        } else {
+            productRecord.Serialised = false;
+
+        }
+
+        if (productRecord.ProductStagingID == 0) {
+            productRecord.ProdActive = true;
+        } else {
+
+            if ($('#chkActive').is(":checked")) {
+                // it is checked
+                productRecord.ProdActive = true
+            } else {
+                productRecord.ProdActive = false;
+            }
+        }
+
+        productRecord.LeadTimeDays = $('#txtLeadTime').val();
+
+        var parameters = JSON.stringify({
+            productRecord: productRecord
+        });
+
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveProduct", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+                if (result.search(/error/i) == -1) {
+                    $('#modalAddNew').modal('hide');
+                    ResetDataTable()
+                }
+                else {
+                    $("#btnSaveProduct").removeAttr("disabled", "disabled");
+                    swal(response.SaveResponse.Details);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oProductTable.destroy();
+
+            oProductTable = $('#Products').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                //"deferLoading": 0,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetActiveProducts(true);
+        }
+        else
+        {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function UpdateProduct() {
+
+        $("#btnUpdateProduct").attr("disabled", "disabled");
+        var ProductID = $.trim($('#txtProductID').val());
+        var ProductCode = $.trim($('#txtProductCode').val());
+        var EANCode = $.trim($('#txtEANCode').val());
+        var ShortDescription = $.trim($('#txtShortDescription').val());
+        var LongDescription = $.trim($('#txtLongDescription').val());
+        var SalesPrice = $.trim($('#txtSalesPrice').val());
+
+        var FloatSalesPrice = parseFloat(SalesPrice).toFixed(2);
+
+        var ExpiryProduct;
+        if ($('#chkExpiryProduct').is(":checked")) {
+            ExpiryProduct = true;
+        } else {
+            ExpiryProduct = false;
+        }
+
+        var Serialised;
+        if ($('#chkSerialised').is(":checked")) {
+            Serialised = true;
+        } else {
+            Serialised = false;
+        }
+
+        var ProdActive;
+        if ($('#chkActive').is(":checked")) {
+            ProdActive = true
+        } else {
+            ProdActive = false;
+        }
+        var LeadTimeDays = $('#txtLeadTime').val();
+
+        var parameters = JSON.stringify({
+
+            pProductID: ProductID,
+            pProductCode: ProductCode,
+            pEANCode: EANCode,
+            pShortDescription: ShortDescription,
+            pLongDescription: LongDescription,
+            pSerialised: Serialised,
+            pExpiryProduct: ExpiryProduct,
+            pSalesPrice: FloatSalesPrice,
+            pProdActive: ProdActive,
+            pLeadTimeDays: LeadTimeDays
+
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("UpdateProduct", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+
+                if (result == "SUCCESS") {
+                    $('#modalAddNew').modal('hide');
+                    ResetDataTable()
+                }
+                else {
+                    $("#btnUpdateProduct").removeAttr("disabled", "disabled");
+                    swal(result);
+                    swal("Unable to save changes.","", "error");
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+</script>
+
+
+
+

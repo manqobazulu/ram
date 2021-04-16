@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Release\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Release\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Release\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Release\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Release\RAM.Logging.pdb

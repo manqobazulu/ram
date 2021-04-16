@@ -1,0 +1,315 @@
+﻿@{
+    ViewBag.Title = "Audit Query";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4 id="pageHeader" class="page-header">Audit Query</h4>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>
+                    @Html.ActionLink("Back Home", "Dashboard", "Admin")
+                </div>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="myModelDiv"></div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form role="form" id="frmAddInbound" onsubmit="return false;">
+
+                                            <div class="row">
+
+                                                <div class="panel">
+                                                    <div class="col-xs-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label id="labelName">From this date:</label>
+                                                            <div class='input-group date' id='datetimepickerPODate'>
+                                                                <input type="text" id="txtDateFrom" name="txtDateFrom" placeholder="From:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label id="labelName">To this date:</label>
+                                                            <div class='input-group date' id='datetimepickerPODate'>
+                                                                <input type="text" id="txtDateTo" name="txtDateTo" placeholder="To:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4 col-sm-6">
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Transaction</label>
+                                                            <input class="form-control" placeholder="Transaction" id="txtTransaction" name="txtTransaction">
+
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>User</label>
+                                                            <input class="form-control" placeholder="User" id="txtUser" name="txtUser">
+
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Message</label>
+                                                            <input class="form-control" placeholder="Message" id="txtMessage" name="txtMessage">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-8 col-sm-6">
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>File Name</label>
+                                                            <input class="form-control" placeholder="File Name" id="txtFileName" name="txtFileName">
+
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Transaction Type</label>
+                                                            <input class="form-control" placeholder="Transaction Type" id="txtTransactionType" name="txtTransactionType">
+
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Event Status</label>
+                                                            <input class="form-control" placeholder="Event Status" id="txtEventStatus" name="txtEventStatus">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-group" style="float:right;">
+                                                <button type="button" class="btn btn-primary" id="btnClear">Clear Fields</button>
+                                                <button type="button" class="btn btn-primary" id="btnSaveAll">Query</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <style>
+                    input {
+                        border: 1px solid #ccc;
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 4px 0 4px;
+                    }
+
+                        input:focus {
+                            border: 1px solid #808080;
+                            outline: none;
+                        }
+
+                    .numeric {
+                    }
+
+                    .autocomplete {
+                    }
+
+                    .cellInboundMasterLineItemID {
+                        /*width: 50px;*/
+                        width: 51px;
+                        /*display:none;*/
+                    }
+
+                    .cellLineNumber {
+                        width: 50px;
+                    }
+
+                    .cellStagingProdID {
+                        width: 50px;
+                    }
+
+                    .cellProdCode {
+                        width: 200px;
+                    }
+
+                    .cellEANCode {
+                    }
+
+                    .cellShortDesc {
+                        width: 200px;
+                    }
+
+                    .cellLongDesc {
+                        width: 300px;
+                    }
+
+                    .cellUnitCost {
+                        width: 50px;
+                    }
+
+                    .cellSalesPrice {
+                        width: 50px;
+                    }
+
+                    .cellQty {
+                        width: 50px;
+                    }
+
+                    .lineItem {
+                    }
+
+                    .deleteRow {
+                    }
+                </style>
+
+
+                <!-- DataTables CSS -->
+                <link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+                <!-- DataTables Responsive CSS -->
+                <link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+                <link href="~/Content/Spinner.css" rel="stylesheet" />
+                <!-- jQuery UI CSS -->
+                <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+                <link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+                @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+                <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+                <!-- DataTables JavaScript -->
+                <script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+                <script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+                <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+                <script src="~/Scripts/jquery.tmpl.min.js"></script>
+                <script src="~/Scripts/jquery-ui.js"></script>
+                <script src="~/Scripts/jquery.validate.min.js"></script>
+
+                <script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+                <script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+                <script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+                <link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+                <script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+                <script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+                <script>
+    $(document).ready(function () {
+        InitializeDateRange();
+        WireAdditionalActions();
+    });
+
+    function WireAdditionalActions() {
+
+
+
+        $("#btnSaveAll").on('click', function () {
+            //redirect to the create new role action
+
+
+            var fromDate = $('#txtDateFrom').val();
+            var toDate = $('#txtDateTo').val();
+            var Transaction = $('#txtTransaction').val();
+            var User = $('#txtUser').val();
+            var Message = $('#txtMessage').val();
+            var FileName = $('#txtFileName').val();
+            var TransactionType = $('#txtTransactionType').val();
+            var EventStatus = $('#txtEventStatus').val();
+
+
+            retrieveAudits(fromDate, toDate, FileName, Transaction, TransactionType, User, EventStatus, Message);
+
+            var ref = '@Url.Action("DisplayAudit", "Home")';
+
+            location.href = ref;
+
+
+        });
+
+        $("#btnClear").on('click', function () {
+
+            var fromDate = $('#txtDateFrom').val('');
+            var toDate = $('#txtDateTo').val('');
+            var Transaction = $('#txtTransaction').val('');
+            var User = $('#txtUser').val('');
+            var Message = $('#txtMessage').val('');
+            var FileName = $('#txtFileName').val('');
+            var TransactionType = $('#txtTransactionType').val('');
+            var EventStatus = $('#txtEventStatus').val('');
+
+        });
+    }
+
+    function InitializeDateRange() {
+
+        //init the date picker
+        $('#txtDateFrom').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+
+        //init the date picker
+        $('#txtDateTo').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+    }
+
+    function retrieveAudits(fromDate, toDate, p_fileName, p_transaction, p_transactionType, p_user, p_eventStatus, p_message) {
+
+
+        var parameters = JSON.stringify({
+            From_Date: fromDate,
+            To_Date: toDate,
+            FileName: p_fileName,
+            Transaction: p_transaction,
+            TransactionType: p_transactionType,
+            User: p_user,
+            EventStatus: p_eventStatus,
+            Message: p_message
+        });
+
+
+        $.ajax({
+            url: '@Url.Action("readAudits", "Home")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+            success: function (response) {
+
+                console.log(response);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+    </script>
+

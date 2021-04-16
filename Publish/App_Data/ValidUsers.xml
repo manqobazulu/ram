@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ValidUsers>
+
+  <dbo.ValidUser Email ="craig.daniel@ram.co.za"/>
+  <dbo.ValidUser Email="thaabiet.salaam@ram.co.za"/>
+  <dbo.ValidUser Email ="adeeb.nacerodien@ram.co.za"/>
+  <dbo.ValidUser Email ="stavros.hatzigiannidis@ram.co.za" />
+  <dbo.ValidUser Email ="werner.myburgh@ram.co.za"/>
+  <dbo.ValidUser Email ="richard.soderblom@ram.co.za" />
+  <dbo.ValidUser Email ="morne.terblanche@ram.co.za" />
+  <dbo.ValidUser Email ="david.liebovitz@ram.co.za"/>
+  <dbo.ValidUser Email ="pieter.mienie@ram.co.za"/>
+  <dbo.ValidUser Email ="mark.jacobs@ram.co.za"/>
+  <dbo.ValidUser Email ="lance.soller@ram.co.za"/>
+  <dbo.ValidUser Email ="steven.friedman@ram.co.za"/>
+  <dbo.ValidUser Email ="jonathan.lurie@ram.co.za"/>
+  <dbo.ValidUser Email ="david.liebovitz@ram.co.za"/>
+  <dbo.ValidUser Email ="aurora.niemandt@ram.co.za"/>
+  <dbo.ValidUser Email ="mohammed.nizamie@ram.co.za"/>
+  <dbo.ValidUser Email ="piet.theron@ram.co.za"/>
+  <dbo.ValidUser Email ="cecil.carelse@ram.co.za"/>
+  <dbo.ValidUser Email ="adolf.davids@ram.co.za"/>
+  <dbo.ValidUser Email ="cor.dupreez@ram.co.za"/>
+  <dbo.ValidUser Email ="bokkie.fourie@ram.co.za"/>
+
+</ValidUsers>

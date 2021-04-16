@@ -1,0 +1,104 @@
+2020-09-17 09:54:58,474 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:08a5861a-0b20-4759-9f7e-43b19ec4fb1c
+Error Number:2812,State:62,Class:16
+2020-09-17 09:58:31,995 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:08a5861a-0b20-4759-9f7e-43b19ec4fb1c
+Error Number:2812,State:62,Class:16
+2020-09-17 10:05:30,630 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:b20a2632-47b1-428d-976e-6e2a03d334c2
+Error Number:2812,State:62,Class:16
+2020-09-17 10:06:29,350 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:b20a2632-47b1-428d-976e-6e2a03d334c2
+Error Number:2812,State:62,Class:16
+2020-09-17 10:07:45,863 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:b20a2632-47b1-428d-976e-6e2a03d334c2
+Error Number:2812,State:62,Class:16
+2020-09-17 10:10:36,475 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'USP_RPT_StockAgeDetail_QRY'.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:b20a2632-47b1-428d-976e-6e2a03d334c2
+Error Number:2812,State:62,Class:16
+2020-09-17 10:55:20,787 [StockOnHand] [ERROR] ReportsController - The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+System.Web.HttpException (0x80004005): The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+   at System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2020-09-17 11:17:49,065 [WarehouseActivity] [ERROR] ReportsController - The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+System.Web.HttpException (0x80004005): The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+   at System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2020-09-17 11:30:25,282 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) ---> System.ComponentModel.Win32Exception (0x80004005): The semaphore timeout period has expired
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:e4a9bbd0-f04c-4704-9ae0-a869c87d6373
+Error Number:121,State:0,Class:20
+2020-09-17 13:31:52,749 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2020-09-17 21:12:59,286 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+2020-09-17 21:13:00,259 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 619
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 604
+2020-09-17 21:13:00,621 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetReturns(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 657
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetReturns(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 558
+2020-09-17 21:13:01,281 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 821
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299

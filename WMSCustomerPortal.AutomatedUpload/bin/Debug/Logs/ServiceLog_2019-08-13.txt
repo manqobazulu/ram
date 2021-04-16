@@ -1,0 +1,9 @@
+Service is started at 2019-08-13 11:12:29 AM
+nothing processed 2019-08-13 11:13:29 AM
+nothing processed 2019-08-13 11:13:29 AM
+nothing processed 2019-08-13 11:13:41 AM
+File processed 2019-08-13 11:14:02 AM
+File processed 2019-08-13 11:14:21 AM
+File processed 2019-08-13 11:14:42 AM
+File processed 2019-08-13 11:15:02 AM
+File processed 2019-08-13 11:15:23 AM

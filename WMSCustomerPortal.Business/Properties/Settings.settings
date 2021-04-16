@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WMSCustomerPortal.Business.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WMSCustomerPortal_Business_WS_RAM_Host_HostWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.0.21.95/WMSWeb/WS/HostWS.asmx</Value>
+    </Setting>
+    <Setting Name="WMSCustomerPortal_Business_SharedServices_LocationsWS_Locations" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/RAM.SharedServices.Web/Locations.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,329 @@
+﻿@{
+    ViewBag.Title = "Warehouse Return Line Items";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model WMSCustomerPortal.Models.Common.ReturnMasterItem
+
+<h3 class="page-header">Warehouse Return Line Items</h3>
+
+@* Main Panel *@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results               
+                <div>
+                    @Html.ActionLink("Back to Return Receipt", "ReturnReceipt", "Warehouse")
+                </div>
+            </div>
+            @*Page Headers*@
+            <div class="panel-body">
+                <form role="form" id="frmEditWarehouse" onsubmit="return false;">
+                    @Html.HiddenFor(model => model.RAMOrderNumber, new { id = "hdnRAMOrderNumber" })
+                    <div class="row">                       
+                        <div class="col-xs-4 col-sm-6">
+                            <div class="form-group">
+                                <label>Return Reference Number</label>
+                                <input class="form-control" placeholder="Return Reference Number" id="txtReturnReferenceNumber" name="txtReturnReferenceNumber" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Sender Name</label>
+                                <input class="form-control" placeholder="Sender Name" id="txtSenderName" name="txtSenderName" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-6">
+                            <div class="form-group">
+                                <label>Outbound Order Number</label>
+                                <input class="form-control" placeholder="Outbound Order Number" id="txtOutboundOrderNumber" name="txtOutboundOrderNumber" disabled>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-6">
+                            <div class="form-group">
+                                <label>Return Waybill Number</label>
+                                <input class="form-control" placeholder="Return Waybill Number" id="txtReturnWaybillNumber" name="txtReturnWaybillNumber">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @*Page Header End*@
+            @*Grid View*@
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div style="float:right;"></div>
+                    <div class="dataTable_wrapper" style="overflow:scroll;">
+                        <table class="table table-striped table-bordered table-hover" id="dataTableReturnLineItemList">
+                            <thead>
+                                <tr>
+                                    <th>Product Code</th>
+                                    <th>Long Description</th>
+                                    <th>Short Description</th>
+                                    <th>Expected Qty</th>
+                                    <th>Received in WH Qty</th>
+                                </tr>
+                            </thead>                           
+                        </table>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnSaveQty">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Grid View End*@       
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to Return Receipt", "ReturnReceipt", "Warehouse")
+</div>
+
+<style>
+    .modal-dialog {
+        width: 1000px;
+    }  
+</style>
+
+<input id="hiddenAction" type="hidden" value="" />
+<input id="hiddenPrincipalID" type="hidden" value="" />
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+
+<script>
+
+    //Initialize datatables
+    var iReturnLineItemsTable = null;
+    var mdlID2 = null;
+
+    var simple_checkbox = function (data, type, full, meta) {
+        var is_checked = data == true ? "checked" : "";
+        return '<input disabled type="checkbox" class="checkbox" ' +
+            is_checked + ' />';
+    }
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+        //alert("Document is Ready");
+
+        //get the RAM Order Number from the model
+        var mdlID = $("#hdnRAMOrderNumber").val();
+        mdlID2 = mdlID;
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        //Poulate master record
+        PopulateReturnListMaster(mdlID);
+    });
+
+    //Begin population of Header
+    function PopulateReturnListMaster(pRAMOrderNumber) {
+
+        var parameters = JSON.stringify({
+            RAMOrderNumber: pRAMOrderNumber
+        });
+
+        $.ajax({
+            url: '@Url.Action("GetReturnReceiptLineItems", "Returns")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+            success: function (response) {
+
+                CompleteFormData(response);
+                //console.log(response);
+             },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    //Populate header and line detail
+    function CompleteFormData(returns) {       
+
+        $('#txtReturnReferenceNumber').val(returns.Data.ReturnReferenceNumber);
+        $('#txtSenderName').val(returns.Data.CustomerName);
+        $('#txtOutboundOrderNumber').val(returns.Data.RAMOrderNumber);
+
+        console.log(returns.Data.ReturnWaybillNumber);
+        if (returns.Data.ReturnWaybillNumber != ''){
+
+            $('#txtReturnWaybillNumber').val(returns.Data.ReturnWaybillNumber);
+        }
+
+        var lineItems = returns.Data.LineItems;
+        console.log(lineItems);
+        //Bind to grid
+        //console.log(returns.Data.LineItems[0].ProdCode);
+        iReturnLineItemsTable = $('#dataTableReturnLineItemList').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "data": lineItems,
+            "columns": [
+
+                { "data": "ProdCode" },
+                { "data": "LongDesc" },
+                { "data": "ShortDesc" },
+                { "data": "Quantity" },
+                {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<input id='qty'/>"
+                }
+            ]
+        });        
+
+        $('#btnSaveQty').click(function () {
+
+            var quantity = 0;
+            var receivedQTY = "";
+            var message = "";
+            var isValid = true;             
+
+            //Validations before starting update
+            iReturnLineItemsTable.rows().eq(0).each(function (index) {
+
+                var row = iReturnLineItemsTable.row(index);
+                var data = row.data();
+
+                quantity = data.Quantity;
+                receivedQTY = iReturnLineItemsTable.cell(index, 4).nodes().to$().find('input').val();
+                currentReceivedQTY = data.ReceivedInWHQuantity;                
+
+                //Validate the value to be less than or equal to original and numeric value
+                if (receivedQTY > quantity || isNaN(receivedQTY) ) {
+                   
+                    isValid = false;
+                    message = "Incorrect quantity!, Cannot exceed original quantity"
+                }
+
+                if (receivedQTY > (quantity - currentReceivedQTY)){
+
+                    isValid = false;
+                    message = "The Received quantity is higher than expected, please recount and enter the correct quantity received"
+                }
+            });   
+            
+            if (isValid == true) {
+
+                UpdateReturnLine();
+            } else {                
+                swal({
+                    title: message,
+                    type: "warning",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "OK"
+                })              
+            }
+        });
+    }
+
+    var rowCount = 0;
+
+    //Begin update of coloumns
+    function UpdateReturnLine() {
+
+        rowCount = iReturnLineItemsTable.rows().length;
+        var lineItems = [];
+
+        iReturnLineItemsTable.rows().eq(0).each(function (index) {
+
+            var row = iReturnLineItemsTable.row(index);
+            var data = row.data();
+
+            var lineItemID = data.LineItemID;
+            var prodCode = data.ProdCode;
+            var quantity = data.Quantity; 
+            var currentReceivedQTY = data.ReceivedInWHQuantity; 
+
+
+            //Set existing values
+            var receivedQTY = iReturnLineItemsTable.cell(index, 4).nodes().to$().find('input').val()
+            if (receivedQTY == "" || receivedQTY == 0) {
+
+                receivedQTY = currentReceivedQTY;
+            }
+
+            //Create object to pass to service
+            var lines = new Object();
+
+            lines.LineItemID = data.LineItemID;
+            lines.Quantity = receivedQTY;
+            lines.ReturnWaybill = $('#txtReturnWaybillNumber').val();
+
+            lineItems.push(lines);
+        });
+
+        UpdateLineItem(lineItems);
+    }   
+
+    function UpdateLineItem(lineItem) {
+
+        var parameters = JSON.stringify({
+            lineItems: lineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("UpdateReturnReceiptLine", "Returns")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                swal({
+                    title: "Saved",
+                    type: "success",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: true
+                },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            document.location = 'ReturnReceipt';
+                        }
+                })              
+            },            
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                })
+            }            
+        });
+    }
+
+</script>
+    

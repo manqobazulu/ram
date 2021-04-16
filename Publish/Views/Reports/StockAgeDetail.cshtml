@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Stock Age Report Detail</h3>
+
+<div class="row">
+    <div id="divDetail" class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Results
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper" style="overflow:scroll;">
+                            <table class="table table-bordered table-hover table-striped" id="StockAgeReportDetail">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px;">Product Code</th>
+                                        <th style="width:200px;">Product Description</th>
+                                        <th style="width:80px;">EAN Code</th>
+                                        <th style="width:50px;">TMID</th>
+                                        <th style="width:100px;">Principal Code</th>
+                                        <th style="width:100px;">Location</th>
+                                        <th style="width:50px;">Qty</th>
+                                        <th style="width:100px;">Serial Number</th>
+                                        <th style="width:150px;">Fifo Date</th>
+                                        <th style="width:50px;">Age</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+
+    <!-- /.col-lg-12 -->
+</div>
+<div id="loading" class="spinner">
+</div>
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bower_components/datatables 1.10.12/jquery/jquery-1.12.3.js"></script>
+<script src="~/bower_components/datatables 1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/dataTables.buttons.min.js"></script>
+<script src="~/bower_components/jszip/dist/jszip.min.js"></script>
+<script src="~/bower_components/pdfmake/pdfmake.min.js"></script>
+<script src="~/bower_components/vfs/vfs_fonts.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.flash.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.html5.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.print.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+</style>
+
+<script>
+
+    var oReport = null;
+
+    $(document).ready(function () {
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        GetStockAgeData();
+    });
+
+    function GetStockAgeData() {
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        if (oReport != null) {
+            oReport.destroy();
+        }
+
+        oReport = $('#StockAgeReportDetail').DataTable({
+            "order": [[0, "asc"]],
+            "destroy": true,
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "dom": 'Bfrtip',
+            "stateSave": false,
+            "buttons": [{
+                extend: 'excelHtml5',
+                title: 'Stock_Age_Detail_Report_' + dateTime
+            },
+            {
+                extend: 'pdfHtml5',
+                title: 'Stock_Age_Detail_Report_' + dateTime,
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            },
+
+            {
+                extend: 'csvHtml5',
+                title: 'Stock_Age_Detail_Report_' + dateTime
+            },
+            {
+                extend: 'print',
+                message: 'Stock_Age_Detail_Report_' + dateTime
+            },
+            {
+                text: 'Reload',
+                action: function (e, dt, node, config) {
+                    dt.ajax.reload();
+                }
+            }
+            ],
+
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetStockAgeDetailReport", "Reports")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+              parameters.push({ "name": "formData", "value": "" });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal(textStatus + " ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                { "data": "ProdCode" },
+                { "data": "ShortDesc" },
+                { "data": "ProdEAN" },
+                { "data": "TmId" },
+                { "data": "PrincipalCode" },
+                { "data": "Location" },
+                { "data": "Qty" },
+                { "data": "SerialNumber" },
+                { "data": "AgeDate" },
+                { "data": "Age" }
+            ]
+        });
+    }
+
+</script>

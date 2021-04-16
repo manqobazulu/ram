@@ -1,0 +1,796 @@
+﻿@{
+    ViewBag.Title = "Warehouse Master List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Warehouse Master List</h3>
+
+
+@* Main Panel *@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+                @*<div style="float:right;">
+                        <button id="btnAddNewInboundMaster" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add New Inbound</button>
+                    </div>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-striped table-bordered table-hover" id="dataTableWarehouseMasterList">
+                        <thead>
+                            <tr>
+                                <th style="width:50px;">InboundMasterID</th>
+                                <th style="width:50px;">PrincipalID</th>
+                                <th style="width:50px;">PrincipalCode</th>
+                                <th style="width:100px;">PORef</th>
+                                <th style="width:150px;">SupplierName</th>
+                                <th style="width:150px;">PODate</th>
+                                <th style="width:150px;">ExpectedDeliveryDateTime</th>
+                                <th style="width:50px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+@* Modal IGD panel *@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModalLineItems" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Inbound Master Line Items</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="divInboundMasterLineItemList"></div>
+
+
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="dataTableWarehouseLineItemList">
+                                <thead>
+                                    <tr>
+                                        <th>InboundMasterLineItemID</th>
+                                        @*<th>RecordSource</th>
+                                            <th>SiteCode</th>*@
+                                        <th>InboundMasterID</th>
+                                        <th>ExpectedQuantity</th>
+                                        <th>ReceivedInWarehouseQuantity</th>
+                                        <th>ProdCode</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <!-- /.panel -->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* Modal IGD panel *@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModalIGDItems" tabindex="-1" role="dialog" aria-labelledby="myModalIGDLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalIGDLabel">IGD Records</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        @* We should indicate the amounts as recieved in the warehouse for each *@
+
+                        @* Lets also put some hidden values in here  *@
+                        @*<input id="hiddenIncomingMasterLineItemID" type="hidden" value="" />
+                            <input id="hiddenIncomingMasterID" type="hidden" value="" />*@
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="frmAddEditIGDRecords" role="form" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <label style="display:none;">InboundLineItemID</label>
+                                        <input class="form-control" placeholder="InboundLineItemID" id="txtInboundLineItemID" name="txtInboundLineItemID" disabled style="display:none;">
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label style="display:none;">ProductStagingID</label>
+                                        <input style="display:none;" class="form-control" placeholder="ProductStagingID" id="txtProductStagingID" name="txtProductStagingID" disabled>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Product Code</label>
+                                        <input class="form-control" placeholder="Product Code" id="txtProdCode" name="txtProdCode" disabled>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product EAN Code</label>
+                                        <input class="form-control" placeholder="Product EAN Code" id="txtEANCode" name="txtEANCode" disabled>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Expected Quantity</label>
+                                                <input class="form-control" placeholder="Expected Quantity" id="txtExpectedQuantity" name="txtExpectedQuantity" disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Received in Warehouse Quantity</label>
+                                                <input class="form-control" placeholder="Received in Warehouse Quantity" id="txtReceivedInWarehouseQuantity" name="txtReceivedInWarehouseQuantity" disabled>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="float:right;">
+                                        <button type="button" class="btn btn-primary" id="btnSubmitAllWMS">Submit To WMS</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <div id="divIGDItemList"></div>
+
+
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="dataTableIGDItemList">
+                                <thead>
+                                    <tr>
+                                        @*<th>InboundMasterLineItemID</th>
+                                            <th>ProductStagingID</th>*@
+                                        <th>ProdCode</th>
+                                        <th>EANCode</th>
+                                        <th>MoveRef</th>
+                                        <th>PORef</th>
+                                        <th>ReceivedQuantity</th>
+                                        <th>SubmittedtoWMS</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel -->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp;<button type="button" class="btn btn-primary" id="btnAddNewIGD">+ IGD</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@* Modal IGD panel *@
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModalIGDItemEdit" tabindex="-1" role="dialog" aria-labelledby="myModalIGDItemEditLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalIGDItemEditLabel">IGD Record</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="frmAddEditIGDRecordSingle" role="form" onsubmit="return false;">
+
+                                    <div class="row">
+
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Product Staging ID</label>
+                                                <input class="form-control" placeholder="Product Staging ID" id="txtIGDProductStagingID" name="txtIGDProductStagingID" disabled>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>IGD Staging ID</label>
+                                                <input class="form-control" placeholder="IGD Staging ID" id="txtIGDIGDStagingID" name="txtIGDIGDStagingID" disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>InboundLineItemID</label>
+                                                <input class="form-control" placeholder="InboundLineItemID" id="txtIGDInboundLineItemID" name="txtIGDInboundLineItemID" disabled>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product Code</label>
+                                        <input class="form-control" placeholder="Product Code" id="txtIGDProdCode" name="txtIGDProdCode" disabled>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>EAN Code</label>
+                                        <input class="form-control" placeholder="EAN Code" id="txtIGDEANCode" name="txtIGDEANCode" disabled>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Movement Reference</label>
+                                                <input class="form-control" placeholder="Movement Reference" id="txtIGDMoveRef" name="txtIGDMoveRef" disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Received Quantity</label>
+                                                <input class="form-control" placeholder="Received Quantity" id="txtIGDReceivedQuantity" name="txtIGDReceivedQuantity">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&nbsp;<button type="button" class="btn btn-primary" id="btnSaveIGD">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div id="loading" class="spinner">
+</div>
+
+<style>
+    .modal-dialog {
+        width: 1000px;
+    }
+</style>
+
+<input id="hiddenAction" type="hidden" value="" />
+<input id="hiddenPrincipalID" type="hidden" value="" />
+
+
+@* References *@
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+<script>
+
+    //init the datatables
+    var oInboundMasterTable = null;
+    var oWarehouseLineItemsTable = null;
+    var oWarehouseIGDTable = null;
+
+    var simple_checkbox = function (data, type, full, meta) {
+        var is_checked = data == true ? "checked" : "";
+        return '<input disabled type="checkbox" class="checkbox" ' +
+            is_checked + ' />';
+    }
+
+    $(document).ready(function () {
+
+        if (location.hash.indexOf('reloaded') === -1) {
+            location.hash += 'reloaded';
+            location.reload();
+        }
+
+        $("input.form-control").bestupper(); //forces all inputs to be capitals by using the bestupper plugin
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        PopulateInboundMasterData(); //populates the inbound master record
+
+        ConfigureIGDSaveValidation(); // ensures that the values are validated before saving
+
+        WireAdditionalActions(); //onclick events etc
+    });
+
+
+
+    //deletes a specific igd
+    function DeleteIGD(dRow) {
+
+        var igdStagingID = dRow.IGDStagingID;
+        var parameters = JSON.stringify({
+            igdStagingID: igdStagingID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteIGD", "Warehouse")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                    //lets repopulate the igd records grid
+                    PopulateInboundMasterData();
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    //submits a single line to wms
+    function SubmitSingleLineToWMS(dRow) {
+        //we will be getting a row item from the submit to wms button
+        // alert("in SubmitSingleLineToWMS with igdid :" + dRow.IGDStagingID);
+        var lineItemIDForSubmission = dRow.IGDStagingID;
+
+        var parameters = JSON.stringify({
+            lineItemIDForSubmission: lineItemIDForSubmission
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SubmitSingleToWMS", "Warehouse")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    //submits the line items to WMS
+    function SubmitSingleToWMS(lineItemIDForSubmission) {
+
+        //alert("in ")
+
+        var parameters = JSON.stringify({
+            lineItemIDForSubmission: lineItemIDForSubmission
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SubmitSingleToWMS", "Warehouse")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    //function that handles the saving of the IGD records
+    function SaveIGD() {
+
+        //alert("In SaveIGD");
+
+        var igdRecord = new Object();
+        //check to see if the form is valid
+        if (IsIGDSaveValid() == false) {
+            swal("Form not valid. Please correct errors and save again.", "", "error");
+            return;
+        }
+
+
+        var inboundLineItemID = $('#txtIGDInboundLineItemID').val();
+
+        //now populate the igd record needed
+        igdRecord.IGDStagingID = $('#txtIGDIGDStagingID').val();
+        igdRecord.inboundMasterLineItemID = $('#txtIGDInboundLineItemID').val();
+        igdRecord.ProductStagingID = $('#txtIGDProductStagingID').val();
+        igdRecord.MoveRef = $('#txtIGDMoveRef').val();
+        igdRecord.ReceivedQuantity = $('#txtIGDReceivedQuantity').val();
+
+        var parameters = JSON.stringify({
+            igdRecord: igdRecord
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveIGDStaging", "Warehouse")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+
+                    $('#myModalIGDItemEdit').modal('hide');
+                    //reload the igd list because we have a new record
+                    PopulateWarehouseIGDData(inboundLineItemID);
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    //determines if the IGD form is valid before saving
+    function IsIGDSaveValid() {
+        var isFormValid = $('#frmAddEditIGDRecordSingle').valid();
+        return isFormValid;
+
+    }
+
+    //configures the inbound master validation
+    function ConfigureIGDSaveValidation() {
+
+        thisValidatedForm = $("#frmAddEditIGDRecordSingle").validate({
+            onsubmit: true,
+            rules: {
+                txtIGDReceivedQuantity: {
+                    required: true,
+                    number: true
+                }
+            },
+            messages: {
+                txtIGDReceivedQuantity: {
+                    required: "Please enter a valid number.",
+                    minlength: "The Received Quantity should consist of numbers only."
+                }
+            }
+        });
+    }
+
+    //configures the igd edit form for a new value
+    function ConfigureAddNewInboundMasterModal(dStruct) {
+        //$('#hiddenAction').val('ADD');
+
+        // Set modal defaults
+        //$('#myModalLabelInboundMaster').text('Inbound Master Item Add'); //change the label to add
+        $('button[data-dismiss]').last().text('Cancel');
+
+
+        $('#txtIGDInboundLineItemID').val(dStruct.InboundMasterLineItemID);
+        $('#txtIGDIncomingMasterID').val(dStruct.InboundMasterID);
+        $('#txtIGDProductStagingID').val(dStruct.ProductStagingID);
+        $('#txtIGDIGDStagingID').val(dStruct.IGDStagingID);
+        $('#txtIGDProdCode').val(dStruct.ProdCode);
+        $('#txtIGDEANCode').val(dStruct.EANCode);
+        $('#txtIGDMoveRef').val(dStruct.MoveRef);
+        $('#txtIGDReceivedQuantity').val(dStruct.ReceivedQuantity);
+
+    }
+
+    //populates the inbound master data grid
+    function PopulateInboundMasterData() {
+
+        //alert("in PopulateInboundMasterData");
+        if (oInboundMasterTable != null) {
+            oInboundMasterTable.destroy();
+        }
+
+        oInboundMasterTable = $('#dataTableWarehouseMasterList').DataTable({
+            "order": [[5, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetWarehouseList", "Warehouse")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "InboundMasterID",
+                                "visible": false
+                            },
+
+                            {
+                                "data": "PrincipalID",
+                                "visible" : false
+                            },
+                            { "data": "PrincipalCode"},
+                            { "data": "PORef" },
+                            { "data": "SupplierName" },
+                            { "data": "PODate" },
+                            { "data": "ExpectedDeliveryDateTime" },
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button viewitem class='btn btn-primary btn-xs'>View Line Items</button>"
+                            }
+            ]
+        });
+    }
+
+    //populates the inboundline items grid
+    function PopulateWarehouseLineItemsData(dRow) {
+
+        if (oWarehouseLineItemsTable != null) {
+            oWarehouseLineItemsTable.destroy();
+        }
+
+        //alert("in PopulateWarehouseLineItemsData");
+        oWarehouseLineItemsTable = $('#dataTableWarehouseLineItemList').DataTable({
+            "order": [[4, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetWarehouseLineItemsList", "Warehouse")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "masterId", "value": dRow.InboundMasterID });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "InboundMasterLineItemID",
+                                "visible": false
+                            },
+                            //{ "data": "RecordSource" },
+                            //{ "data": "SiteCode" },
+                            {
+                                "data": "InboundMasterID",
+                                "visible": false
+                            },
+                            { "data": "ExpectedQuantity" },
+                            { "data": "ReceivedInWarehouseQuantity" },
+                            { "data": "ProdCode" },
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button viewigd class='btn btn-primary btn-xs'>View IGDs</button>"
+                            }
+            ]
+        });
+
+        //now we need to wire up the event to show the modal dialog of the IGD item if selected
+
+        $('#dataTableWarehouseLineItemList tbody').on('click', 'button[viewigd]', function () {
+
+            var row = oWarehouseLineItemsTable.row($(this).parents('tr'));
+
+            //populate the value of the line items dialogxxxxxxxx
+            PopulateIGD(row.data());
+
+            //set the keyboard to not be valid for the parent
+            $('#myModalIGDItems').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+    }
+
+
+    //populates the igd items grid
+
+    function PopulateIGD(dRow) {
+        //fills in the values of the form for the igd screen
+        $('#txtProductStagingID').val(dRow.ProductStagingID);
+        $('#txtReceivedInWarehouseQuantity').val(dRow.ReceivedInWarehouseQuantity);
+        $('#txtExpectedQuantity').val(dRow.ExpectedQuantity);
+        $('#txtEANCode').val(dRow.EANCode);
+        $('#txtProdCode').val(dRow.ProdCode);
+
+        //also save the InboundMasterLineItemID - we will be using this for a new record
+        $('#txtInboundLineItemID').val(dRow.InboundMasterLineItemID);
+
+        //lets populate the grid with the IGD items
+        PopulateWarehouseIGDData(dRow.InboundMasterLineItemID);
+    }
+
+  
+    function WireAdditionalActions() {
+
+        //wires up the submit this complete record to wms
+        $('#btnSubmitAllWMS').on('click', function () {
+            // alert("btnSubmitAllWMS clicked");
+            //lets get the lineitem id that needs to be submitted
+            var lineItemIDForSubmission = $('#txtInboundLineItemID').val();
+            // alert("Line Item Id for wms submission: " + lineItemIDForSubmission);
+            SubmitAlltoWMS(lineItemIDForSubmission);
+
+        })
+
+
+        //wire up the onclick event for the igd record save form
+        $('#btnSaveIGD').on('click', function () {
+            //call the save method
+            SaveIGD();
+
+        });
+
+        //set the listener to redirect us to the new view
+        $('#dataTableWarehouseMasterList tbody').on('click', 'button[viewitem]', function () {
+            var row = oInboundMasterTable.row($(this).parents('tr'));
+
+            PopulateWarehouseLineItemsData(row.data());
+
+            var idx = row.data().InboundMasterID;
+            var ref = '@Url.Action("WarehouseEdit", "Warehouse", new { InboundMasterID = "__id__", CompletedRecord = false })';
+            var ref2 = "";
+            ref2 = ref.replace("__id__", idx);
+            location.href = ref2;
+        });
+
+
+        //lets also handle the add new igd
+        $('#btnAddNewIGD').on('click', function () {
+
+
+            //initialize the new values in the modal form
+
+            var dStruct = new Object();
+            //we need to get the right records through to this add record
+
+            dStruct.InboundMasterLineItemID = $('#txtInboundLineItemID').val();
+            //dStruct.InboundMasterID = $('#txtIGDIncomingMasterID').val();
+            dStruct.ProductStagingID = $('#txtProductStagingID').val();
+            dStruct.IGDStagingID = 0; //this is a new record
+            dStruct.ProdCode = $('#txtProdCode').val();
+            dStruct.EANCode = $('#txtEANCode').val();
+            dStruct.MoveRef = "";
+            dStruct.ReceivedQuantity = 0;
+
+            ConfigureAddNewInboundMasterModal(dStruct);
+
+
+            $('#myModalIGDItemEdit').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+
+        });
+
+    }
+</script>
+

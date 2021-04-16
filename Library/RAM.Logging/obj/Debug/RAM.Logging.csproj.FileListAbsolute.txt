@@ -1,0 +1,55 @@
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Library\RAM.Logging\bin\Debug\RAM.Logging.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Library\RAM.Logging\obj\Debug\RAM.Logging.csprojAssemblyReference.cache

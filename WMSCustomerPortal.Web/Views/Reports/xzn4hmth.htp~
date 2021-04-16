@@ -1,0 +1,893 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Warehouse Activity Report</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <form role="form">
+                    <div class="row"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Date Range:</label>
+                            <select id="SelectTimeFrame" class="form-control">
+                                <option value="Please Select" selected>Please Select</option>
+                                <option value="Today">Today</option>
+                                <option value="Yesterday">Yesterday</option>
+                                <option value="This Week">This Week</option>
+                                <option value="Last Week">Last Week</option>
+                                <option value="Month To Date">Month To Date</option>
+                                <option value="Last Month">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label id="labelName">From:</label>
+                            <div class='input-group date' id='datetimepickerPODate'>
+                                <input type="text" id="txtDateFrom" name="txtDateFrom" placeholder="From:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label id="labelName">To:</label>
+                            <div class='input-group date' id='datetimepickerPODate'>
+                                <input type="text" id="txtDateTo" name="txtDateTo" placeholder="To:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div>
+                                <button id="ReportPopulate" type="button" onclick="generateReportClicked()" class="btn btn-primary btn-xs" data-dismiss="modal" style="margin-top: 21px">Generate Report</button>
+                                <button id="ReportPopulate1" type="button" onclick="cancelReportGeneration()" class="btn btn-primary btn-xs" data-dismiss="modal" style="margin-top: 21px">Cancel Report</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row"></div>
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+
+    <!-- Add the Next One Here -->
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="panel panel-default">
+    <div id="Tabs" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+                <a href="#inboundPanel" id="inboundTab" aria-controls="inbound" onclick="setActiveTab('inbound')" role="tab" data-toggle="tab">
+                    INBOUND
+                </a>
+            </li>
+            <li>
+                <a href="#outboundPanel" id="outboundTab" aria-controls="outbound" onclick="setActiveTab('outbound')" role="tab" data-toggle="tab">
+                    OUTBOUND
+                </a>
+            </li>
+            <li>
+                <a href="#returnsPanel" id="returnsTab" aria-controls="returns" onclick="setActiveTab('returns')" role="tab" data-toggle="tab">
+                    RETURNS
+                </a>
+            </li>
+            <li>
+                <a href="#stockAgePanel" id="stockAgeTab" aria-controls="stockAgeDetail" onclick="setActiveTab('stockAgeDetail')" role="tab" data-toggle="tab">
+                    STOCK AGE DETAIL
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="padding-top: 20px; padding-bottom: 20px; margin-left: 20px; margin-right: 20px">
+
+            <!-- Tab Panel Starts -->
+            <div role="tabpanel" class="tab-pane active" id="inboundPanel">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="inboundReport">
+                        <thead>
+                            <tr>
+                                <th style="width:100px;">Principal</th>
+                                <th style="width:100px;">MoveRef</th>
+                                <th style="width:100px;">LineNo</th>
+                                <th style="width:100px;">OrderRef</th>
+                                <th style="width:100px;">ReceiptType</th>
+                                <th style="width:100px;">ReceiveDate</th>
+                                <th style="width:100px;">ReceiptDate</th>
+                                <th style="width:100px;">ProductCode</th>
+                                <th style="width:100px;">EANCode</th>
+                                <th style="width:100px;">ShortDescription</th>
+                                <th style="width:100px;">QtyToReceive</th>
+                                <th style="width:100px;">ReceivedQty</th>
+                                <th style="width:100px;">SerialNumber</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <!-- Tab Panel Ends -->
+
+            <!-- Tab Panel Starts -->
+            <div role="tabpanel" class="tab-pane" id="outboundPanel">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="outboundReport">
+                        <thead>
+                            <tr>
+                                <th style="width:120px;">Principal</th>
+                                <th style="width:120px;">OrderStatus</th>
+                                <th style="width:80px;">OrderReceivedDate</th>
+                                <th style="width:80px;">OrderStatusDate</th>
+                                <th style="width:80px;">DispatchedDate</th>
+                                <th style="width:80px;">RAMOrderNo</th>
+                                <th style="width:100px;">CustomerOrderNo</th>
+                                <th style="width:100px;">Company</th>
+                                <th style="width:100px;">ProductCode</th>
+                                <th style="width:70px;">ShortDescription</th>
+                                <th style="width:70px;">LongDescription</th>
+                                <th style="width:100px;">OrderedQty</th>
+                                <th style="width:100px;">PickedQty</th>
+                                <th style="width:100px;">SerialNumber</th>
+                                <th style="width:100px;">UnitCost</th>
+                                <th style="width:100px;">TotalCost</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <!-- Tab Panel Ends -->
+            
+            <!-- Tab Panel Starts -->
+            <div role="tabpanel" class="tab-pane" id="returnsPanel">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="returnsReport">
+                        <thead>
+                            <tr>
+                                <th style="width:100px;">Principal_RETURNS</th>
+                                <th style="width:100px;">MoveRef</th>
+                                <th style="width:100px;">LineNo</th>
+                                <th style="width:100px;">OrderRef</th>
+                                <th style="width:100px;">ReceiptType</th>
+                                <th style="width:100px;">ReceiveDate</th>
+                                <th style="width:100px;">ReceiptDate</th>
+                                <th style="width:100px;">ProductCode</th>
+                                <th style="width:100px;">EANCode</th>
+                                <th style="width:100px;">ShortDescription</th>
+                                <th style="width:100px;">QtyToReceive</th>
+                                <th style="width:100px;">ReceivedQty</th>
+                                <th style="width:100px;">SerialNumber</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <!-- Tab Panel Ends -->
+            
+    <!-- Tab Panel Starts -->
+            <div role="tabpanel" class="tab-pane" id="stockAgePanel">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="stockAgeReport">
+                        <thead>
+                            <tr>
+                                <th style="width:100px;">Principal</th>
+                                <th style="width:100px;">ProductCode</th>
+                                <th style="width:100px;">ProductDescription</th>
+                                <th style="width:100px;">EAN_Code</th>
+                                <th style="width:100px;">TMID</th>
+                                <th style="width:100px;">Principal_Code</th>
+                                <th style="width:100px;">Location</th>
+                                <th style="width:100px;">Qty</th>
+                                <th style="width:100px;">Virgin</th>
+                                <th style="width:100px;">Serial_Number</th>
+                                <th style="width:100px;">FifoDate</th>
+                                <th style="width:100px;">AgeInDays</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <!-- Tab Panel Ends -->
+        </div>
+    </div>
+
+    <div id="loading" class="spinner">
+    </div>
+
+    <link href="~/Content/Spinner.css" rel="stylesheet" />
+    <link href="~/bower_components/datatables 1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/bower_components/datatables 1.10.12/jquery/jquery-1.12.3.js"></script>
+    <script src="~/bower_components/datatables 1.10.12/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/dataTables.buttons.min.js"></script>
+    <script src="~/bower_components/jszip/dist/jszip.min.js"></script>
+    <script src="~/bower_components/pdfmake/pdfmake.min.js"></script>
+    <script src="~/bower_components/vfs/vfs_fonts.js"></script>
+    <script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.flash.min.js"></script>
+    <script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.html5.min.js"></script>
+    <script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.print.min.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+    <link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+    <style>
+        .modal-dialog {
+            width: 750px;
+        }
+    </style>
+
+    <script>
+
+        var inboundReport = null;
+        var returnsReport = null;
+        var outboundReport = null;
+       /// var outboundStore = null;
+        var stockAgeReport = null;
+        alert(activeTab);
+
+        var cancelOutbound = {
+            readyState: 0
+        };
+
+        var cancelInbound = {
+            readyState: 0
+        };
+
+        var cancelStockage = {
+            readyState: 0
+        };
+
+        var cancelReturns = {
+            readyState: 0
+        };
+
+         var outboundClicked = false;
+
+        var activeTab = 'inbound';
+        //var oReportDSPSer = null;
+
+
+        $(document).ready(function () {
+
+            //WAS here
+            var $loading = $('#loading');
+            $(document).ajaxStart(function () {
+                $loading.show();
+            }).ajaxStop(function () {
+                $loading.hide();
+            });
+
+            $("#txtDateFrom").val('');
+            $("#txtDateTo").val('');
+
+            //document.getElementById("tabbox-id").selectedPanel = tabpanel;
+            //This code does IT!
+           // $('.nav-tabs a[href="#outboundPanel'  + '"]').tab('show');
+
+            InitializeDateRange();
+            WireAdditionalActions();
+            //generateReportClicked();
+
+        });
+
+        function InitializeDateRange() {
+
+        //init the date picker
+        $('#txtDateFrom').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+
+        //init the date picker
+        $('#txtDateTo').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+
+        /*$('#inboundTab').on('active', function (e) {
+            //alert("Inboun");
+        });*/
+
+        }
+
+        function WireAdditionalActions() {
+
+            //$(".datePickerFilter").datepicker("update", new Date());
+
+            $('#SelectTimeFrame').change(function () {
+
+                var timeFrame = $('#SelectTimeFrame').val();
+                var toDay = new Date();
+
+                var startDT = new Date();
+                startDT.setHours(0, 0, 0, 0);
+                var endDT = new Date();
+                endDT.setHours(0, 0, 0, 0);
+
+                if (timeFrame == 'Today') {
+                    endDT.setTime(startDT.getTime() + 86400000);
+                    endDT.setTime(endDT.getTime() - 1000);
+                    $("#txtDateFrom").datepicker('update', startDT);
+                    $("#txtDateTo").datepicker('update', endDT);
+
+                } else if (timeFrame == 'Yesterday') {
+                    startDT.setTime(startDT.getTime() - 86400000);
+                    endDT.setTime(startDT.getTime() + 86400000);
+                    endDT.setTime(endDT.getTime() - 1000);
+                    $("#txtDateFrom").datepicker('update', startDT);
+                    $("#txtDateTo").datepicker('update', endDT);
+
+                } else if (timeFrame == '2 Days Ago') {
+                    startDT.setTime(startDT.getTime() - 86400000 - 86400000);
+                    endDT.setTime(startDT.getTime() + 86400000);
+                    endDT.setTime(endDT.getTime() - 1000);
+                    $("#txtDateFrom").datepicker('update', startDT);
+                    $("#txtDateTo").datepicker('update', endDT);
+
+                } else if (timeFrame == 'This Week') {
+                    while (startDT.getDay() != 1) startDT.setTime(startDT.getTime() - 86400000);
+                    endDT.setTime(startDT.getTime() + 604800000);
+                    endDT.setTime(endDT.getTime() - 1000);
+                    $("#txtDateFrom").datepicker('update', startDT);
+                    $("#txtDateTo").datepicker('update', endDT);
+
+                } else if (timeFrame == 'Last Week') {
+                    while (startDT.getDay() != 1) startDT.setTime(startDT.getTime() - 86400000);
+                    startDT.setTime(startDT.getTime() - 604800000);
+                    endDT.setTime(startDT.getTime() + 604800000);
+                    endDT.setTime(endDT.getTime() - 1000);
+                    $("#txtDateFrom").datepicker('update', startDT);
+                    $("#txtDateTo").datepicker('update', endDT);
+
+                } else if (timeFrame == 'Month To Date') {
+                    var date = new Date();
+                    var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+                    var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                    $("#txtDateFrom").datepicker('update', firstDay);
+                    $("#txtDateTo").datepicker('update', lastDay);
+
+                } else if (timeFrame == 'Last Month') {
+                    var date = new Date();
+                    var firstDay = new Date(date.getFullYear(), toDay.getMonth() - 1);
+                    var lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+                    $("#txtDateFrom").datepicker('update', firstDay);
+                    $("#txtDateTo").datepicker('update', lastDay);
+                } else if (timeFrame == 'Please Select') {
+                    $("#txtDateFrom").val('');
+                    $("#txtDateTo").val('');
+                }
+            });
+        }
+
+    function generateReportClicked() {
+
+          if (inboundReport != null) {
+               inboundReport.destroy();
+          }
+          if (returnsReport != null) {
+                    returnsReport.destroy();
+          }
+         if (outboundReport != null) {
+                outboundReport.destroy();
+          }
+         if (stockAgeReport != null) {
+                stockAgeReport.destroy();
+          }
+
+            inboundReport = inboundFunc();
+            $('.nav-tabs a[href="#outboundPanel"]').tab('show');
+            outboundReport = outboundFunc(); 
+            $('.nav-tabs a[href="#returnsPanel"]').tab('show');
+            returnsReport = returnsFunc();
+            $('.nav-tabs a[href="#stockAgePanel"]').tab('show');
+            stockAgeReport = stockAgeFunc();                     
+    }
+
+    function cancelReportGeneration()
+    {
+
+        if (cancelOutbound.readyState == 4 || cancelOutbound.readyState == 1) {
+            cancelOutbound.abort();
+            cancelOutbound = {
+                readyState: 0
+            };
+        }
+
+        if (cancelStockage.readyState == 4 || cancelStockage.readyState == 1) {
+            cancelStockage.abort();
+            cancelStockage = {
+                readyState: 0
+            };
+        }
+
+        if (cancelInbound.readyState == 4 || cancelInbound.readyState == 1) {
+            cancelInbound.abort();
+             cancelInbound = {
+                readyState: 0
+            };
+        }
+
+        if (cancelReturns.readyState == 4 || cancelReturns.readyState == 1) {
+            cancelReturns.abort();
+             cancelReturns = {
+                readyState: 0
+            };
+        }
+
+    }
+
+    function inboundFunc()
+    {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        var inbound = $('#inboundReport').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "destroy": true,
+                "dom": 'Bfrtip',
+                "stateSave": true,
+                "buttons": [{
+                    extend: 'excelHtml5',
+                    title: 'InboundReport_' + dateTime
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'InboundReport_' + dateTime,
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                },
+                {
+                    extend: 'csvHtml5',
+                    title: 'InboundReport_' + dateTime
+                },
+                {
+                    extend: 'print',
+                    message: 'InboundReport_' + dateTime
+                },
+                {
+                    text: 'Reload',
+                    action: function (e, dt, node, config) {
+                        dt.ajax.reload();
+                    }
+                }
+                ],
+
+                "bServerSide": false,
+                "sAjaxSource": '@Url.Action("GetInbound", "Reports")', // Controls - sSource   /Reports/GetDispatched
+                "bProcessing": true,
+                "fnServerData": function (sSource, parameters, fnCallback) {
+
+                    var data = JSON.stringify({
+                        DateFrom: $('#txtDateFrom').val(),
+                        DateTo: $('#txtDateTo').val()
+                    });
+
+
+                    parameters.push({ "name": "formData", "value": data });
+
+                    cancelInbound = $.getJSON(sSource, parameters, function (json) {
+
+                        console.log(json);
+
+                        var i = 0;
+                        while (i < json.aaData.length) {
+                            if (json.aaData[i].st_receipt_type == 0) {
+                                    json.aaData[i].ReceiptType = 'Return';
+                                } else {
+                                    json.aaData[i].ReceiptType = 'New Receipt';
+                            }
+                            i++;
+                        }
+
+                        fnCallback(json);
+                        cancelInbound.readyState = 0;                        
+                        return inbound;
+                    })
+                        .done(function () { })
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+
+                            if (textStatus == "abort") {
+                                inboundReport.destroy();
+                                inboundReport = null;
+                                document.getElementById("inboundReport").innerHTML = document.getElementById("inboundReport").innerHTML;
+                            } else {
+                                 swal(textStatus + ": " + errorThrown);
+                            }
+                            cancelInbound.readyState = 0;
+
+                            console.log("Error: " + errorThrown);
+                            console.log("responseText: " + jqXHR.responseText);
+                            
+                            return inbound;
+                        })
+                        .always(function () { });
+                },
+
+                "columns": [
+                    { "data": "Principal" },
+                    { "data": "MoveRef" },
+                    { "data": "LineNo" },
+                    { "data": "OrderRef" },
+                    { "data": "ReceiptType" },
+                    { "data": "ReceiveDate" },
+                    { "data": "ReceiptDate" },
+                    { "data": "ProductCode" },
+                    { "data": "EANCode" },
+                    { "data": "ShortDescription" },
+                    { "data": "QtyToReceive" },
+                    { "data": "ReceivedQty" },
+                    { "data": "SerialNumber" },
+                ]
+            });
+        return inbound;
+        }
+
+    function returnsFunc()
+    {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        var returns = $('#returnsReport').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "destroy": true,
+                "dom": 'Bfrtip',
+                "stateSave": true,
+                "buttons": [{
+                    extend: 'excelHtml5',
+                    title: 'InboundReport_' + dateTime
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'InboundReport_' + dateTime,
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                },
+                {
+                    extend: 'csvHtml5',
+                    title: 'InboundReport_' + dateTime
+                },
+                {
+                    extend: 'print',
+                    message: 'InboundReport_' + dateTime
+                },
+                {
+                    text: 'Reload',
+                    action: function (e, dt, node, config) {
+                        dt.ajax.reload();
+                    }
+                }
+                ],
+
+                "bServerSide": false,
+                "sAjaxSource": '@Url.Action("GetInbound", "Reports")', // Controls - sSource   /Reports/GetDispatched
+                "bProcessing": true,
+                "fnServerData": function (sSource, parameters, fnCallback) {
+
+                    var data = JSON.stringify({
+                        DateFrom: $('#txtDateFrom').val(),
+                        DateTo: $('#txtDateTo').val()
+                    });
+                    
+                    parameters.push({ "name": "formData", "value": data });
+
+                    cancelReturns = $.getJSON(sSource, parameters, function (json) {
+
+                        console.log(json);
+
+                        var i = 0;
+                        while (i < json.aaData.length) {
+                            if (json.aaData[i].st_receipt_type == 0) {
+                                    json.aaData[i].ReceiptType = 'Return';
+                                } else {
+                                    json.aaData[i].ReceiptType = 'New Receipt';
+                            }
+                            i++;
+                        }
+
+                        fnCallback(json);
+                        cancelReturns.readyState = 0;                         
+                        return returns;
+                    })
+                        .done(function () { })
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+
+                            if (textStatus == "abort") {
+                                returnsReport.destroy();
+                                returnsReport = null;
+                                document.getElementById("returnsReport").innerHTML = document.getElementById("returnsReport").innerHTML;
+                            } else {
+                                 swal(textStatus + ": " + errorThrown);
+                            }
+                            cancelReturns.readyState = 0;
+
+                            console.log("Error: " + errorThrown);
+                            console.log("responseText: " + jqXHR.responseText);                           
+                            return returns;
+                        })
+                        .always(function () { });
+                },
+
+                "columns": [
+                    { "data": "Principal" },
+                    { "data": "MoveRef" },
+                    { "data": "LineNo" },
+                    { "data": "OrderRef" },
+                    { "data": "ReceiptType" },
+                    { "data": "ReceiveDate" },
+                    { "data": "ReceiptDate" },
+                    { "data": "ProductCode" },
+                    { "data": "EANCode" },
+                    { "data": "ShortDescription" },
+                    { "data": "QtyToReceive" },
+                    { "data": "ReceivedQty" },
+                    { "data": "SerialNumber" },
+                ]
+            });
+        return returns;
+    }
+
+    function outboundFunc()
+    {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+        var outbound =  $('#outboundReport').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "destroy": true,
+                "dom": 'Bfrtip',
+                "stateSave": true,
+                "buttons": [{
+                    extend: 'excelHtml5',
+                    title: 'OutboundReport_' + dateTime
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'OutboundReport_' + dateTime,
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                },
+                {
+                    extend: 'csvHtml5',
+                    title: 'OutboundReport_' + dateTime
+                },
+                {
+                    extend: 'print',
+                    message: 'OutboundReport_' + dateTime
+                },
+                {
+                    text: 'Reload',
+                    action: function (e, dt, node, config) {
+                        dt.ajax.reload();
+                    }
+                }
+                ],
+
+                "bServerSide": false,
+                "sAjaxSource": '@Url.Action("GetOutbound", "Reports")', // Controls - sSource   /Reports/GetDispatched
+                "bProcessing": true,
+                "fnServerData": function (sSource, parameters, fnCallback) {
+
+                    var data = JSON.stringify({
+                        DateFrom: $('#txtDateFrom').val(),
+                        DateTo: $('#txtDateTo').val()
+                    });
+
+                    parameters.push({ "name": "formData", "value": data });
+
+                    cancelOutbound = $.getJSON(sSource, parameters, function (json) {
+                        //console.log(json);
+
+                        //var i = 0;
+                        //while (i < json.aaData.length) {
+
+                        //    var receivedDate = json.aaData[i].receivedDate.toString();
+                        //    var receivedTime = new Date(json.aaData[i].receivedTime);
+                        //    var dispatchedDate = json.aaData[i].dispatchedDate.toString();
+                        //    var dispatchedTime = new Date(json.aaData[i].dispatchedTime);
+                        //    var statusDate = json.aaData[i].statusDate.toString();
+                        //    var statusTime = new Date(json.aaData[i].statusTime);
+
+                        //    json.aaData[i].receivedTime = receivedTime.toLocaleTimeString();
+                        //    json.aaData[i].receivedDate = receivedDate.substring(0, 10);
+                        //    json.aaData[i].statusTime = statusTime.toLocaleTimeString();
+                        //    json.aaData[i].dispatchedDate = dispatchedDate.substring(0, 10);
+                        //    json.aaData[i].dispatchedTime = dispatchedTime.toLocaleTimeString();
+                        //    json.aaData[i].statusDate = statusDate.substring(0, 10);
+                        //    i++;
+                        //}
+
+                        fnCallback(json);
+                        cancelOutbound.readyState = 0;
+                        return outbound;
+
+                    }).done(function () { })
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus);
+                            if (textStatus == "abort") {
+                                outboundReport.destroy();
+                                outboundReport = null;
+                                document.getElementById("outboundReport").innerHTML = document.getElementById("outboundReport").innerHTML;
+                            } else {
+                                 swal(textStatus + ": " + errorThrown);
+                            }
+                            cancelOutbound.readyState = 0;
+                            console.log("Error: " + errorThrown);
+                            console.log("responseText: " + jqXHR.responseText);
+                            
+                            return outbound;
+                        })
+                        .always(function () { });
+                },
+
+                "columns": [
+                    { "data": "Principal" },
+                    { "data": "OrderStatus" },
+                    { "data": "OrderReceivedDate" },
+                    { "data": "OrderStatusDate" },
+                    { "data": "DispatchedDate" },
+                    { "data": "RAMOrderNo" },
+                    { "data": "CustomerOrderNo" },
+                    { "data": "Company" },
+                    { "data": "ProductCode" },
+                    { "data": "ShortDescription" },
+                    { "data": "LongDescription" },
+                    { "data": "OrderedQty" },
+                    { "data": "PickedQty" },
+                    { "data": "SerialNumber" },
+                    { "data": "UnitCost" },
+                    { "data": "TotalCost" }
+                ]
+        });
+        return outbound;
+    }
+
+    function stockAgeFunc()
+    {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+        var stockAge = $('#stockAgeReport').DataTable({
+                "order": [[0, "desc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "destroy": true,
+                "dom": 'Bfrtip',
+                "stateSave": true,
+                "buttons": [{
+                    extend: 'excelHtml5',
+                    title: 'StockAgeReport_' + dateTime
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'StockAgeReport_' + dateTime,
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                },
+                {
+                    extend: 'csvHtml5',
+                    title: 'StockAgeReport_' + dateTime
+                },
+                {
+                    extend: 'print',
+                    message: 'StockAgeReport_' + dateTime
+                },
+                {
+                    text: 'Reload',
+                    action: function (e, dt, node, config) {
+                        dt.ajax.reload();
+                    }
+                }
+                ],
+
+                "bServerSide": false,
+                "sAjaxSource": '@Url.Action("GetNewStockAgeDetail", "Reports")',
+                "bProcessing": true,
+                "fnServerData": function (sSource, parameters, fnCallback) {
+
+                    var data = JSON.stringify({
+                        DateFrom: $('#txtDateFrom').val(),
+                        DateTo: $('#txtDateTo').val()
+                    });
+
+
+                    parameters.push({ "name": "formData", "value": data });
+
+                        cancelStockage = $.getJSON(sSource, parameters, function (json) {
+                            console.log(json)
+                            fnCallback(json);
+                            cancelStockage.readyState = 0;
+
+                            return stockAge;
+                        })
+                        .done(function () { })
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+
+                            if (textStatus == "abort") {
+                                stockAgeReport.destroy();
+                                stockAgeReport = null;
+                                document.getElementById("stockAgeReport").innerHTML = document.getElementById("stockAgeReport").innerHTML;
+                            } else {
+                                swal(textStatus + ": " + errorThrown);
+                            }
+                            cancelStockage.readyState = 0;
+
+                            console.log("Error: " + errorThrown);
+                            console.log("responseText: " + jqXHR.responseText);
+                            return stockAge;
+                        })
+                        .always(function () { });
+                },
+
+                  "columns": [
+                    { "data": "PrincipalID" },
+                    { "data": "ProdCode" },
+                    { "data": "ProdDesc" },
+                    { "data": "EANCode" },
+                    { "data": "TmID" },
+                    { "data": "PrincipalCode" },
+                    { "data": "Location" },
+                    { "data": "Qty" },
+                    { "data": "Virgin" },
+                    { "data": "SerialNumber" },
+                    { "data": "DateReceived" },
+                    { "data": "DaysInStock" }
+                ]
+            });
+
+        return stockAge;
+    }
+
+    function setActiveTab(tab) {
+
+        if (cancelOutbound.readyState == 4 || cancelOutbound.readyState == 1) {
+            cancelOutbound.abort();
+            cancelOutbound = {
+                readyState: 0
+            };
+        }
+
+        if (cancelStockage.readyState == 4 || cancelStockage.readyState == 1) {
+            cancelStockage.abort();
+            cancelStockage = {
+                readyState: 0
+            };
+        }
+
+        if (cancelInbound.readyState == 4 || cancelInbound.readyState == 1) {
+            cancelInbound.abort();
+             cancelInbound = {
+                readyState: 0
+            };
+        }
+
+        if (cancelReturns.readyState == 4 || cancelReturns.readyState == 1) {
+            cancelReturns.abort();
+             cancelReturns = {
+                readyState: 0
+            };
+        }
+
+        activeTab = tab;
+    }
+
+    </script>

@@ -1,0 +1,70 @@
+2020-09-08 06:25:30,422 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:b21cd237-301b-488e-b1ba-c98b434b6282
+Error Number:8146,State:2,Class:16
+2020-09-08 06:26:45,004 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:b21cd237-301b-488e-b1ba-c98b434b6282
+Error Number:8146,State:2,Class:16
+2020-09-08 06:26:46,026 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:b21cd237-301b-488e-b1ba-c98b434b6282
+Error Number:8146,State:2,Class:16
+2020-09-08 06:47:34,535 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:fcce5376-3be8-4f02-b9f8-64ae58e282e3
+Error Number:8146,State:2,Class:16
+2020-09-08 06:47:51,039 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:fcce5376-3be8-4f02-b9f8-64ae58e282e3
+Error Number:8146,State:2,Class:16
+2020-09-08 06:55:54,086 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:13546540-628b-4f7f-8831-f27f745b3e59
+Error Number:8146,State:2,Class:16
+2020-09-08 06:56:07,271 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:13546540-628b-4f7f-8831-f27f745b3e59
+Error Number:8146,State:2,Class:16
+2020-09-08 07:06:49,746 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:27d80eb2-21bb-449f-8d6a-b27ea7591ecf
+Error Number:-2,State:0,Class:11
+2020-09-08 07:07:46,086 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:27d80eb2-21bb-449f-8d6a-b27ea7591ecf
+Error Number:-2,State:0,Class:11
+2020-09-08 07:15:01,691 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:8ce67c10-345a-49e7-954c-c8f6dec795d7
+Error Number:-2,State:0,Class:11
+2020-09-08 08:12:14,035 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 510
+2020-09-08 10:17:12,401 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:61d7f23f-a461-42d6-828a-6db1764e6f14
+Error Number:-2,State:0,Class:11

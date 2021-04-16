@@ -1,0 +1,1144 @@
+﻿
+@{
+    ViewBag.Title = "UsersAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="modal fade bs-example-modal-lg" id="myModalEditUser" tabindex="-1" role="dialog" aria-labelledby="myModalEditUserLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalEditUserLabel">Edit User</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <form role="form">
+
+
+                            <div class="form-group">
+                                <label style="display:none;" for="disabledSelect">UserID</label>
+                                <input style="display:none;" class="form-control" id="txtUserID" type="text" placeholder="User Name" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="disabledSelect">UserName</label>
+                                <input class="form-control" id="txtUserName" type="text" placeholder="User Name" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" id="txtEmail" type="text" placeholder="Email Address">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">
+                                    Select User Group
+                                </label>
+                            </div>
+                            <div class="form-group" style="float:right;">
+                                <button type="button" id="btnSaveAll" class="btn btn-primary">Save</button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    @* Lets have a datagrid here so we can select the groups the user belongs to easily *@
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dataTableUserGroupsList">
+                            <thead>
+                                <tr>
+                                    <th>Selected</th>
+                                    <th>Group ID</th>
+                                    <th>Group Name</th>
+                                    <th>Group Description</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="loading" class="spinner">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- Modal -->
+@* We will list the users here  *@
+<h3 class="page-header">Users Master List</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px;">
+                <div style="float:left;">
+                    Results
+                </div>
+                <div style="float:right;">
+                    <button type="button" class="btn btn-primary btn-xs" id="btnCreateNewUser">Create New User</button>
+                </div>
+            </div>
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-striped table-bordered table-hover" id="dataTableUsersList">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th style="width:50px;">UserName</th>
+                                <th style="width:50px;">EmailAddress</th>
+                                <th style="width:30px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="modal fade bs-example-modal-lg" id="modalLinkReceiver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel3">Link Receiver To User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" id="frmLinkReceiver" onsubmit="return false;">
+
+                                    <div class="form-group">
+                                        <label for="txtReceiverID">ReceiverID</label>
+                                        <input class="form-control" placeholder="ReceiverID" id="txtReceiverID" name="txtReceiverID" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtReceiverName">Receiver Name</label>
+                                        <input class="form-control" placeholder="Receiver Name" id="txtReceiverName" name="txtReceiverName">
+                                        <p class="help-block">Search by ReceiverID/Receiver Name</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-6">
+                                            <input type="checkbox" placeholder="All Receivers" id="chkAllReceivers" name="chkAllReceivers">
+                                            <label for="chkAllReceivers">
+                                                All Receivers
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-6">
+                                            <input type="checkbox" placeholder="Add New Customer?" id="chkAddNewCustomer" name="chkAddNewCustomer">
+                                            <label for="chkAddNewCustomer">
+                                                Add New Customer?
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group" style="float:right;">
+                                                <button type="submit" class="btn btn-primary" id="btnLinkReceiver">Save</button>&nbsp;
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                        <div id="loading" class="spinner">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Existing Linked Receiver's
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="panel panel-default">
+                                            @* Lets have a datagrid here so we can select the groups the user belongs to easily *@
+                                            <div class="dataTable_wrapper" style="overflow:scroll;">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTableReceiversList">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ReceiverID</th>
+                                                            <th>ReceiverName</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+
+
+<style>
+    /**/
+    .modal-dialog {
+        width: 1000px;
+    }
+</style>
+
+
+<script>
+
+    //https://datatables.net/examples/server_side/select_rows.html to get example of selection of rows even if paging is done
+    //  https://datatables.net/reference/api/row%28%29.data%28%29 selecting rows
+
+
+    var oUsersTable = null;
+    var oReceiverTable = null;
+    var oGroupsTable = null;
+    var WMSUserName = null;
+    var thisValidatedForm = null
+
+    var simple_checkbox = function (data, type, full, meta) {
+        var is_checked = data == true ? "checked" : "";
+        return '<input type="checkbox" class="checkSelectedbox" ' +
+            is_checked + ' />';
+    }
+
+    $(document).ready(function () {
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        ConfigureReceiveSaveValidation();
+        PopulateUsersDataGrid();
+        WireAdditionalActions();
+    });
+
+    //calls the save user details
+    function SaveUserDetails() {
+
+        var selectedUserID = $('#txtUserID').val();
+        var selectedUserEmail = $('#txtEmail').val();
+
+        var parameters = JSON.stringify({
+            userEmail: selectedUserEmail,
+            userID: selectedUserID
+        });
+
+
+        try {
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveUserDetails", "UsersAdmin")',
+                data: parameters,
+                dataType: "json",
+
+                success: function (response) {
+
+                    var result = response.Result;
+                    var saveResponse = response.SaveResponse;
+
+                    if (result.search(/error/i) == -1) {
+                    }
+                    else {
+                        swal(response.SaveResponse.Details);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
+
+    function SaveGroupAssociations() {
+
+        $("#btnSaveAll").attr("disabled", "disabled");
+
+        var rowDataObjects = new Array();
+        oGroupsTable.$(".checkSelectedbox:checked").each(function (index, row) {
+
+            var rw = oGroupsTable.row($(this).parents('tr'));
+
+            var groupID = rw.data().GroupId;
+            rowDataObjects.push(groupID);// this should work, if not try aReturn.push($(row));
+        });
+
+        var selectedUserID = $('#txtUserID').val();
+
+        var parameters = JSON.stringify({
+            userGroups: rowDataObjects,
+            userID: selectedUserID
+        });
+
+        try {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveUserGroupAssociations", "UsersAdmin")',
+                data: parameters,
+                dataType: "json",
+
+                success: function (response) {
+
+                    var result = response.Result;
+                    var saveResponse = response.SaveResponse;
+
+                    if (result.search(/error/i) == -1) {
+
+                        $('#myModalEditUser').modal('hide');
+                    }
+                    else {
+                        swal(response.SaveResponse.Details);
+                        $("#btnSaveAll").removeAttr("disabled", "disabled");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+        }
+        catch (err) {
+            swal({
+                title: 'Error',
+                text: 'There was an error:' + err,
+                type: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#D42E12'
+            });
+        }
+
+    }
+
+    //we will call the method to delete this user
+    function DeleteUser(dRow) {
+
+        var userID = dRow.Id;
+        var parameters = JSON.stringify({
+            userID: userID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteUser", "UsersAdmin")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                    swal("Deleted!", "User " + dRow.UserName + " deleted.", "success");
+                    PopulateUsersDataGrid();
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+    function PopulateEditUser(dRow) {
+
+        $('#txtUserID').val(dRow.Id);
+        $('#txtEmail').val(dRow.Email);
+        $('#txtUserName').val(dRow.UserName);
+
+        PopulateGroupsDataGrid(dRow.Id);
+    }
+
+    //lets get the groups the user belongs to
+    function PopulateGroupsDataGrid(userID) {
+
+        if (oGroupsTable != null) {
+            oGroupsTable.destroy();
+        }
+
+        oGroupsTable = $('#dataTableUserGroupsList').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetUserGroupsList", "UsersAdmin")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "userID", "value": userID });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "BelongsTo",
+                                "render": simple_checkbox
+                            },
+                            {
+                                "data": "GroupId",
+                                "visible": false
+                            },
+                            { "data": "GroupName" },
+                            { "data": "GroupDescription" }
+
+            ]
+        });
+    }
+
+    function PopulateUsersDataGrid() {
+
+        if (oUsersTable != null) {
+            oUsersTable.destroy();
+        }
+
+        oUsersTable = $('#dataTableUsersList').DataTable({
+            "order": [[1, "asc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetUsersItemList", "UsersAdmin")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "Id",
+                                "visible": false
+                            },
+                            { "data": "UserName" },
+                            { "data": "Email" },
+
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button edituser class='btn btn-primary btn-xs'>Edit User</button>&nbsp;<button linkReceiver class='btn btn-primary btn-xs'>Link to Receivers</button>&nbsp;<button deleteuser class='btn btn-primary btn-xs'>Delete</button>"
+                            }
+            ]
+        });
+
+        $('#dataTableUsersList tbody').on('click', 'button[edituser]', function () {
+
+            $("#btnSaveAll").removeAttr("disabled", "disabled");
+
+            var row = oUsersTable.row($(this).parents('tr'));
+
+            //populate the value of the line items dialogxxxxxxxx
+            PopulateEditUser(row.data());
+
+            $('#myModalEditUser').modal({
+                keyboard: false
+            });
+        });
+
+        $('#dataTableUsersList tbody').on('click', 'button[deleteuser]', function () {
+
+            var row = oUsersTable.row($(this).parents('tr'));
+
+            swal({
+                title: "Are you sure you want to delete User: " + row.data().UserName + "?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK",
+                closeOnConfirm: false
+            }, function () {
+                DeleteUser(row.data());
+            });
+
+            //refresh the users list
+            //PopulateUsersDataGrid();
+        });
+    }
+
+    function WireAdditionalActions() {
+
+        $("#btnCreateNewUser").on('click', function () {
+            //redirect to the create new role action
+            var ref = '@Url.Action("CreateUser", "UsersAdmin")';
+            location.href = ref;
+        });
+
+        $("#btnSaveAll").click(function () {
+            SaveUserDetails();
+            SaveGroupAssociations();
+        });
+
+        $('#dataTableUsersList tbody').on('click', 'button[linkReceiver]', function () {
+
+            $('#btnLinkReceiver').removeAttr('disabled', 'disabled');
+            $('#txtReceiverName').removeAttr('disabled', 'disabled');
+
+            var row = oUsersTable.row($(this).parents('tr'));
+            $('#myModalLabel3').text('Link User ' + row.data().UserName);
+            WMSUserName = row.data().UserName;
+            ConfigureLinkReceiverToModal();
+            GetReceivers(row.data().UserName);
+            GetAddNewCustomerAcess(row.data().UserName);
+            CheckAllReceiversAccess(row.data().UserName);
+
+            $('#modalLinkReceiver').on('hidden.bs.modal', function (e) {
+
+                $("#chkAllReceivers").prop("checked", false);
+                $("#txtReceiverID").val('');
+                $("#txtReceiverName").val('');
+                $('#btnLinkReceiver').attr('disabled', 'disabled');
+                thisValidatedForm.resetForm();
+            });
+
+            $("#chkAllReceivers").change(function () {
+
+                var showLeadTime = $("#chkAllReceivers").is(':checked');
+                if ($("#chkAllReceivers").is(':checked')) {
+
+                    $('#txtReceiverName').attr('disabled', 'disabled');
+                    $('#btnLinkReceiver').removeAttr('disabled', 'disabled');
+                    $("#txtReceiverID").val('');
+                    $("#txtReceiverName").val('ALL');
+                }
+                else {
+                    $('#txtReceiverName').removeAttr('disabled', 'disabled');
+                    $("#txtReceiverName").val('');
+                }
+
+            });
+
+            $("#chkAddNewCustomer").change(function () {
+
+                if ($("#chkAddNewCustomer").is(':checked')) {
+
+                    swal({
+                        title: "Are you sure you want give user access to Add New Customer ?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    }, function () {
+                        SaveAddNewCustomerAccess();
+                    });
+                }
+                else {
+
+                    swal({
+                        title: "Are you sure you want remove access to Add New Customer ?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    }, function () {
+                        DeleteAddNewCustomerAccess();
+                    });
+                }
+            });
+
+            $('#btnLinkReceiver').unbind().bind('click', function () {
+
+                if (IsLinkReceiverValid()) {
+
+                    if ($('#txtReceiverID').val() != '') {
+
+                        $("#btnLinkReceiver").attr("disabled", "disabled");
+                        SaveLinkedReceiver()
+                    }
+
+                    if (($('#txtReceiverID').val() == '') && $("#chkAllReceivers").is(':checked')) {
+                        $("#btnLinkReceiver").attr("disabled", "disabled");
+                        SaveLinkedReceiver()
+                    }
+                }
+            });
+
+            $('#dataTableReceiversList tbody').on('click', 'button[removeLink]', function () {
+
+                var row = oReceiverTable.row($(this).parents('tr'));
+
+                swal({
+                    title: "Are you sure you want to delete ReceiverID " + row.data().ReceiverID + " ?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: false
+                }, function () {
+                    DeleteLinkedReceiver(row.data().RecordID, row.data().ReceiverID);
+                    swal("Deleted!", "ReceiverID " + row.data().ReceiverID + " deleted.", "success");
+                });
+
+            });
+        });
+
+    }
+
+    function IsLinkReceiverValid() {
+
+        var isFormValid = $('#frmLinkReceiver').valid();
+        return isFormValid;
+    }
+
+    function ConfigureReceiveSaveValidation() {
+        thisValidatedForm = $("#frmLinkReceiver").validate({
+            onsubmit: true,
+            rules: {
+                txtReceiverName: {
+                    required: true,
+                    minlength: 3
+                }
+            },
+            messages: {
+                txtReceiverName: {
+                    required: "Please enter a valid Receiver Name",
+                    minlength: "The Receiver Name must consist of at least 3 characters",
+                }
+            }
+        });
+    }
+
+    function SaveLinkedReceiver() {
+
+        var ReceiverStatus = $("#chkAllReceivers").is(':checked');
+
+        var parameters = JSON.stringify({
+            UserName: WMSUserName,
+            ReceiverID: $('#txtReceiverID').val(),
+            ReceiverFlag: ReceiverStatus
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SaveLinkedReceiver", "MasterData")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+
+                    var recordId = response.RecordID;
+
+                    if (recordId > 0) {
+
+                        $('#txtReceiverName').val('');
+                        $('#txtReceiverName').focus();
+                        swal(result);
+                        ResetDataTable();
+                        $('#btnLinkReceiver').removeAttr('disabled', 'disabled');
+                    }
+                    else {
+                        swal("Unable to create new linked record", "", "error");
+                        $('#btnLinkReceiver').removeAttr('disabled', 'disabled');
+                    }
+                }
+                else {
+                    swal(result);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        }).always(function () {
+            //$('#divLinkedRecords').html('');
+            //$('#modalLinkReceiver').modal('hide');
+
+        });
+
+    };
+
+    function SaveAddNewCustomerAccess() {
+
+        var parameters = JSON.stringify({
+            UserName: WMSUserName
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SaveAddNewCustomerAccess", "MasterData")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+
+                    var recordId = response.RecordID;
+
+                    if (recordId > 0) {
+
+                        swal("Submitted!", "Success");
+                    }
+                    else {
+                        swal("Unable to create new linked record", "", "error");
+                    }
+                }
+                else {
+                    swal(result);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        }).always(function () {
+        });
+    };
+
+
+    function DeleteAddNewCustomerAccess() {
+
+        var parameters = JSON.stringify({
+            UserName: WMSUserName,
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("DeleteAddNewCustomerAccess", "MasterData")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result == true) {
+                    swal("Submitted!", "Success");
+                }
+                else {
+                    swal({
+                        title: "Process Error",
+                        text: "",
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        }).always(function () {
+        });
+
+    };
+
+
+    function ConfigureLinkReceiverToModal() {
+
+        var autoComplete,
+             dlg = $("#modalLinkReceiver"),
+             input = $("#txtReceiverName", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalLinkReceiver",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalLinkReceiver');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Customer_Lookup_by_ReceiverID", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                value: item.CustomerID,
+                                label: item.CustomerName
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#btnLinkReceiver').removeAttr('disabled');
+
+                $("#txtReceiverID").val(ui.item.value);
+                $("#txtReceiverName").val(ui.item.label);
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+    }
+
+
+    function GetReceivers(UserName) {
+
+        if (oReceiverTable != null) {
+            oReceiverTable.destroy();
+        }
+
+
+        oReceiverTable = $('#dataTableReceiversList').DataTable({
+            "order": [[1, "asc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetReceiverList", "MasterData")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "UserName", "value": UserName });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+
+                            { "data": "ReceiverID" },
+                            { "data": "ReceiverName" },
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button removeLink class='btn btn-primary btn-xs'>Remove</button>"
+                            }
+            ]
+
+        });
+    }
+
+    function DeleteLinkedReceiver(mRecordID, mReceiverID) {
+
+        var parameters = JSON.stringify({
+            pRecordID: mRecordID
+        });
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteLinkedReceiver", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+
+                if (result == true) {
+                    ResetDataTable();
+                }
+                else {
+                    swal({
+                        title: "Process Error",
+                        text: "Unable to delete the ReceiverID " + mReceiverID + ".",
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReceiverTable.destroy();
+
+            oReceiverTable = $('#dataTableReceiversList').DataTable({
+                "order": [[1, "asc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                //"deferLoading": 0,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetReceivers(WMSUserName);
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function GetAddNewCustomerAcess(UserName) {
+
+        var parameters = JSON.stringify({
+            UserName: UserName
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("GetAddNewCustomerAcess", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+                    if (response.RecordCount > 0) {
+                        $("#chkAddNewCustomer").prop("checked", true);
+                    }
+                    else {
+                        $("#chkAddNewCustomer").prop("checked", false);
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function CheckAllReceiversAccess(UserName) {
+
+        var parameters = JSON.stringify({
+            UserName: UserName
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("CheckAllReceiversAccess", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+                    if (response.RecordCount > 0) {
+                        $("#chkAllReceivers").prop("checked", true);
+                        $('#btnLinkReceiver').attr('disabled', 'disabled');
+                        $('#txtReceiverName').attr('disabled', 'disabled');
+                    }
+                    else {
+                        $("#chkAllReceivers").prop("checked", false);
+                        $('#btnLinkReceiver').removeAttr('disabled', 'disabled');
+                        $('#txtReceiverName').removeAttr('disabled', 'disabled');
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+
+    function ViewGroups(id) {
+
+        //  alert(id);
+    }
+</script>
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+$(document).ready(function(){
+
+alert('@ViewBag.Message');
+
+});
+
+    </script>
+
+}
+
+
+
+
+
+

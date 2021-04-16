@@ -1,0 +1,494 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Dispatch Report</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <form role="form">
+                    <div class="row"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Date Range:</label>
+                            <select id="SelectTimeFrame" class="form-control">
+                                <option value="Please Select" selected>Please Select</option>
+                                <option value="Today">Today</option>
+                                <option value="Yesterday">Yesterday</option>
+                                <option value="This Week">This Week</option>
+                                <option value="Last Week">Last Week</option>
+                                <option value="Month To Date">Month To Date</option>
+                                <option value="Last Month">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label id="labelName">From:</label>
+                            <div class='input-group date' id='datetimepickerPODate'>
+                                <input type="text" id="txtDateFrom" name="txtDateFrom" placeholder="From:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label id="labelName">To:</label>
+                            <div class='input-group date' id='datetimepickerPODate'>
+                                <input type="text" id="txtDateTo" name="txtDateTo" placeholder="To:" class="form-control datePickerFilter" data-date-format="yyyy-mm-dd" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Report Type:</label>
+                            <select id="ReportList" class="form-control">
+                                <option selected="selected">Please Select Report</option>
+                                <option>Dispatch</option>
+                                <option>Dispatch Serials</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row"></div>
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+
+    <div id="divDispatched" class="col-lg-12" style="display: none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Results
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper" style="overflow:scroll;">
+                            <table class="table table-bordered table-hover table-striped" id="DispatchedReports">
+                                <thead>
+                                    <tr>
+                                        <th style="width:120px;">OrderDate</th>
+                                        <th style="width:120px;">DispatchedDate</th>
+                                        <th style="width:80px;">RAMOrderNo</th>
+                                        <th style="width:150px;">Company</th>
+                                        <th style="width:100px;">ReceiverID</th>
+                                        <th style="width:100px;">CustomerOrderNo</th>
+                                        <th style="width:100px;">ProductCode</th>
+                                        <th style="width:100px;">ShortDescription</th>
+                                        <th style="width:150px;">LongDescription</th>
+                                        <th style="width:70px;">OrderedQty</th>
+                                        <th style="width:70px;">PickedQty</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+
+    <div id="divDispatchedSerials" class="col-lg-12" style="display: none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Results
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper" style="overflow:scroll;">
+                            <table class="table table-bordered table-hover table-striped" id="DispatchedReportsSerials">
+                                <thead>
+                                    <tr>
+                                        <th style="width:120px;">OrderDate</th>
+                                        <th style="width:120px;">DispatchedDate</th>
+                                        <th style="width:80px;">RAMOrderNo</th>
+                                        <th style="width:150px;">Company</th>
+                                        <th style="width:100px;">ReceiverID</th>
+                                        <th style="width:100px;">CustomerOrderNo</th>
+                                        <th style="width:100px;">ProductCode</th>
+                                        <th style="width:100px;">ShortDescription</th>
+                                        <th style="width:150px;">LongDescription</th>
+                                        <th style="width:70px;">OrderedQty</th>
+                                        <th style="width:70px;">PickedQty</th>
+                                        <th style="width:70px;">SerialNumber</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+
+    <!-- /.col-lg-12 -->
+</div>
+<div id="loading" class="spinner">
+</div>
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bower_components/datatables 1.10.12/jquery/jquery-1.12.3.js"></script>
+<script src="~/bower_components/datatables 1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/dataTables.buttons.min.js"></script>
+<script src="~/bower_components/jszip/dist/jszip.min.js"></script>
+<script src="~/bower_components/pdfmake/pdfmake.min.js"></script>
+<script src="~/bower_components/vfs/vfs_fonts.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.flash.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.html5.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.print.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+</style>
+
+<script>
+
+    var oReportDSP = null;
+    var oReportDSPSer = null;
+
+    $(document).ready(function () {
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        $("#txtDateFrom").val('');
+        $("#txtDateTo").val('');
+
+        InitializeDateRange();
+        WireAdditionalActions();
+        SelectReportType();
+    });
+
+    function SelectReportType() {
+
+        $('#ReportList').on('change', function (e) {
+
+            var listVal = $('#ReportList :selected').text();
+
+            if (listVal == "Dispatch") {
+
+                if (($('#txtDateFrom').val() != '') || ($('#txtDateTo').val() != ''))
+                {
+                    //If date is not empty
+                    GetDispatched();
+                }
+                else {
+                    //swal("Please Add Products to Order", "Save Order", "error")
+                    alert("Please Select Date Range");
+                }
+            } else if (listVal == "Dispatch Serials") {
+                if (($('#txtDateFrom').val() != '') || ($('#txtDateTo').val() != '')) {
+                    GetDispatchedSerials();
+                }
+                else {
+                    //swal("Please Add Products to Order", "Save Order", "error")
+                    alert("Please Select Date Range");
+                }
+            }
+
+            $('#ReportList').prop('selectedIndex', 0);
+        });
+    }
+
+    function InitializeDateRange() {
+
+        //init the date picker
+        $('#txtDateFrom').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+
+        //init the date picker
+        $('#txtDateTo').datepicker({
+            dateFormat: "yyyy-mm-dd",
+            autoclose: true
+        });
+    }
+
+    function WireAdditionalActions() {
+
+        //$(".datePickerFilter").datepicker("update", new Date());
+        $('#SelectTimeFrame').change(function () {
+
+            var timeFrame = $('#SelectTimeFrame').val();
+            var toDay = new Date();
+
+            var startDT = new Date();
+            startDT.setHours(0, 0, 0, 0);
+            var endDT = new Date();
+            endDT.setHours(0, 0, 0, 0);
+
+            if (timeFrame == 'Today') {
+                endDT.setTime(startDT.getTime() + 86400000);
+                endDT.setTime(endDT.getTime() - 1000);
+                $("#txtDateFrom").datepicker('update', startDT);
+                $("#txtDateTo").datepicker('update', endDT);
+
+            } else if (timeFrame == 'Yesterday') {
+                startDT.setTime(startDT.getTime() - 86400000);
+                endDT.setTime(startDT.getTime() + 86400000);
+                endDT.setTime(endDT.getTime() - 1000);
+                $("#txtDateFrom").datepicker('update', startDT);
+                $("#txtDateTo").datepicker('update', endDT);
+
+            } else if (timeFrame == '2 Days Ago') {
+                startDT.setTime(startDT.getTime() - 86400000 - 86400000);
+                endDT.setTime(startDT.getTime() + 86400000);
+                endDT.setTime(endDT.getTime() - 1000);
+                $("#txtDateFrom").datepicker('update', startDT);
+                $("#txtDateTo").datepicker('update', endDT);
+
+            } else if (timeFrame == 'This Week') {
+                while (startDT.getDay() != 1) startDT.setTime(startDT.getTime() - 86400000);
+                endDT.setTime(startDT.getTime() + 604800000);
+                endDT.setTime(endDT.getTime() - 1000);
+                $("#txtDateFrom").datepicker('update', startDT);
+                $("#txtDateTo").datepicker('update', endDT);
+
+            } else if (timeFrame == 'Last Week') {
+                while (startDT.getDay() != 1) startDT.setTime(startDT.getTime() - 86400000);
+                startDT.setTime(startDT.getTime() - 604800000);
+                endDT.setTime(startDT.getTime() + 604800000);
+                endDT.setTime(endDT.getTime() - 1000);
+                $("#txtDateFrom").datepicker('update', startDT);
+                $("#txtDateTo").datepicker('update', endDT);
+
+            } else if (timeFrame == 'Month To Date') {
+                var date = new Date();
+                var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+                var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                $("#txtDateFrom").datepicker('update', firstDay);
+                $("#txtDateTo").datepicker('update', lastDay);
+
+            } else if (timeFrame == 'Last Month') {
+                var date = new Date();
+                var firstDay = new Date(date.getFullYear(), toDay.getMonth() - 1);
+                var lastDay = new Date(date.getFullYear(), date.getMonth(), 0);
+                $("#txtDateFrom").datepicker('update', firstDay);
+                $("#txtDateTo").datepicker('update', lastDay);
+            } else if (timeFrame == 'Please Select') {
+                $("#txtDateFrom").val('');
+                $("#txtDateTo").val('');
+            }
+        });
+    }
+
+    function GetDispatched() {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        //If the report has DATA
+        if (oReportDSP != null) {
+            oReportDSP.destroy();
+        }
+
+        $("#divDispatched").show();
+        $("#divDispatchedSerials").hide();
+
+        oReportDSP = $('#DispatchedReports').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "destroy": true,
+            "dom": 'Bfrtip',
+            "stateSave": true,
+            "buttons": [{
+                extend: 'excelHtml5',
+                title: 'Dispatch Report_' + dateTime
+            },
+            {
+                extend: 'pdfHtml5',
+                title: 'Dispatch Report_' + dateTime,
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            },
+            {
+                extend: 'csvHtml5',
+                title: 'Dispatch Report_' + dateTime
+            },
+            {
+                extend: 'print',
+                message: 'Dispatch Report_' + dateTime
+            },
+            {
+                text: 'Reload',
+                action: function (e, dt, node, config) {
+                    dt.ajax.reload();
+                }
+            }
+            ],
+
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetDispatched", "Reports")', // Controls - sSource   /Reports/GetDispatched  
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                //alert($('#txtDateFrom').val())
+                // /Reports/GetDispatched  
+                var data = JSON.stringify({
+                    DateFrom: $('#txtDateFrom').val(),
+                    DateTo: $('#txtDateTo').val()
+                });
+
+                
+                parameters.push({ "name": "formData", "value": data });
+
+                //alert(sSource + "  ")
+
+                $.getJSON(sSource, parameters, function (json) {
+                      console.log(json)
+                    fnCallback(json)
+                })
+                    .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+
+                    swal(textStatus + ": " + errorThrown);
+
+                    console.log("Error: " + errorThrown);
+                    console.log("responseText: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            //This is the callback part
+            "columns": [
+                            { "data": "RecordDT" },
+                            { "data": "DispatchedDate" },
+                            { "data": "OrderNumber" },
+                            { "data": "CompanyName" },
+                            { "data": "ReceiverID" },
+                            { "data": "CustomerOrdeNumber" },
+                            { "data": "ProductCode" },
+                            { "data": "ShortDesc" },
+                            { "data": "LongDesc" },
+                            { "data": "OrderedQty" },
+                            { "data": "PickQty" }
+
+            ]
+        });
+    }
+
+    function GetDispatchedSerials() {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        if (oReportDSPSer != null) {
+            oReportDSPSer.destroy();
+        }
+
+        $("#divDispatchedSerials").show();
+        $("#divDispatched").hide();
+
+        oReportDSPSer = $('#DispatchedReportsSerials').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "destroy": true,
+            "dom": 'Bfrtip',
+            "stateSave": true,
+            "buttons": [{
+                extend: 'excelHtml5',
+                title: 'Dispatch Report_' + dateTime
+            },
+            {
+                extend: 'pdfHtml5',
+                title: 'Dispatch Report_' + dateTime,
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            },
+
+            {
+                extend: 'csvHtml5',
+                title: 'Dispatch Report_' + dateTime
+            },
+            {
+                extend: 'print',
+                message: 'Dispatch Report_' + dateTime
+            },
+            {
+                text: 'Reload',
+                action: function (e, dt, node, config) {
+                    dt.ajax.reload();
+                }
+            }
+            ],
+
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetDispatchedSerials", "Reports")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                var data = JSON.stringify({
+                    DateFrom: $('#txtDateFrom').val(),
+                    DateTo: $('#txtDateTo').val()
+                });
+
+                parameters.push({ "name": "formData", "value": data });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    console.log(json);
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+
+                    swal(textStatus + ": " + errorThrown);
+
+                    console.log("Error: " + errorThrown);
+                    console.log("responseText: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                    { "data": "RecordDT" },
+                    { "data": "DispatchedDate" },
+                    { "data": "OrderNumber" },
+                    { "data": "CompanyName" },
+                    { "data": "ReceiverID" },
+                    { "data": "CustomerOrdeNumber" },
+                    { "data": "ProductCode" },
+                    { "data": "ShortDesc" },
+                    { "data": "LongDesc" },
+                    { "data": "OrderedQty" },
+                    { "data": "PickQty" },
+                    { "data": "SerialNumber" }
+            ]
+        });
+    }
+
+</script>

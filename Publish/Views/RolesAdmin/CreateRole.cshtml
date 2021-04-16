@@ -1,0 +1,111 @@
+﻿@model WMSCustomerPortal.Web.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h3 class="page-header">Create Role</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+        <div class="row">
+            @Html.ValidationSummary(true)
+        <div class="col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div>
+                        @Html.ActionLink("Back to List", "RolesAdmin")
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="row">
+                                    <div class="col-xs-8 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Role Name</label>
+                                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Role Name" })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="row">
+                                    <div class="col-xs-8 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Role Description</label>
+                                            @Html.TextBoxFor(m => Model.Description, new { @class = "form-control", @placeholder = "Role Description" })
+                                            @Html.ValidationMessageFor(m => Model.Description, "", new { @class = "text-danger" })
+                                        </div>
+                                     </div>
+                                </div>
+
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="row">
+                                    <div class="col-xs-8 col-sm-6">
+                                        <div class="form-group" style="float:left;">
+                                            <button class="btn btn-primary" type="submit">Create Role</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.panel -->
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    
+   
+}
+
+
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>

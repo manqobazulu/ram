@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.ramgroup.co.za/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.ramgroup.co.za/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.ramgroup.co.za/">
+      <s:element name="HelloWorld">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ARRAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Resend" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProdCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiptType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MoveRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PORef" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReceiptDT" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartEndStatus" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RejectCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AcceptCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ARRAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARRAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CLCAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recordSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="principalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moveRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderLineNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prodCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiptType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="discrepancy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="serialCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CLCAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CLCAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SAAAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProdCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QuantityChange" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SAAAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SAAAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ORDAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recordSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="principalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lineCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreated" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="headerComment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custOrderNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="custAcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invAdd6" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gsmTest" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="vatNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="printPrice" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="priority" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="vap" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesPerson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="salesCategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="processor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryAdd6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wmsPostCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderDiscount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderVAT" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="docToPrint" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ordLines" type="tns:ArrayOfORDLine" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KYC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CourierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CourierService" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsuranceRequired" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateDelivery" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfORDLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ORDLine" nillable="true" type="tns:ORDLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ORDLine">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="VAT" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitDiscountAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ORDAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ORDAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OCOAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Priority" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderCost" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderDiscount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderVAT" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lines" type="tns:ArrayOfOCOLine" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOCOLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OCOLine" nillable="true" type="tns:OCOLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OCOLine">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProdCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityPicked" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitCost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Vat" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OCOAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OCOAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OSTAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OSTAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OSTAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SLAAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProdCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QuantityChange" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AvailabilityState" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SerialCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SLAAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SLAAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IGDAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recordSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="principalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EANCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShortDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LongDesc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serialised" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnalysisA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnalysisB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderLineNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiptType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moveRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="poRef" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="poDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IGDAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IGDAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ParcelNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Kilograms" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Breadth" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsuredValue" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="SPNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParcelReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoOfParcels" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParcelAddResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartonID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelLabelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParcelLabelResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelAddLabelRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrincipalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ParcelNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Kilograms" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Breadth" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="InsuredValue" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="SPNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParcelReference" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoOfParcels" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParcelAddLabelRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParcelAddLabelRequestResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ARRAddSoapIn">
+    <wsdl:part name="parameters" element="tns:ARRAdd" />
+  </wsdl:message>
+  <wsdl:message name="ARRAddSoapOut">
+    <wsdl:part name="parameters" element="tns:ARRAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="CLCAddSoapIn">
+    <wsdl:part name="parameters" element="tns:CLCAdd" />
+  </wsdl:message>
+  <wsdl:message name="CLCAddSoapOut">
+    <wsdl:part name="parameters" element="tns:CLCAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SAAAddSoapIn">
+    <wsdl:part name="parameters" element="tns:SAAAdd" />
+  </wsdl:message>
+  <wsdl:message name="SAAAddSoapOut">
+    <wsdl:part name="parameters" element="tns:SAAAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ORDAddSoapIn">
+    <wsdl:part name="parameters" element="tns:ORDAdd" />
+  </wsdl:message>
+  <wsdl:message name="ORDAddSoapOut">
+    <wsdl:part name="parameters" element="tns:ORDAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="OCOAddSoapIn">
+    <wsdl:part name="parameters" element="tns:OCOAdd" />
+  </wsdl:message>
+  <wsdl:message name="OCOAddSoapOut">
+    <wsdl:part name="parameters" element="tns:OCOAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="OSTAddSoapIn">
+    <wsdl:part name="parameters" element="tns:OSTAdd" />
+  </wsdl:message>
+  <wsdl:message name="OSTAddSoapOut">
+    <wsdl:part name="parameters" element="tns:OSTAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SLAAddSoapIn">
+    <wsdl:part name="parameters" element="tns:SLAAdd" />
+  </wsdl:message>
+  <wsdl:message name="SLAAddSoapOut">
+    <wsdl:part name="parameters" element="tns:SLAAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGDAddSoapIn">
+    <wsdl:part name="parameters" element="tns:IGDAdd" />
+  </wsdl:message>
+  <wsdl:message name="IGDAddSoapOut">
+    <wsdl:part name="parameters" element="tns:IGDAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParcelAddSoapIn">
+    <wsdl:part name="parameters" element="tns:ParcelAdd" />
+  </wsdl:message>
+  <wsdl:message name="ParcelAddSoapOut">
+    <wsdl:part name="parameters" element="tns:ParcelAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParcelLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:ParcelLabel" />
+  </wsdl:message>
+  <wsdl:message name="ParcelLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:ParcelLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParcelAddLabelRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:ParcelAddLabelRequest" />
+  </wsdl:message>
+  <wsdl:message name="ParcelAddLabelRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:ParcelAddLabelRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HostWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ARRAdd">
+      <wsdl:input message="tns:ARRAddSoapIn" />
+      <wsdl:output message="tns:ARRAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CLCAdd">
+      <wsdl:input message="tns:CLCAddSoapIn" />
+      <wsdl:output message="tns:CLCAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAAAdd">
+      <wsdl:input message="tns:SAAAddSoapIn" />
+      <wsdl:output message="tns:SAAAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ORDAdd">
+      <wsdl:input message="tns:ORDAddSoapIn" />
+      <wsdl:output message="tns:ORDAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OCOAdd">
+      <wsdl:input message="tns:OCOAddSoapIn" />
+      <wsdl:output message="tns:OCOAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OSTAdd">
+      <wsdl:input message="tns:OSTAddSoapIn" />
+      <wsdl:output message="tns:OSTAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SLAAdd">
+      <wsdl:input message="tns:SLAAddSoapIn" />
+      <wsdl:output message="tns:SLAAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IGDAdd">
+      <wsdl:input message="tns:IGDAddSoapIn" />
+      <wsdl:output message="tns:IGDAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAdd">
+      <wsdl:input message="tns:ParcelAddSoapIn" />
+      <wsdl:output message="tns:ParcelAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParcelLabel">
+      <wsdl:input message="tns:ParcelLabelSoapIn" />
+      <wsdl:output message="tns:ParcelLabelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAddLabelRequest">
+      <wsdl:input message="tns:ParcelAddLabelRequestSoapIn" />
+      <wsdl:output message="tns:ParcelAddLabelRequestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HostWSSoap" type="tns:HostWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://services.ramgroup.co.za/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARRAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/ARRAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CLCAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/CLCAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAAAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/SAAAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORDAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/ORDAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OCOAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/OCOAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OSTAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/OSTAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SLAAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/SLAAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IGDAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/IGDAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAdd">
+      <soap:operation soapAction="http://services.ramgroup.co.za/ParcelAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelLabel">
+      <soap:operation soapAction="http://services.ramgroup.co.za/ParcelLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAddLabelRequest">
+      <soap:operation soapAction="http://services.ramgroup.co.za/ParcelAddLabelRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HostWSSoap12" type="tns:HostWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ARRAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/ARRAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CLCAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/CLCAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAAAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/SAAAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ORDAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/ORDAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OCOAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/OCOAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OSTAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/OSTAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SLAAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/SLAAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IGDAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/IGDAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAdd">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/ParcelAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelLabel">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/ParcelLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParcelAddLabelRequest">
+      <soap12:operation soapAction="http://services.ramgroup.co.za/ParcelAddLabelRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HostWS">
+    <wsdl:port name="HostWSSoap" binding="tns:HostWSSoap">
+      <soap:address location="http://10.0.21.95/WMSWeb/WS/HostWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="HostWSSoap12" binding="tns:HostWSSoap12">
+      <soap12:address location="http://10.0.21.95/WMSWeb/WS/HostWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

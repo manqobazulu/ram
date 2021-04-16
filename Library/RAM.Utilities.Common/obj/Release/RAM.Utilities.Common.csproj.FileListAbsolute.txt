@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\bin\Release\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\bin\Release\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\bin\Release\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\obj\Release\RAM.Utilities.Common.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\obj\Release\RAM.Utilities.Common.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\obj\Release\RAM.Utilities.Common.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\obj\Release\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Utilities.Common\obj\Release\RAM.Utilities.Common.pdb

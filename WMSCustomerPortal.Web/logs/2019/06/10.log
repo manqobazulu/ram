@@ -1,0 +1,4 @@
+2019-06-10 10:52:30,487 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatched(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 772
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatched(JQueryDataTableParamModel param, String formData) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 231

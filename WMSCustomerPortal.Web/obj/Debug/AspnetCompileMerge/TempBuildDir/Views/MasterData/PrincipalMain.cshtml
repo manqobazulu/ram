@@ -1,0 +1,873 @@
+﻿@{
+    ViewBag.Title = "Principal List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Principal List</h3>
+
+<input type="button" id="btnTest" value="Reset Table" onclick="ResetDataTable()" style="display:none;" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+                <div style="float:right;">
+                    <button id="btnAddNew" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add New</button>
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="dataTableReports">
+                        <thead>
+                            <tr>
+                                <th style="width:40px;">PrincipalID</th>
+                                <th style="width:50px;">PrincipalCode</th>
+                                <th style="width:150px;">PrincipalName</th>
+                                <th style="width:200px;">CustomerGroup</th>
+                                <th style="width:10px;">Prefix</th>
+                                <th style="width:10px;">File Delimiter</th>
+                                <th style="width:120px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="modal fade bs-example-modal-lg" id="modalAddNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">Principal Add/Edit</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" id="formAddNewPrincipal" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <label id="labelName" for="txtPrincipalID">Principal ID</label>
+                                        <input class="form-control" placeholder="Principal ID" id="txtPrincipalID" name="txtPrincipalID" value="NEW" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelGroup" for="txtCustomerGroup">Customer Group</label>
+                                        <input class="form-control" placeholder="Customer Group" id="txtCustomerGroup" name="txtCustomerGroup">
+                                        <p class="help-block">Search for Customer Group</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelCode" for="txtPrincipalCode">Principal Code</label>
+                                        <input class="form-control" placeholder="Principal Code" id="txtPrincipalCode" name="txtPrincipalCode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelName" for="txtPrincipalName">Principal Name</label>
+                                        <input class="form-control" placeholder="Principal Name" id="txtPrincipalName" name="txtPrincipalName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelName" for="txtPrincipalPrefix">Principal Prefix</label>
+                                        <input class="form-control" placeholder="Principal Prefix" id="txtPrincipalPrefix" name="txtPrincipalPrefix" maxlength="2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="labelName" for="txtPrincipalFileDelimiter">File Delimiter</label>
+                                        <input class="form-control" placeholder="File Delimiter Eg. ',' '|' '$' " id="txtPrincipalFileDelimiter" name="txtPrincipalFileDelimiter" maxlength="1">
+                                    </div>
+                                    <div id="loading" class="spinner">
+                                    </div>
+
+                                    <div class="form-group" style="float:right;">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;<button type="button" class="btn btn-primary" id="btnSavePrincipal" disabled>Save</button>
+                                    </div>
+                                    <input id="hiddenCustomerGroupID" type="hidden" value="" name="hiddenCustomerGroupID" class="IncludeHidden" />
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade bs-example-modal-lg" id="modalLinkBilledTo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel3">Link BilledTo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" onsubmit="return false;">
+
+                                    <div class="form-group">
+                                        <label for="txtBilledTo">BilledTo</label>
+                                        <input class="form-control" placeholder="BilledTo" id="txtBilledTo" name="txtBilledTo" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txtCustomerName">Customer Name</label>
+                                        <input class="form-control" placeholder="Customer Name" id="txtCustomerName" name="txtCustomerName">
+                                        <p class="help-block">Search by CustomerID/Customer Name</p>
+                                    </div>
+
+                                    <div class="form-group" style="float:right;">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;<button type="button" class="btn btn-primary" id="btnLinkBilledTo" disabled>Save</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Existing Linked BilledTo's
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div id="divLinkedRecords"></div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+<input id="hiddenAction" type="hidden" value="" />
+<input id="hiddenCustomerID" type="hidden" value="" />
+<input id="hiddenPrincipalID" type="hidden" value="" />
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+
+    .ContactNumbers {
+    }
+
+    .CustomerLookup {
+    }
+    .IncludeHidden {
+    }
+</style>
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    var oReportTable = null;
+    var thisValidatedForm = null;
+    var mDoesPrincipalExist = false;
+    var mDoesPrefixExist = false;
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        ConfigurePrincipalSaveValidation();
+
+        GetPrincipals();
+
+        WireAdditionalActions();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[2, "asc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetPrincipals();
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function GetPrincipals() {
+
+        if (oReportTable != null) {
+            oReportTable.destroy();
+        }
+
+        oReportTable = $('#dataTableReports').DataTable({
+            "order": [[0, "asc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": "GetPrincipalList",
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                            { "data": "PrincipalID" },
+                            { "data": "PrincipalCode" },
+                            { "data": "PrincipalName" },
+                            { "data": "CustomerGroup" },
+                            { "data": "Prefix" },
+                            {"data":"FileDelimiter"},
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button view class='btn btn-primary btn-xs'>View</button>&nbsp;<button add class='btn btn-primary btn-xs'>Link BilledTo</button>&nbsp;<button customers class='btn btn-primary btn-xs'>View Customers</button>"
+                               // "defaultContent": "<button add class='btn btn-primary btn-xs'>Link BilledTo</button>&nbsp;<button customers class='btn btn-primary btn-xs'>View Customers</button>"
+                            }
+            ]
+        });
+    }
+
+    function WireAdditionalActions() {
+
+        //$('#dataTableReports tbody').on('click', 'tr', function () {
+         $('#dataTableReports tbody').on('click', 'button[view]', function () {
+
+           //var tr = $(this).closest('tr');
+           // var row = oReportTable.row(tr);
+           var row = oReportTable.row($(this).parents('tr'));
+           SelectPrincipal(row.data());
+
+        });
+        $('#dataTableReports tbody').on('click', 'button[add]', function () {
+            var row = oReportTable.row($(this).parents('tr'));
+
+            $('#myModalLabel3').text('Link BilledTo to ' + row.data().PrincipalName + ' (' + row.data().PrincipalCode + ')');
+
+            $('#hiddenPrincipalID').val(row.data().PrincipalID);
+
+            GetLinkedBilledTo(row.data().PrincipalID);
+
+            ConfigureLinkBilledToModal();
+        });
+
+        $('#dataTableReports tbody').on('click', 'button[customers]', function () {
+            var row = oReportTable.row($(this).parents('tr'));
+
+            window.location = "CustomerMain/" + row.data().PrincipalID;
+        });
+
+        $('#btnAddNew').click(function () {
+            ConfigureAddNewModal();
+        });
+
+        $('#modalAddNew').on('hidden.bs.modal', function (e) {
+            // Reset modal inputs
+            $('#txtPrincipalID').val('');
+            $('#txtPrincipalCode').val('').removeAttr('disabled');
+            $('#txtCustomerGroup').val('').removeAttr('disabled');
+            $('#txtPrincipalName').val('').removeAttr('disabled');
+            $('#txtPrincipalPrefix').val('').removeAttr('disabled');
+            $('#txtPrincipalFileDelimiter').val('').removeAttr('disabled');
+            $('#btnSavePrincipal').attr('disabled', 'disabled');
+
+            $('#txtPrincipalCode').closest('div').removeClass('has-success');
+            $('#txtPrincipalCode').closest('div').removeClass('has-error');
+
+            $('#hiddenAction').val('');
+            $('#hiddenCustomerGroupID').val('');
+
+            // Reset Validation
+            thisValidatedForm.resetForm();
+        });
+        $('#modalLinkBilledTo').on('hidden.bs.modal', function (e) {
+            $('#hiddenPrincipalID').val('');
+            $("#txtBilledTo").val('');
+            $("#txtCustomerName").val('');
+
+            $('#btnLinkBilledTo').attr('disabled', 'disabled');
+        });
+
+        $('#txtPrincipalCode').blur(function () {
+            DoesPrincipalExist();
+        });
+
+        $('#txtPrincipalPrefix').blur(function () {
+            DoesPrefixExist();
+        });
+
+        $('#btnSavePrincipal').click(function () {
+            if (IsPrincipalSaveValid()) {
+                SavePrincipal();
+            }
+        });
+
+        $('#btnLinkBilledTo').click(function () {
+            if ($('#txtBilledTo').val() != '') {
+                SaveLinkedBilledTo();
+            }
+        });
+    }
+    function ConfigureLinkBilledToModal() {
+
+        var autoComplete,
+             dlg = $("#modalLinkBilledTo"),
+             input = $("#txtCustomerName", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalLinkBilledTo",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalLinkBilledTo');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Customer_Lookup_by_PrincipalID", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                value: item.CustomerID,
+                                label: item.CustomerName
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#btnLinkBilledTo').removeAttr('disabled');
+
+                $("#txtBilledTo").val(ui.item.value);
+                $("#txtCustomerName").val(ui.item.label);
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+    }
+
+    function ConfigureAddNewModal() {
+
+        $('#hiddenAction').val('ADD');
+
+        // Set modal defaults
+        $('#myModalLabel2').text('Principal Add');
+        $('button[data-dismiss]').last().text('Cancel');
+
+        var autoComplete,
+             dlg = $("#modalAddNew"),
+             input = $("#txtCustomerGroup", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalAddNew",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalAddNew');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("CustomerGroup_Lookup", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                value: item.CustomerGroupID,
+                                label: item.Description
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $("#hiddenCustomerGroupID").val(ui.item.value);
+                $("#txtCustomerGroup").val(ui.item.label);
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+    }
+
+    function SelectPrincipal(d) {
+
+        $('#hiddenAction').val('VIEW');
+
+        // Get customer info
+        $('#txtPrincipalID').val(d.PrincipalID);
+        $('#txtPrincipalCode').val(d.PrincipalCode).attr('disabled', 'disabled');
+        $('#txtCustomerGroup').val(d.CustomerGroup).attr('disabled', 'disabled');
+        $('#txtPrincipalName').val(d.PrincipalName).attr('disabled', 'disabled');
+        $('#txtPrincipalPrefix').val(d.Prefix).attr('disabled', 'disabled');
+        $('#txtPrincipalFileDelimiter').val(d.FileDelimiter).attr('disabled', 'disabled');
+
+        $('#hiddenCustomerGroupID').val(d.CustomerGroupID);
+
+        // Set modal defaults
+        $('#myModalLabel2').text('Principal View');
+        $('#btnSavePrincipal').attr('disabled', 'disabled');
+        $('button[data-dismiss]').last().text('Close');
+
+        $('#modalAddNew').modal({
+            keyboard: false
+        });
+    }
+
+    function DoesPrincipalExist() {
+        var parameters = JSON.stringify({
+            principalCode: $('#txtPrincipalCode').val()
+        });
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DoesPrincipalExist", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                // has-error
+                // has-success
+                mDoesPrincipalExist = response.Result;
+
+                if (mDoesPrincipalExist == true) {
+                    $('#txtPrincipalCode').closest('div').removeClass('has-success');
+                    $('#txtPrincipalCode').closest('div').addClass('has-error');
+                    $('#btnSavePrincipal').attr('disabled', 'disabled');
+                }
+                else {
+                    $('#txtPrincipalCode').closest('div').removeClass('has-error');
+                    $('#txtPrincipalCode').closest('div').addClass('has-success');
+                    $('#btnSavePrincipal').removeAttr('disabled');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function DoesPrefixExist() {
+        var parameters = JSON.stringify({
+            principalPrefix: $('#txtPrincipalPrefix').val()
+        });
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DoesPrefixExist", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                // has-error
+                // has-success
+                mDoesPrefixExist = response.Result;
+
+                if (mDoesPrefixExist == true) {
+                    $('#txtPrincipalPrefix').closest('div').removeClass('has-success');
+                    $('#txtPrincipalPrefix').closest('div').addClass('has-error');
+                    $('#btnSavePrincipal').attr('disabled', 'disabled');
+                }
+                else {
+                    $('#txtPrincipalPrefix').closest('div').removeClass('has-error');
+                    $('#txtPrincipalPrefix').closest('div').addClass('has-success');
+                    $('#btnSavePrincipal').removeAttr('disabled');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function SavePrincipal() {
+
+        $('#btnSavePrincipal').attr('disabled', 'disabled');
+        var parameters = JSON.stringify({
+            principalCode: $('#txtPrincipalCode').val(),
+            principalName: $('#txtPrincipalName').val(),
+            customerGroupId: $('#hiddenCustomerGroupID').val(),
+            principalPrefix: $('#txtPrincipalPrefix').val(),
+            FileDelimiter: $('#txtPrincipalFileDelimiter').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SavePrincipal", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+
+
+                    var principalID = response.PrincipalID;
+
+                    if (principalID > 0) {
+                        swal(result);
+
+                        // Reset DataTables
+                        ResetDataTable();
+
+                        $('#modalAddNew').modal('hide');
+                    }
+                    else {
+                        swal("Unable to determine new PrincipalID.","", "error");
+                        //$('#btnSave').removeAttr('disabled');
+                        $('#modalAddNew').modal('hide');
+                    }
+                }
+                else {
+                    swal(result);
+                    $('#btnSavePrincipal').removeAttr('disabled', 'disabled');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function ConfigurePrincipalSaveValidation() {
+        thisValidatedForm = $("#formAddNewPrincipal").validate({
+            onsubmit: true,
+            ignore:":hidden:Not(.IncludeHidden)", // find hidden field by class
+            rules: {
+                txtCustomerGroup: {
+                    required: true
+                },
+                hiddenCustomerGroupID: {
+                    required: true
+                },
+                txtPrincipalCode: {
+                    required: true,
+                    minlength: 4
+                },
+                txtPrincipalName: {
+                    required: true,
+                    minlength: 4
+                },
+                txtPrincipalPrefix: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 2
+                }
+            },
+            messages: {
+                txtCustomerGroup: {
+                    required: "Please select a customer group"
+                },
+                hiddenCustomerGroupID: {
+                    required: "Please select a customer group"
+                },
+                txtPrincipalCode: {
+                    required: "Please enter a valid principal code",
+                    minlength: "The principal code must consist of at least 4 characters"
+                },
+                txtPrincipalName: {
+                    required: "Please enter a valid principal name",
+                    minlength: "The principal name must consist of at least 4 characters"
+                },
+                txtPrincipalPrefix: {
+                    required: "Please enter a valid principal prefix",
+                    minlength: "The principal prefix must consist of at least 2 characters",
+                    maxlength: "The principal prefix cannot be longer than 2 characters"
+                }
+            }
+        });
+    }
+    function IsPrincipalSaveValid() {
+        var isFormValid = $("#formAddNewPrincipal").valid();
+
+        //if (isFormValid == true && mDoesPrincipalExist == false) {
+        //    $('#btnSavePrincipal').removeAttr('disabled');
+        //}
+        //else {
+        //    $('#btnSavePrincipal').attr('disabled', 'disabled');
+        //}
+
+        return isFormValid;
+    }
+
+    function GetLinkedBilledTo(principalId) {
+        var parameters = JSON.stringify({
+            principalId: principalId
+        });
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetLinkedBilledTo_by_PrincipalID", "MasterData")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+                    if (response.RecordCount > 0) {
+                        OnSuccess_GetLinkedBilledTo(response.Data);
+                    }
+                    else {
+                        $('#divLinkedRecords').html('No data');
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+    function OnSuccess_GetLinkedBilledTo(d) {
+        $('#divLinkedRecords').html('');
+
+        $('#divLinkedRecords').append('<table></table>');
+        var $table = $('#divLinkedRecords').children();
+
+        $table.attr('class', 'table table-striped table-bordered table-hover');
+
+        $table.append($("<tr/>")
+            .append($("<th/>").text('BilledTo:'))
+            .append($("<th/>").text('Customer Name:'))
+            );
+
+        $.each(d, function (index, value) {
+            $table.append($("<tr/>")
+                .append($("<td/>").text(value.BilledTo))
+                .append($("<td/>").text(value.CustomerName))
+            );
+        });
+    }
+
+    function SaveLinkedBilledTo() {
+
+        var parameters = JSON.stringify({
+            principalId: $('#hiddenPrincipalID').val(),
+            billedTo: $('#txtBilledTo').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SaveLinkedBilledTo", "MasterData")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+
+                    var recordId = response.RecordID;
+
+                    if (recordId > 0) {
+                        swal(result);
+                    }
+                    else {
+                        swal("Unable to create new linked record","", "error");
+                    }
+                }
+                else {
+                    swal(result);                    
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        }).always(function () {
+            $('#divLinkedRecords').html('');
+            $('#modalLinkBilledTo').modal('hide');
+        });
+    }
+</script>

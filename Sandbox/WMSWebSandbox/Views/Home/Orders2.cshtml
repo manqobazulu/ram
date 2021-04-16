@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="page-header">Orders</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div id="divProductList"></div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div id="result"></div>
+
+<style>
+    .numeric {
+    }
+    .acProdCode {
+    }
+    .acEANCode {
+    }
+    .acShortDesc {
+    }
+    .acLongDesc {
+    }
+</style>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<script src="~/Scripts/jsViews/jsviews.min.js"></script>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+
+    var template = $.templates("#theTmpl");
+
+    var data = [
+        {
+            name: "Adriana"
+        },
+        {
+            name: "Roberthhh"
+        }
+    ];
+
+    var counter = 1;
+
+    template.link("#result", { people: data });
+
+    //$("#addBtn").on("click", function () {
+    //    $.observable(people).insert({ name: "name" + counter++ });
+    //})
+
+    //$("#result")
+    //  .on("click", ".change", function () {
+    //      var dataItem = $.view(this).data;
+    //      $.observable(dataItem).setProperty("name", dataItem.name + "*");
+    //  })
+    //  .on("click", ".remove", function () {
+    //      var index = $.view(this).index;
+    //      $.observable(people).remove(index);
+    //  });
+
+</script>
+
+<script id="theTmpl" type="text/x-jsrender">
+    <tr>
+        <td>
+            <button id="addBtn">Add</button>
+        </td>
+    </tr>
+    {^{for people}}
+    <tr>
+        <td>
+            <button class="change">Change</button>
+            <button class="remove">X</button>
+            {^{:name}}
+        </td>
+    </tr>
+    {{/for}}
+</script>
+
+
+
+
+@*https://www.simple-talk.com/dotnet/.net-framework/-client-side-markup-with-jquery-cloning-and-templates/*@
+@*https://github.com/BorisMoore/jsrender*@
+@*http://www.jsviews.com/#jsviews*@
+@*http://www.jsviews.com/#download*@

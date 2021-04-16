@@ -1,0 +1,30 @@
+2020-09-09 13:46:25,402 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatched(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 883
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatched(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 423
+ClientConnectionId:4cc72aba-3986-4b82-9582-82a33fdd3ddc
+Error Number:-2,State:0,Class:11
+2020-09-09 13:49:25,138 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatchedSerials(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 906
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatchedSerials(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 466
+ClientConnectionId:4cc72aba-3986-4b82-9582-82a33fdd3ddc
+Error Number:-2,State:0,Class:11
+2020-09-09 13:50:18,958 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatchedSerials(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 906
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatchedSerials(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 466
+ClientConnectionId:4cc72aba-3986-4b82-9582-82a33fdd3ddc
+Error Number:-2,State:0,Class:11
+2020-09-09 19:16:06,229 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatchedSerials(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 906
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatchedSerials(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 466
+ClientConnectionId:3e98fc17-49a9-46a5-bbd2-1d5d2c782436
+Error Number:-2,State:0,Class:11
+2020-09-09 19:16:45,919 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatchedSerials(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 906
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatchedSerials(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 466
+ClientConnectionId:3e98fc17-49a9-46a5-bbd2-1d5d2c782436
+Error Number:-2,State:0,Class:11

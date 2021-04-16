@@ -1,0 +1,104 @@
+﻿@using WMSCustomerPortal.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "";
+}
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Signin - RAM WMS Portal</title>
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+
+    <!-- Font Awesome Icons -->
+    @*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/theme/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+    <link href="~/theme/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery UI -->
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- Sweet Alert Script -->
+    <script src="~/plugins/sweetalert/sweetalert.min.js"></script>
+
+</head>
+
+<body class="login-page">
+
+    <div class="login-box">
+        <div class="login-logo" style="white-space:nowrap;">
+            RAM WMS Portal
+        </div><!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post)) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
+                <fieldset>
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(m => m.Email, new { id = "inputEmail", @class = "form-control", @placeholder = "EmailAddress" })
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                    <div class="form-group has-feedback">
+                        @Html.PasswordFor(m => m.Password, new { id = "inputPassword", @class = "form-control", @placeholder = "Password" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+
+                </fieldset>
+            }
+
+        </div><!-- /.login-box-body -->
+    </div>
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+        $(function () {
+
+            $('#inputPassword').keypress(function (e) {
+                var s = String.fromCharCode(e.which);
+                if (s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) {
+                    alert('Caps Lock is on');
+                    //$('#inputPassword').val("");
+                }
+            });
+
+            $('#inputEmail').keypress(function (e) {
+                var s = String.fromCharCode(e.which);
+                if (s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) {
+                    alert('Caps Lock is on');
+                    $('#inputEmail').val("");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

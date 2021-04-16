@@ -1,0 +1,24 @@
+2020-10-27 14:48:51,021 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 545
+ClientConnectionId:1f3582a1-5acf-4395-ac75-5229fa1c0920
+Error Number:-2,State:0,Class:11
+2020-10-27 16:19:20,423 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 545
+ClientConnectionId:b082d2be-49f7-4e3a-a303-5500ba72a33a
+Error Number:-2,State:0,Class:11
+2020-10-27 16:20:03,397 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetReturns(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 657
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetReturns(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 589
+ClientConnectionId:b082d2be-49f7-4e3a-a303-5500ba72a33a
+Error Number:-2,State:0,Class:11
+2020-10-27 16:21:26,368 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 631
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 545
+ClientConnectionId:b082d2be-49f7-4e3a-a303-5500ba72a33a
+Error Number:-2,State:0,Class:11

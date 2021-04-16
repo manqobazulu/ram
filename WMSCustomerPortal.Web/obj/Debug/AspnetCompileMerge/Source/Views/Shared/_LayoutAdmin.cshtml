@@ -1,0 +1,685 @@
+﻿@using System.Web.Mvc
+@using WMSCustomerPortal.Models.Entities
+
+
+@{
+
+    //string[] allowedPermissions = ViewBag.AllowedPermissions;
+    var allowedPermissions = TempData["allowedPermissions"] as string[];
+    TempData.Keep();
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - RAM WMS Portal</title>
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <!-- Bootstrap 3.3.4 -->
+
+    @*<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    @*<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/theme/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Ionicons -->
+    @*<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/theme/css/ionicons.min.css" rel="stylesheet" />
+
+    <!-- Theme style -->
+    <link href="~/theme/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect.
+    -->
+    <link href="~/theme/css/skins/skin-red-RAM.css" rel="stylesheet" type="text/css" />
+    <link href="~/theme/css/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+
+    <link href="~/plugins/bootstrap-dialog/bootstrap-dialog.min.css" rel="stylesheet" />
+
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Sweet Alert Styles -->
+    <link href="~/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+    @*<link rel="stylesheet" type="text/css" href="~/plugins/sweetalert/facebook/facebook.css">*@
+    <link rel="stylesheet" type="text/css" href="~/plugins/sweetalert/google/google.css">
+    @*<link rel="stylesheet" type="text/css" href="~/plugins/sweetalert/twitter/twitter.css">*@
+
+</head>
+
+<body class="skin-red sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b></b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">WMS Customer Portal</span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        <li>
+                            <div class="panel-heading" style="height:30px">
+                                <button id="btnRefresh" class="form-control">REFRESH</button>
+                            </div>
+                        </li>
+
+                        <li>
+                            @*<label>Selected Principal</label>*@
+                            <div class="panel-heading" style="height:30px" title="Selected Principal">
+                                <input disabled class="form-control" placeholder="Selected Principal" id="txtSelectedPrincipal" name="txtSelectedPrincipal" value="@ViewBag.selectedPrincipal" title="Selected Principal">
+                            </div>
+                        </li>
+
+                        <li>
+                            @*<label>Available Principals</label>*@
+                            <div class="panel-heading" style="height:30px" title="Available Principals">
+                                <select class="form-control" name="type" id="PrincipalSelect" title="Available Principals"></select>
+                            </div>
+
+                        </li>
+
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <!-- The user image in the navbar-->
+                                <img src="~/Content/images/person.png" class="user-image" alt="User Image" />
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">@User.Identity.Name</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="~/Content/images/person.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        @User.Identity.Name
+                                    </p>
+                                </li>
+
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="@Url.Action("LogOff", "Account")" class="btn btn-default btn-flat">Log off</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel">
+                    @*<div class="pull-left image">
+                    <img src="~/content/images/person.png" class="img-circle" alt="User Image" />
+                </div>*@
+                </div>
+
+                <!-- search form (Optional) -->
+                <form action="#" method="get" class="sidebar-form" style="display:none;">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search..." />
+                        <span class="input-group-btn">
+                            <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+                <ul id="accordion" class="sidebar-menu">
+
+                    <li class="header">MAIN NAVIGATION</li>
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Account) > -1)
+                    {
+                        <li>
+
+                            <a href="#"><i class="fa fa-share"></i> <span>Account</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.Users) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("UsersAdmin", "UsersAdmin")"><i class="fa fa-circle-o"></i>Users</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.Groups) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("GroupsAdmin", "GroupsAdmin")"><i class="fa fa-circle-o"></i>Groups</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.PrincipalGroups) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("PrincipalGroupAdmin", "GroupsAdmin")"><i class="fa fa-circle-o"></i>Principal Groups</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.Roles) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("RolesAdmin", "RolesAdmin")"><i class="fa fa-circle-o"></i>Roles</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+                    }
+                    @if (Array.IndexOf(allowedPermissions, Permissions.MasterRecords) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Master Records</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.PrincipalMain) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("PrincipalMain", "MasterData")"><i class="fa fa-circle-o"></i>Principals Main</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.CustomerMain) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("CustomerMain", "MasterData")"><i class="fa fa-circle-o"></i>Customers Main</a>
+                                    </li>
+                                }
+
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ProductMain) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ProductMain", "MasterData")"><i class="fa fa-circle-o"></i>Products Main</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+
+                    }
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Receiving) > -1)
+                    {
+
+                        <li id="liReceiving">
+                            <a href="#"><i class="fa fa-share"></i> <span>Receiving</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ReceivingMain) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("InboundList", "Inbound")"><i class="fa fa-circle-o"></i>Receiving Main</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ReceivingAdd) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("InboundAddNew", "Inbound")"><i class="fa fa-circle-o"></i>Receiving Add</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.AddReturn) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("AddReturn", "Inbound")"><i class="fa fa-circle-o"></i>Add Return</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+
+                    }
+
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Outbound) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Outbound</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.OutboundMain) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("OutboundMain", "Outbound")"><i class="fa fa-circle-o"></i>Outbound Main</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.OutboundSingleReceiver) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("SingleReceiver", "Outbound")"><i class="fa fa-circle-o"></i>Outbound Single Receiver</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.OutboundMultipleReceiver) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("OutboundMultipleReceiver", "Outbound")"><i class="fa fa-circle-o"></i>Outbound Multiple Receiver</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+
+                    }
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Warehouse) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Warehouse</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.NewReceipt) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("WarehouseList", "Warehouse")"><i class="fa fa-circle-o"></i>New Receipt</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ReturnReceipt) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ReturnReceipt", "Warehouse")"><i class="fa fa-circle-o"></i>Return Receipt</a>
+                                    </li>
+                                }
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ReturnReceipt) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("ReturnIGD", "Warehouse")"><i class="fa fa-circle-o"></i>Return IGD</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+                        </li>
+
+                    }
+
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Reporting) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Reports</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.StockOnHandReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("StockOnHand", "Reports")"><i class="fa fa-circle-o"></i>Stock On Hand</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.ReceivingReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Receiving", "Reports")"><i class="fa fa-circle-o"></i>Receiving</a>
+                                    </li>
+                                }
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.DispatchReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Dispatched", "Reports")"><i class="fa fa-circle-o"></i>Dispatch</a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </li>
+
+                    }
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Inventory) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Inventory</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.StockLevelAdjustmentReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("StockLevelAdjustment", "Inventory")"><i class="fa fa-circle-o"></i>Stock Level Adjustment</a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </li>
+
+                    }
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Inventory) > -1)
+                    {
+
+                        <li>
+                            <a href="#" data-toggle="modal" data-target=".bootstrapmodal"><i class="fa fa-share"></i> <span>Upload File</span> <i class="pull-right"></i></a>
+                        </li>
+
+                    }
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Admin) > -1)
+                    {
+
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Audit</span> <i class="pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.StockLevelAdjustmentReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Audit", "Home")"><i class="fa fa-circle-o"></i>Audit Query</a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </li>
+
+                    }
+
+                    @if (Array.IndexOf(allowedPermissions, Permissions.Settings) > -1)
+                    {
+                        <li>
+                            <a href="#"><i class="fa fa-share"></i> <span>Settings</span> <i class="pull-right"></i></a>
+
+                            <ul class="treeview-menu">
+
+                                @if (Array.IndexOf(allowedPermissions, Permissions.StockLevelAdjustmentReport) > -1)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Parameters", "Home")"><i class="fa fa-circle-o"></i>Parameters</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+
+
+
+
+            </section>
+            
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+
+                <!-- Your Page Content Here -->
+                @RenderBody()
+                <div class="modal fade bootstrapmodal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div data-dismiss="modal" class="close"><span>&times;</span></div>
+                                <div class="modal-title"><a><span>File Upload</span></a></div>
+                                
+                            </div>
+
+                            <div class="modal-body">
+                                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <input class="btn btn-default" type="file" name="file" required />
+                                    <br>
+                                    <br>
+                                    <input class="btn btn-google-plus" data-dismiss="modal" type="reset" value="Cancel" /> <t />
+                                    <input class="btn btn-google-plus" type="submit" value="Confirm" />
+                                
+                                }
+                            </div>
+
+                            <div class="modal-footer">
+                                <p>Please upload a .txt file...</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                Wherever you are we are...
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">RAM Hand-to-Hand Couriers</a>.</strong> All rights reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li>
+                    <a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a>
+                </li>
+                <li class="active">
+                    <a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            @*<div class="tab-content" style="padding: 1px;">
+                    <!-- Home tab content -->
+                    <div class="tab-pane" id="control-sidebar-home-tab">
+                    </div><!-- /.tab-pane -->
+                    <!-- Stats tab content -->
+                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+                    <!-- Settings tab content -->
+                    <div class="tab-pane active" id="control-sidebar-settings-tab">
+                        <form method="post">
+                            <h3 class="control-sidebar-heading" style="padding-left: 10px;">System Administration</h3>
+                        </form>
+                    </div><!-- /.tab-pane -->
+                </div>*@
+        </aside><!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class='control-sidebar-bg'></div>
+    </div><!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/theme/js/app.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Dialog -->
+    <script src="~/plugins/bootstrap-dialog/bootstrap-dialog.min.js"></script>
+
+    <!-- Lock Table header -->
+    <script src="~/plugins/freezeHead/jquery.freezeheader.js"></script>
+
+    <!-- Sweet Alert Script -->
+    <script src="~/plugins/sweetalert/sweetalert.min.js"></script>
+
+    @*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+
+    @*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>*@
+
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+          Both of these plugins are recommended to enhance the
+          user experience. Slimscroll is required when using the
+          fixed layout. -->
+
+    <style>
+        #accordion {
+            list-style: none;
+            padding: 0 0 0 0;
+            /*width: 170px;*/
+        }
+
+            #accordion div {
+                display: block;
+                background-color: #708090;
+                font-weight: bold;
+                margin: 1px;
+                cursor: pointer;
+                padding: 5 5 5 7px;
+                list-style: circle;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }
+
+            #accordion ul {
+                list-style: none;
+                padding: 0 0 0 0;
+            }
+
+            #accordion ul {
+                display: none;
+            }
+
+                #accordion ul li {
+                    font-weight: normal;
+                    cursor: auto;
+                    background-color: #708090;
+                    padding: 0 0 0 7px;
+                }
+
+            #accordion a {
+                text-decoration: none;
+            }
+
+                #accordion a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+
+    <script>
+
+        // Let's add the eventhandler for on changed to the dropdown
+        $(document).ready(function () {
+
+            $("#accordion > li > div").click(function () {
+
+                if (false == $(this).next().is(':visible')) {
+                    $('#accordion ul').slideUp(300);
+                }
+                $(this).next().slideToggle(300);
+            });
+
+            PopulatePrincipalSelect();
+            WireAdditionalActionsLayout();
+        });
+
+
+
+        function WireAdditionalActionsLayout() {
+
+            $('#PrincipalSelect').on('change', function (e) {
+
+                var listVal = $('#PrincipalSelect :selected').text();
+                SetSessionData(listVal);
+            });
+
+            $('#btnRefresh').click(function () {
+                location.reload(true);
+                //window.location.reload();
+            });
+
+        }
+
+        function PopulatePrincipalSelect() {
+
+            var data = [];
+
+            $.ajax({
+                url: '@Url.Action("GetPrincipalList", "Dashboard")',
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+
+
+                success: function (response) {
+                    // alert("in success");
+
+                    $('#PrincipalSelect').empty();
+                    $('#PrincipalSelect').append($('<option>').text("SELECT AN OPTION").attr('value', "").attr('selected', 'selected'));
+                    $.each(response.aaData, function (i, value) {
+                        $('#PrincipalSelect').append($('<option>').text($.trim(response.aaData[i].Text)).attr('value', $.trim(response.aaData[i].Value)));
+                    });
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+
+        }
+
+        function SetSessionData(varprincipalCode) {
+
+            var parameters = JSON.stringify({
+                principalCode: varprincipalCode
+            });
+
+            $.ajax({
+                url: '@Url.Action("GetPrincipalSession", "Dashboard")',
+                datatype: "json",
+                contentType: "application/json",
+                type: "POST",
+                data: parameters,
+                success: function (response) {
+                    var result = response.Result;
+                    var Principal = (result.split(':'))[1];
+                    $("#result").text(response.result);
+                    $("#txtSelectedPrincipal").val(Principal);
+                    //window.location.reload();
+                    location.reload(false);
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,959 @@
+﻿
+@{
+    ViewBag.Title = "Inbound Add Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 id="pageHeader" class="page-header">Inbound Add New</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               
+                
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form role="form" id="frmAddInbound">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                                <div class="form-group">
+                                    <label>Purchase Order Reference</label>
+                                    <input class="form-control" placeholder="Purchase Order Reference" id="txtPORef" name="txtPORef">
+                                    @*<p class="help-block">Example block-level help text here.</p>*@
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Supplier Name</label>
+                                    <input class="form-control" placeholder="Supplier Name" id="txtSupplierName" name="txtSupplierName">
+                                    @*<p class="help-block">Example block-level help text here.</p>*@
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label id="labelName">Purchase Order Date</label>
+                                    <div class='input-group date' id='datetimepickerPODate'>
+                                        <input type='text' placeholder="Purchase Order Date" class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label id="labelName">Expected Delivery Date</label>
+                                    @* <input class="form-control" placeholder="Expected Delivery Date" id="txtExpectedDeliveryDate" name="txtExpectedDeliveryDate">*@
+                                    <div class='input-group date' id='datetimepickerExpectedDeliveryDate'>
+                                        <input type='text' placeholder="Expected Delivery Date" class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group" style="float:right;">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;<button type="button" class="btn btn-primary" id="btnSaveMasterInbound">Save</button>
+                                </div>
+                           
+                        </div>
+                    </div>
+
+                </form>   
+               
+
+            </div>
+            <!-- /.panel-body -->
+       
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                 
+                    <div id="divInboundHOT">
+                        @* Inbound handsontable *@
+                    </div>
+
+
+
+                    @*<div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dataTableInboundMasterLineItemList">
+                            <thead>
+                                <tr>
+                                    <th>InboundMasterLineItemID</th>
+                                    <th>InboundMasterID</th>
+                                    <th>ProductStagingID</th>
+                                    <th>ExpectedQuantity</th>
+                                    <th>ProdCode</th>
+                                    <th>EANCode</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>*@
+
+
+
+                </div>
+                <!-- /.panel-body -->
+                <div class="form-group" style="float:right;">
+                    <button type="button" class="btn btn-primary" id="btnSaveInboundMasterLineItems">Save Line Items</button>
+                </div>
+
+
+            </div>
+            <!-- /.panel -->
+        
+        
+         </div>
+        <!-- /.panel -->
+    
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+
+<div class="modal fade bs-example-modal-lg" id="modalSearchProducts" tabindex="-1" role="dialog" aria-labelledby="myModalSearchProducts" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalSearchProducts">Search For A Product</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="dataTable_wrapper">
+                            <table class="table table-striped table-bordered table-hover" id="dataTableProductsList">
+                                <thead>
+                                    <tr>
+                                        <th>ProductStagingID</th>
+                                        <th>PrincipalID</th>
+                                        <th>ProdCode</th>
+                                        <th>EANCode</th>
+                                        <th>ShortDesc</th>
+                                        <th>LongDesc</th>
+                                        <th></th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="form-group" style="float:right;">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+
+<!-- HandsonTable-->
+
+<script src="~/handsontable-0.15.0-beta6/dist/handsontable.full.js"></script>
+<script src="~/handsontable-0.15.0-beta6/dist/select2-editor.js"></script>
+<link href=" ~/handsontable-0.15.0-beta6/dist/handsontable.full.css" rel="stylesheet">
+
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+@* Hidden values *@
+<input id="hiddenInboundMasterID" type="hidden" value="0" />
+
+<script>
+
+    var oInboundMasterLineItemsTable = null;
+    var oProductsTable = null;
+    var oProdCodeHashTable = null;
+
+    var quantityValidatorRegExp  = /^[1-9][0-9]*$/; //validate for integers larger than zero
+
+
+
+    //<div class="form-group" style="float:right;">
+    //                               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;<button type="button" class="btn btn-primary" id="btnSaveMasterInbound">Save</button>
+    //                           </div>
+
+
+    var actionRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+        var $button = $('  <div class="form-group"><button type="button" class="btn btn-default">XXX</button></div>');
+        $button.html(value)
+        $(td).empty().append($button); //empty is needed because you are rendering to an existing cell
+    };
+
+    //var actionRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+    //    var $button = $('<button>XXX</button>');
+    //    $button.html(value)
+    //    $(td).empty().append($button); //empty is needed because you are rendering to an existing cell
+    //};
+
+    $(document).ready(function () {
+
+
+        InitInboundHOT();
+        GetInboundHOTData(49);
+
+
+
+        $("input.form-control").bestupper(); //forces all inputs to be capitals by using the bestupper plugin
+        //initialize the values of the text boxes
+        ConfigureInboundMasterSaveValidation();  // validation for the inbound master record
+       // ConfigureInboundMasterLineItemSaveValidation(); //validation for the inbound line items
+        WireAdditionalActions(); //onclick events etc
+
+    });
+
+    //Save the line item
+    function SaveMasterInboundLineItem() {
+
+        var inboundMasterLineItem = new Object();
+
+        if (IsInboundMasterLineItemSaveValid() == false) {
+            alert("Form not valid. Please correct errors and save again.");
+            return;
+        }
+
+        var inboundMasterID = $('#txtInboundMasterID').val();
+
+        inboundMasterLineItem.InboundMasterLineItemID = $('#txtInboundMasterLineItemID').val();
+        inboundMasterLineItem.InboundMasterID = $('#txtInboundMasterID').val();
+        inboundMasterLineItem.ProductStagingID = $('#txtProductStagingID').val();
+        inboundMasterLineItem.ExpectedQuantity = $('#txtExpectedQuantity').val();
+
+        // alert("inboundMasterLineItem.ProductStagingID" + $('#txtProductStagingID').val());
+
+        var parameters = JSON.stringify({
+            inboundMasterLineItem: inboundMasterLineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveInboundMasterLineItem", "Inbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+
+                    $('#modalAddNewInboundMasterLineItem').modal('hide');
+
+                    //let's do a refresh
+                    PopulateLineItemsList(inboundMasterID);
+
+                }
+                else {
+                    alert(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+
+            }
+        });
+
+
+
+
+    }
+
+    //deletes a specific inbound line item
+    function DeleteInboundMasterLineItem(dRow) {
+
+        var inboundMasterLineItemID = dRow.InboundMasterLineItemID;
+        var parameters = JSON.stringify({
+            inboundMasterLineItemID: inboundMasterLineItemID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteInboundMasterLineItem", "Inbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+
+                    alert(response.SaveResponse.Details);
+
+                }
+                else {
+                    alert(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+
+            }
+        });
+
+    }
+
+    //saves a inbound master record
+    function SaveInboundMaster() {
+
+        var inboundMaster = new Object();
+        //check to see if the form is valid
+        if (IsInboundMasterSaveValid() == false) {
+            alert("Form not valid. Please correct Errors and save again.");
+            return;
+
+        }
+
+        var hiddenInbound = $('#hiddenInboundMasterID').val();
+
+        inboundMaster.InboundMasterID  = $('#hiddenInboundMasterID').val();
+        inboundMaster.PORef = $('#txtPORef').val();
+        inboundMaster.PODate = $("#datetimepickerPODate").data('datepicker').getFormattedDate('yyyy/mm/dd');
+        inboundMaster.ExpectedDeliveryDateTime = $("#datetimepickerExpectedDeliveryDate").data('datepicker').getFormattedDate('yyyy/mm/dd');
+        inboundMaster.SupplierName = $('#txtSupplierName').val();
+
+        var parameters = JSON.stringify({
+            inboundMaster: inboundMaster
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveInboundMaster", "Inbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                    // var new_inboundMasterID = response.SaveResponse.InboundMasterID;
+                    var new_inboundMasterID = response.InboundMasterID;
+                    //set the hidden value
+                    $('#hiddenInboundMasterID').val(new_inboundMasterID);
+                    //also reload the grid with the line items
+                    PopulateLineItemsList($('#hiddenInboundMasterID').val());
+                }
+                else {
+                    alert(response.SaveResponse.Details);
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus + ": " + errorThrown);
+                //$('#btnSave').attr('disabled', false);
+            }
+        });
+
+
+    }
+
+    function ConfigureEditInboundMasterLineItemsModal(dRow) {
+        //ok ... lets populate the text boxes with the values as we have it
+
+        $('#txtInboundMasterID').val(dRow.InboundMasterID);
+        $('#txtInboundMasterLineItemID').val(dRow.InboundMasterLineItemID);
+        $('#txtProductStagingID').val(dRow.ProductStagingID);
+        $('#txtProductCode').val(dRow.ProdCode);
+        $('#txtEANCode').val(dRow.EANCode);
+        $('#txtExpectedQuantity').val(dRow.ExpectedQuantity);
+
+    }
+
+
+   
+
+    function SaveInboundMasterLineItems()
+    {
+        //first do a validation to check to see if:
+
+        //1. we have a master id
+        //2. rows which do not have an id, set the default values to 0
+       //3. ensure that the prod code and eancode is populated
+
+        // alert("in SaveInboundMasterLineItems ");
+
+        //get an array of all the rows
+        var xcontainer = $("#divInboundHOT").handsontable('getInstance');
+       
+
+        var rowCount = $("#divInboundHOT").handsontable('countRows');
+
+        //loop through the row and do basic validation
+
+        var rw = $("#divInboundHOT").handsontable('getDataAtRow',0);
+        alert("ProdCode" + rw[2]);
+
+
+        var prodStagingID = $("#divInboundHOT").handsontable('getDataAtCell', 1,2);
+        alert("ProdCode" + prodStagingID);
+        //loop through the records to build up the array
+
+        var InboundLineItems = new Array();
+
+        for (i = 0; i < rowCount ; i++) {
+            //
+
+            var rw = $("#divInboundHOT").handsontable('getDataAtRow',i);
+            //alert("ProdCode" + rw[2]);
+            var inboundLineItem;
+            inboundLineItem.ProductStagingID = rw[2];
+            inboundLineItem.ExpectedQuantity = rw[3];
+            
+           
+            inboundLineItem.InboundMasterLineItemID = rw[0];
+            inboundLineItem.InboundMasterID = $('#hiddenInboundMasterID').val();
+
+            InboundLineItems.push(inboundLineItem);
+
+        }
+
+
+
+
+        //var oLineItemsTable = 
+        //oPrincipalsTable.$(".checkSelectedbox:checked").each(function (index, row) {
+
+        //    var rw = oPrincipalsTable.row($(this).parents('tr'));
+
+        //    var principalID = rw.data().PrincipalID;
+        //    rowDataObjects.push(principalID);// this should work, if not try aReturn.push($(row));
+
+        //});
+
+
+
+
+
+    }
+
+
+   
+
+    //configures the inbound masterlineitem validation
+    function ConfigureInboundMasterSaveValidation() {
+        //  alert("in ConfigureInboundMastersaveValidation ");
+
+        thisValidatedForm = $("#frmAddInbound").validate({
+            onsubmit: true,
+            rules: {
+                txtPORef: {
+                    required: true
+
+                },
+                txtSupplierName: {
+                    required: true
+                }
+
+            },
+            messages: {
+                txtPORef: {
+                    required: "Please enter a valid Purchase Order Reference."
+
+                },
+                txtSupplierName: {
+                    required: "Please enter a valid Supplier Name"
+                }
+
+            }
+        });
+        //  alert("after ConfigureInboundMasterSaveValidation ");
+    }
+
+
+    //determines the validity of the inbound master data
+    function IsInboundMasterSaveValid() {
+
+        var isFormValid = $('#frmAddInbound').valid();
+        return isFormValid;
+    }
+
+  
+
+    //populates the inbound master data grid
+    function PopulateProductsList() {
+
+        if (oProductsTable != null) {
+            oProductsTable.destroy();
+        }
+
+
+        oProductsTable = $('#dataTableProductsList').DataTable({
+            "order": [[4, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetProductList", "MasterData")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "formdata", "value": "" });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "ProductStagingID",
+                                "visible": false
+                            },
+                            {
+                                "data": "PrincipalID",
+                                "visible": false
+                            },
+                            { "data": "ProdCode" },
+                            { "data": "EANCode" },
+                            { "data": "ShortDesc" },
+                            { "data": "LongDesc" },
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button selectitem class='btn btn-primary btn-xs'>Select Product</button>"
+                            }
+
+
+            ]
+        });
+
+
+
+        $('#dataTableProductsList tbody').on('click', 'button[selectitem]', function () {
+
+            var row = oProductsTable.row($(this).parents('tr'));
+
+            //populate the value of the line items dialog
+            LineItemProductPopulate(row.data());
+
+        });
+
+
+
+    }
+
+    var buttonRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+        Handsontable.renderers.TextRenderer.apply(this, arguments);
+        var $td = $(td);
+       
+        var rowData = instance.getDataAtRow(row);
+       // alert("row in renderer: " + row);
+        $td.html('<button class="btn btn-default btn-xs lookupBtn" data-rowIndex="' + row + '" >Lookup</button>');
+
+    }
+
+    function InitInboundHOT() {
+
+        var xcontainer = $("#divInboundHOT");
+
+        xcontainer.handsontable({
+            data: [],
+            rowHeaders: true,
+            colHeaders: [
+                        "InboundMasterLineItemID",
+                        "InboundMasterID",
+                        "ProductStagingID",
+                        "ExpectedQuantity",
+                        "ProdCode",
+                        "EANCodexxx",
+                        "AutoCompleteTest",
+                        "ButtonTest"
+                       
+            ],
+            columns: [
+                        
+                         {
+                             "data": "InboundMasterLineItemID",
+                             "readOnly": true,
+                             "width" : 1 //to make it hidden
+                            
+                             
+                         },
+                         {
+                             "data": "InboundMasterID",
+                             "readOnly": true,
+                             "width": 1 //to make it hidden
+
+                         },
+                         {
+                             "data": "ProductStagingID",
+                             "readOnly": true
+
+                         },
+                         {
+                             "data": "ExpectedQuantity",
+                             "validator": quantityValidatorRegExp
+
+                         },
+                         { "data": "ProdCode" },
+                         { "data": "EANCode" },
+                         
+                 
+                         { //we will add the autocomplete here
+                             "type": "autocomplete",
+                             "strict": "false",
+                             "field1": 4,
+                             "field2": 3,
+                             "source": function (query, process) {
+                                 $.ajax({
+                                     url: '@Url.Action("ProductCode_LookupList", "MasterData")',
+                                     datatype: 'json',
+                                     data: {
+                                         startsWith: query
+                                     },
+                                     success: function (response) {
+                                         // alert("RowIndex" + this[RowIndex]);
+
+                                        
+                                         process(response);
+
+                                        
+                                     }
+                                 });
+
+
+                             }
+                         },
+
+                         {
+                             //button renderer
+                             "data": "action",
+                             "renderer": buttonRenderer,//actionRenderer,
+                             "readOnly": false
+                            
+                         }
+
+
+                             
+                             
+                            
+                             //{
+                             //    //lets render a button here
+                             //    "data": "<button  >Cancel</button>",
+                             //    "renderer": 'html',
+                             //    "width": 200
+
+                             //},
+                             //{
+
+                             //    type: 'autocomplete',
+                             //    source: ["Prod1", "Prod2", "Prod3", "Prod4", "Prod5", "Prod6"],
+                             //    strict: true
+                             //}
+                         //}
+                        
+                        
+                       
+
+            ],
+
+
+
+            contextMenu: true,
+            columnSorting: true,
+            minSpareCols: 0,
+            minSpareRows: 1,
+            multiSelect: false,
+
+            //afterSelect: function(changes, source){
+            //    //lets handle any after change interactions
+            //    return; // we are just shortcutting
+
+            //    if (changes === null) {
+            //        return;
+
+            //    }
+
+            //    if (source === 'loadData')
+            //    {
+            //        return; //we dont want this event
+
+            //    }
+
+            //    changes.forEach(function (change) {
+            //        var row = change[0];
+            //        alert("row:" + row);
+            //        var column = change[1];
+            //        alert("column:" +column)
+            //    });
+
+
+            //},
+
+            afterRender: function(){
+
+
+            },
+            
+            afterSelect: function (changes, source) {
+
+
+                alert("after selection column: " + changes[0]);
+
+            },
+
+            afterChange: function(changes, source){
+                //lets handle any after change interactions
+
+               // alert("changes" + changes);
+               // alert("source" + source);
+                if (source === 'loadData') {
+                    return; //we dont want this event
+
+                }
+
+              
+                //if (source === "edit" && changes.length == 1) {
+                //    alert("we are in edit");
+
+                //changes.forEach(function (change) {
+                //    var row = change[0];
+                //    alert("row:" + row);
+                //    var column = change[1];
+                //    alert("column:" +column)
+                //});
+                //}
+
+            } //after change
+
+        });
+
+      
+
+        //adds the callback hooks
+        //hot.addHook('afterSelection', function (row, column) {
+        //    var current_td = this.getCell(row, column);
+
+        //    alert("after selection column: " + column);
+        //    if (column != "action") {
+        //        return;
+        //     }
+
+
+
+        //});
+
+    }
+
+    function GetInboundHOTData(inboundMasterID) {
+
+       // alert(inboundMasterID);
+
+        if (inboundMasterID === 0)
+        {
+            //we dont have any valid data yet
+            return;
+        }
+
+      
+      
+     
+
+        var parametersx = JSON.stringify({
+            inboundMasterID: inboundMasterID
+        });
+
+        //return a json array with the data
+        //do an ajax data call
+        $.ajax({ //loads data to Handsontable
+
+           url: '@Url.Action("GetInboundLineItemList", "Inbound")',
+          
+            dataType: 'json',
+            data: { "filter": inboundMasterID },
+            contentType: 'application/json; charset=utf-8',
+            type: 'GET',
+            success: function (res) {
+                $("#divInboundHOT").handsontable("loadData", res.aaData);
+            }
+        });
+
+    }
+
+    // END XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  HANDSONTABLE XXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+
+
+    function PopulateLineItemsList(inboundMasterID) {
+        //check to see if it exsts and kill it
+        if (oInboundMasterLineItemsTable != null) {
+            oInboundMasterLineItemsTable.destroy();
+        }
+
+        oInboundMasterLineItemsTable = $('#dataTableInboundMasterLineItemList').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetInboundLineItemList", "Inbound")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": inboundMasterID });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "InboundMasterLineItemID",
+                                "visible": false
+                            },
+                            {
+                                "data": "InboundMasterID",
+                                "visible": false
+                            },
+                            {
+                                "data": "ProductStagingID",
+                                "visible": false
+                            },
+                            { "data": "ExpectedQuantity" },
+                            { "data": "ProdCode" },
+                            { "data": "EANCode" },
+                            {
+                                "targets": -1,
+                                "data": null,
+                                // "defaultContent": "<button edititem class='btn btn-primary btn-xs'>View Line Item</button><button deleteitem class='btn btn-primary btn-xs'>Delete</button>"
+                                "defaultContent": "<button deleteitem class='btn btn-primary btn-xs'>Delete</button>"
+                            }
+            ]
+        });
+
+
+        $('#dataTableInboundMasterLineItemList tbody').on('click', 'tr', function () {
+            //$('#dataTableInboundMasterLineItemList tbody').on('click', 'button[edititem]', function () {
+            //  var row = oInboundMasterLineItemsTable.row($(this).parents('tr'));
+            var tr = $(this).closest('tr');
+            var row = oInboundMasterLineItemsTable.row(tr);
+
+            //configure the add edit modal of the editing of the line items
+
+            alert("on  dataTableInboundMasterLineItemList click");
+            //ConfigureEditInboundMasterLineItemsModal(row.data());
+
+
+            //set the keyboard to not be valid for the parent
+            //$('#modalAddNewInboundMasterLineItem').modal({
+            //    keyboard: false
+            //});
+
+        });
+
+
+        //handle the deleteitem listener
+        $('#dataTableInboundMasterLineItemList tbody').on('click', 'button[deleteitem]', function () {
+
+            alert("on dataTableInboundMasterLineItemList deleteitem  click");
+            var row = oInboundMasterLineItemsTable.row($(this).parents('tr'));
+            DeleteInboundLineItem(row.data());
+
+        });
+
+    }
+
+
+    function LineItemProductPopulate(dRow) {
+        //populate the values in the line item edit modal
+
+        //  alert("in LineItemProductPopulate");
+
+        $('#txtProductStagingID').val(dRow.ProductStagingID);
+        $('#txtProductCode').val(dRow.ProdCode);
+        $('#txtEANCode').val(dRow.EANCode);
+
+
+        $('#modalSearchProducts').modal('hide');
+
+    }
+
+    function WireAdditionalActions() {
+
+        $(".lookupBtn").click( function () {
+            //container.handsontable("selectCell", 0, 4)
+            alert("in button lookup");
+            // container.handsontable("selectCell", 0, 4, 5, 4)
+        });
+
+
+        //init the date picker
+        $('#datetimepickerExpectedDeliveryDate').datepicker({
+            format: "yyyy/mm/dd"
+        });
+
+        //init the date picker
+        $('#datetimepickerPODate').datepicker({
+            format: "yyyy/mm/dd"
+        });
+
+
+        //lets also wire up the click of the search product list
+        //wireup of the search button
+        $('#btnSearchProduct').on('click', function () {
+            // alert("Search product Clicked");
+            //populate the products list
+            PopulateProductsList();
+
+            $('#modalSearchProducts').modal({
+                keyboard: false
+
+            });
+
+        });
+
+
+
+
+        $('#btnSaveInboundMasterLineItems').click(function () {
+           SaveInboundMasterLineItems();
+        });
+
+
+        $('#btnSaveMasterInbound').click(function () {
+            SaveInboundMaster();
+        });
+
+
+    }
+
+</script>
+

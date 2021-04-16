@@ -1,0 +1,140 @@
+2020-09-11 10:29:52,504 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:55b475ec-11cb-4fbe-8ab3-99088eeb20d6
+Error Number:-2,State:0,Class:11
+2020-09-11 10:32:49,243 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:55b475ec-11cb-4fbe-8ab3-99088eeb20d6
+Error Number:-2,State:0,Class:11
+2020-09-11 10:35:49,941 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:55b475ec-11cb-4fbe-8ab3-99088eeb20d6
+Error Number:-2,State:0,Class:11
+2020-09-11 10:36:40,914 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:55b475ec-11cb-4fbe-8ab3-99088eeb20d6
+Error Number:-2,State:0,Class:11
+2020-09-11 13:11:05,689 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+ClientConnectionId:675f8658-cafc-4297-add1-90bb99381b23
+Error Number:-2,State:0,Class:11
+2020-09-11 13:32:28,440 [WarehouseActivity] [ERROR] ReportsController - The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+System.Web.HttpException (0x80004005): The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+   at System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2020-09-11 13:36:08,507 [WarehouseActivity] [ERROR] ReportsController - The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+System.Web.HttpException (0x80004005): The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+   at System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2020-09-11 13:38:18,915 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+System.Data.SqlTypes.SqlTypeException: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+   at WMSCustomerPortal.Models.Entities.InboundMaster.GetInbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\InboundMaster.cs:line 627
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetInbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 514
+2020-09-11 14:00:24,122 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:9047f791-3bfd-47b1-8d20-015d6f6ef910
+Error Number:-2,State:0,Class:11
+2020-09-11 14:01:19,169 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:6925b1b9-d261-4f7b-a42f-c050139950b6
+Error Number:-2,State:0,Class:11
+2020-09-11 14:05:37,769 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:151cbb6f-8ebc-4849-8849-6e7dc9121290
+Error Number:-2,State:0,Class:11
+2020-09-11 19:53:59,996 [StockAge] [ERROR] ReportsController - The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+System.Web.HttpException (0x80004005): The "RenderBody" method has not been called for layout page "~/Views/Shared/_LayoutAdmin.cshtml".
+   at System.Web.WebPages.WebPageBase.VerifyRenderedBodyOrSections()
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2020-09-11 20:01:06,466 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The network path was not found.)
+System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The network path was not found.) ---> System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:02d44650-74df-4d4d-8565-c934404877c6
+Error Number:53,State:0,Class:20
+2020-09-11 21:04:15,330 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure or function 'usp_RPT_Outbound_Qry' expects parameter '@PrincipalID', which was not supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'usp_RPT_Outbound_Qry' expects parameter '@PrincipalID', which was not supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 624
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:6ba7fd23-7168-4213-87b4-3a7843412653
+Error Number:201,State:4,Class:16
+2020-09-11 21:19:40,490 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 621
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:805bea7f-5685-415b-bc58-a0c701a26985
+Error Number:8146,State:1,Class:16
+2020-09-11 21:21:22,706 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure usp_RPT_Outbound_Qry has no parameters and arguments were supplied.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 621
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559
+ClientConnectionId:805bea7f-5685-415b-bc58-a0c701a26985
+Error Number:8146,State:2,Class:16
+2020-09-11 21:22:31,385 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Cannot find table 1.
+System.IndexOutOfRangeException: Cannot find table 1.
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 621
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 559

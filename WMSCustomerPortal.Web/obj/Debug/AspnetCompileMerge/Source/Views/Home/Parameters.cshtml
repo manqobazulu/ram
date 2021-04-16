@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "Parameters";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Parameters</h3>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div style="float:right;">
+            @*<button type="button" id="btnAddNewIGD" class="btn btn-primary" data-dismiss="modal">+ IGD</button>*@
+        </div>
+
+        @* <div id="divIGDItemList"></div>*@
+        <div class="dataTable_wrapper" style="overflow:scroll;">
+            <table id="tblIGDLineItems" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Parameter Name</th>
+                        <th>Parameter Description</th>
+                        <th>Parameter Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr id="trLineEntry">
+                        <td><input id="txtParameterName" type="text" class="cellIGDStagingID" disabled style="display:none;" /></td>
+                        <td><input id="txtParameterDescription" type="text" class="cellMoveRef" disabled style="display:none;" /></td>
+                        <td><input id="txtParameterValue" type="text" class="cellSubmittedToWMS" /></td>
+                        @*<td><input id="btnUpdate" type="button" value="Update" /></td>*@
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
+        </div>
+    </div>
+</div>
+@*<div id="loading" class="spinner">
+    </div>
+    <div class="modal-footer">
+        <div class="form-group" style="float:right;">
+            <button type="button" class="btn btn-primary" id="btnSubmitAllWMS">Submit To WMS</button>&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>*@
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+</style>
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+
+@* This page requires 1.10.2 - but we will try 2.1.4 to see if all still works *@
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@*<script src="~/Scripts/jquery-2.1.4.min.js"></script>*@
+
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+<script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+<script>
+    var oReportTable = null;
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        GetLineItems();
+
+
+        //EditableGridPageDefaults();
+        WireAdditionalActions();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[2, "asc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetReturnReceipt();
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+
+    function WireAdditionalActions() {
+
+
+            GetLineItems();
+
+    }
+
+    function GetLineItems() {
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("readParameters", "Home")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                console.log(result.Result);
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblIGDLineItems tbody").empty();
+
+                var json = { 'Records': result.Result};
+                console.log(result.Result[0].ParamDescription);
+
+                $("#tmplIGDLineItems").tmpl(json).appendTo(templateContainer);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function UpdateParameters(name, desc, value) {
+
+        var parameters = JSON.stringify({
+            ParamName: name,
+            ParamDescription: desc,
+            ParamValue: value
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("updateParameters", "Home")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                if (result.Result == 0) {
+                    swal("Updated!","Parameter value changed.", "success");
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:'  + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function EditableGridPageDefaults(increment) {
+
+        $('#btnUpdate').click(function () {
+            //alert($('#txtParameterName_' + increment).val());
+            UpdateParameters($('#txtParameterName_' + increment).val(), $('#txtParameterDescription_' + increment).val(), $('#txtParameterValue_' + increment).val());
+        });
+    }
+
+
+
+</script>
+
+<script id="tmplIGDLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+
+    <tr class="lineItem">
+        @*<td class="cellLineNumber"></td>*@
+        <td><input id="txtParameterName_${i}" type="text" class="cellIGDStagingID" value="${record.ParamName}" disabled /></td>
+        <td><input id="txtParameterDescription_${i}" type="text" class="cellMoveRef" value="${record.ParamDescription}" disabled /></td>
+        <td><input id="txtParameterValue_${i}" type="text" class="cellSubmittedToWMS" value="${record.ParamValue}" /></td>
+        <td></td>
+        ${EditableGridPageDefaults(i)}
+    </tr>
+
+
+
+
+    {{/each}}
+
+
+</script>

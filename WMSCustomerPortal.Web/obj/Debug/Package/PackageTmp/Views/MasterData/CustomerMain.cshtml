@@ -1,0 +1,1992 @@
+﻿@model WMSCustomerPortal.Models.Common.CustomerMainModel
+@{
+    ViewBag.Title = "Principal Customer List";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Principal Customer List</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px;">
+                <div style="float:left;">
+                    <div>
+                        <input type="radio" name="status" value="Active" />
+                        <label>
+                            Show Active
+                        </label>
+                        <input type="radio" name="status" value="Inactive" />
+                        <label>
+                            Show Inactive
+                        </label>
+
+                    </div>
+
+                </div>
+                <div style="float:right;">
+                    <button id="btnAddNew" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add New</button>
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="dataTableReports">
+                        <thead>
+                            <tr>
+                                <th>CustomerID</th>
+                                <th>CustomerName</th>
+                                <th>BillingID</th>
+                                <th>StoreCode</th>
+                                <th>DefaultContactPerson</th>
+                                <th>TelephoneNo</th>
+                                <th>Suburb</th>
+                                <th width="55">isShipper</th>
+                                <th width="55">isActive</th>
+                                <th>EventDate</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Principal Customer List</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <div id="divCustomerList"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="modalAddNew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">Customer Add/Edit</h4>
+            </div>
+
+            <ul class="nav nav-tabs" id="Address">
+                <li class="active">
+                    <a href="#ShippingAddress" data-toggle="tab">Shipping Address</a>
+                </li>
+                <li>
+                    <a href="#BillingAddress" data-toggle="tab">Billing Address</a>
+                </li>
+            </ul>
+
+            <div class="modal-body">
+                <div class="tab-content">
+                    @* The billing and Shipping Address Panels *@
+                    <div class="tab-pane fade in active" id="ShippingAddress">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form" id="formShipping" onsubmit="return false;">
+
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Customer Group</label>
+                                                    <input class="form-control" placeholder="Customer Group" id="txtCustomerGroup" name="txtCustomerGroup" disabled>
+                                                    @*<p class="help-block">Example block-level help text here.</p>*@
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label id="labelName">Company ID</label>
+                                                    <input class="form-control" placeholder="Company ID" id="txtCustomerID" name="txtCustomerID" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="labelName">Customer Name</label>
+                                            <input class="form-control" placeholder="Company Name" id="txtCustomerName" name="txtCustomerName" maxlength="50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Default Contact</label>
+                                            <input class="form-control" placeholder="Default Contact" id="txtDefaultContact" name="txtDefaultContact" maxlength="50">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Tel No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Telephone No" id="txtTelephone" name="txtTelephone">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Cell No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Cell No" id="txtCellNo" name="txtCellNo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Fax No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Fax No" id="txtFaxNo" name="txtFaxNo">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>StoreCode</label>
+                                                    <input class="form-control" placeholder="StoreCode" id="txtStoreCode" name="txtStoreCode" maxlength="20">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" placeholder="Email Address" id="txtEmail" name="txtEmail" maxlength="50">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Street Address 1</label>
+                                            <input class="form-control" placeholder="Street Address 1" id="txtStreetAddress1" name="txtStreetAddress1" maxlength="50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Street Address 2</label>
+                                            <input class="form-control" placeholder="Street Address 2" id="txtStreetAddress2" name="txtStreetAddress2" maxlength="50">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Suburb</label>
+                                                    <input class="form-control" placeholder="Suburb" id="txtSuburb" name="txtSuburb">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Area</label>
+                                                    <input class="form-control" placeholder="Area" id="txtArea" name="txtArea" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Postal Code</label>
+                                                    <input class="form-control" placeholder="Postal Code" id="txtPostalCode" name="txtPostalCode" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>HubID</label>
+                                                    <input class="form-control" placeholder="HubID" id="txtHubID" name="txtHubID" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>International</label>
+                                                    <input class="form-control" placeholder="International" id="txtInternational" name="txtInternational" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 col-md-push-9">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;
+                                <button type="button" class="btn btn-primary" id="btnSaveCustomer">Save</button>
+                                <button type="button" class="btn btn-primary" id="btnUpdateCustomer">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @* The billing and Shipping Address Panels *@
+                    <div class="tab-pane fade in" id="BillingAddress">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form" id="formBilling" onsubmit="return false;">
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Customer Group</label>
+                                                    <input class="form-control" placeholder="Customer Group" id="txtCustomerGroupBilling" name="txtCustomerGroupBilling" disabled>
+                                                    @*<p class="help-block">Example block-level help text here.</p>*@
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label id="labelName">Company ID</label>
+                                                    <input class="form-control" placeholder="Company ID" id="txtCustomerIDBilling" name="txtCustomerIDBilling" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label id="labelName">Customer Name</label>
+                                            <input class="form-control" placeholder="Company Name" id="txtCustomerNameBilling" name="txtCustomerNameBilling" maxlength="50">
+                                            <p id="pCustomer" class="help-block">Search for CustomerID/Customer Name</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Default Contact</label>
+                                            <input class="form-control" placeholder="Default Contact" id="txtDefaultContactBilling" name="txtDefaultContactBilling" maxlength="50">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Tel No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Telephone No" id="txtTelephoneBilling" name="txtTelephoneBilling">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Cell No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Cell No" id="txtCellNoBilling" name="txtCellNoBilling">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Fax No</label>
+                                                    <input class="form-control ContactNumbers" placeholder="Fax No" id="txtFaxNoBilling" name="txtFaxNoBilling">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>StoreCode</label>
+                                                    <input class="form-control" placeholder="StoreCode" id="txtStoreCodeBilling" name="txtStoreCodeBilling" maxlength="20">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" placeholder="Email Address" id="txtEmailBilling" name="txtEmailBilling" maxlength="50">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Street Address 1</label>
+                                            <input class="form-control" placeholder="Street Address 1" id="txtStreetAddress1Billing" name="txtStreetAddress1Billing" maxlength="50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Street Address 2</label>
+                                            <input class="form-control" placeholder="Street Address 2" id="txtStreetAddress2Billing" name="txtStreetAddress2Billing" maxlength="50">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Suburb</label>
+                                                    <input class="form-control" placeholder="Suburb" id="txtSuburbBilling" name="txtSuburbBilling">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Area</label>
+                                                    <input class="form-control" placeholder="Area" id="txtAreaBilling" name="txtAreaBilling" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Postal Code</label>
+                                                    <input class="form-control" placeholder="Postal Code" id="txtPostalCodeBilling" name="txtPostalCodeBilling" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>HubID</label>
+                                                    <input class="form-control" placeholder="HubID" id="txtHubIDBilling" name="txtHubIDBilling" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label>International</label>
+                                                    <input class="form-control" placeholder="International" id="txtInternationalBilling" name="txtInternationalBilling" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="loading" class="spinner">
+                        </div>
+
+                        <div class="col-md-12 col-md-push-9">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;
+                                <button type="button" class="btn btn-primary" id="btnSaveBillingCustomer">Save Billing</button>
+                                <button type="button" class="btn btn-primary" id="btnUpdateBillingCustomer" disabled>Save Billing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div style="float:left">
+                            <label>
+                                Billing Address The Same as Shipping Address
+                                <input type="checkbox" id="chkBilltoShip" name="chkBilltoShip" checked="checked">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div id="divSuburbDetails" style="z-index: 3; position: absolute; top: 10px; left: 10px;
+                            opacity: 1; filter: alpha(opacity=100); -moz-opacity: 1; text-decoration: none;
+                            display: none" class="autocomplete_highlightedListItem">
+    Some text here
+</div>
+
+<input type="hidden" id="hiddenBillingZoneID" />
+<input type="hidden" id="hiddenZoneID" />
+<input type="hidden" id="hiddenCustomerGroupID" />
+<input type="hidden" id="hiddenAction" value="" />
+<input type="hidden" id="hiddenCustomerID" value="" />
+
+@Html.EditorFor(x => x.PrincipalID)
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+
+    .ContactNumbers {
+    }
+</style>
+
+
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+
+    var oReportTable = null;
+    var thisValidatedForm = null;
+    var thisValidatedBillingForm = null;
+    var mPrincipalID = 0;
+    var ShippingCustomerID = null;
+    var showActive = null;
+    var BillingCustomerID = null;
+    var CheckBilling = false;
+
+    $(document).ready(function () {
+
+        if (location.hash.indexOf('reloaded') === -1) {
+            location.hash += 'reloaded';
+            location.reload();
+        }
+
+        $(".ContactNumbers").mask("999 999 9999");
+
+        $("input.form-control").bestupper();
+
+        mPrincipalID = $('#PrincipalID').val();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        ConfigureCustomerSaveValidation();
+
+        ConfigureCustomerBillingSaveValidation();
+
+        GetCustomers(true);
+
+        WireAdditionalActions();
+
+        chkBilling();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[8, "asc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetCustomers(true);
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function GetCustomers(showActive) {
+
+        if (oReportTable != null) {
+            oReportTable.destroy();
+        }
+
+        oReportTable = $('#dataTableReports').DataTable({
+            "order": [[8, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            //"cache": false,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetCustomerList", "MasterData")',
+            //"sAjaxSource": "/WMSWeb/MasterData/GetCustomerList",
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                var data = JSON.stringify({
+                    principalId: mPrincipalID,
+                    isActive: showActive
+                });
+
+                parameters.push({ "name": "formData", "value": data });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+
+                    swal(textStatus + ": " + errorThrown);
+
+                    console.log("Error: " + errorThrown);
+                    console.log("responseText: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                         { "data": "CustomerID" },
+                         { "data": "CustomerName" },
+                         { "data": "Expr7" },
+                         { "data": "StoreCode" },
+                         { "data": "DefaultContactPerson" },
+                         { "data": "TelephoneNo" },
+                         { "data": "Suburb" },
+                         { "data": "isShipper" },
+                         { "data": "isActive" },
+                         {
+                             "data": "EventDate",
+                             "visible": false
+                         },
+                         {
+                             "targets": -1,
+                             "data": null,
+                             "defaultContent": "<button edit class='btn btn-primary btn-xs'>Edit</button>"
+                         }
+
+            ],
+            "columnDefs": [
+                {
+                    // The 'data' parameter refers to the data for the cell (defined by the 'data' option, which defaults to the column being worked with, in this case 'data: 0'
+                    "render": function (data, type, row) {
+                        return data == 0 ? '<img src="../Content/images/active_no.gif" alt="" class="centered" />' : '<img src="../Content/images/active_yes.gif" alt="Closed" class="centered" />';
+                    },
+                    "targets": 7
+                },
+                {
+                    // The 'data' parameter refers to the data for the cell (defined by the 'data' option, which defaults to the column being worked with, in this case 'data: 0'
+                    "render": function (data, type, row) {
+                        return data == 0 ? '<img src="../Content/images/active_no.gif" alt="" class="centered" />' : '<img src="../Content/images/active_yes.gif" alt="Closed" class="centered" />';
+                    },
+                    "targets": 8
+                }
+
+            ]
+        });
+    }
+
+    function GetCustomersAlt() {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetCustomerList", "MasterData")',
+            data: "{ filter: '' }",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                $('#divCustomerList').html('');
+
+                var templateContainer = $("div #divCustomerList").empty();
+                var json = { 'Records': result.aaData };
+                $("#tmplCustomers").tmpl(json).appendTo(templateContainer);
+
+                $('#myModal').modal('show');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function WireAdditionalActions() {
+
+        var $radios = $('input:radio[name=status]');
+        if ($radios.is(':checked') === false) {
+            $radios.filter('[value=Active]').prop('checked', true);
+        }
+
+        $('input:radio[name=status]:nth(0)').change(function () {
+            GetCustomers(true)
+        });
+
+        $('input:radio[name=status]:nth(1)').change(function () {
+            GetCustomers(false)
+        });
+
+        $('#dataTableReports tbody').on('click', 'button[edit]', function () {
+            var tr = $(this).closest('tr');
+            var row = oReportTable.row(tr);
+            SelectCustomer(row.data());
+        });
+
+        $('#btnAddNew').click(function (event) {
+            event.preventDefault();
+            $('#chkBilltoShip').removeAttr('disabled', 'disabled');
+            $('#chkBilltoShip').prop('checked', true);
+            $('#txtCustomerName').focus();
+            ConfigureCustomerSaveValidation();
+            ConfigureAddNewModal();
+            BillingSuburbLookup();
+            CustomerNameAutoComplete();
+            $('#btnUpdateBillingCustomer').hide();
+            $('#btnUpdateCustomer').hide();
+            $('#btnSaveBillingCustomer').show();
+            $('#btnSaveCustomer').show();
+            $("#btnSaveBillingCustomer").removeAttr("disabled", "disabled");
+            $("#btnSaveCustomer").removeAttr("disabled", "disabled");
+        });
+
+        $('#modalAddNew').on('hidden.bs.modal', function (e) {
+            e.preventDefault();
+            // Reset modal inputs
+            $('#hiddenAction').val('');
+
+            // Reset Validation
+            thisValidatedForm.resetForm();
+            thisValidatedBillingForm.resetForm();
+        });
+
+        $('#btnUpdateCustomer').click(function (event) {
+            event.preventDefault();
+            if (IsCustomerSaveValid()) {
+                UpdateCustomer();
+            }
+        });
+
+        $('#btnUpdateBillingCustomer').click(function (event) {
+            event.preventDefault();
+            if (IsCustomerSaveBillingValid()) {
+                UpdateBillingCustomer();
+            }
+        });
+
+        $('#btnSaveCustomer').click(function (event) {
+            event.preventDefault();
+            if (IsCustomerSaveValid()) {
+                SaveCustomer();
+            }
+        });
+
+        $('#btnSaveBillingCustomer').click(function (event) {
+            event.preventDefault();
+            if (IsCustomerSaveBillingValid()) {
+                SaveCustomer();
+            }
+        });
+    }
+
+    function SelectCustomer(d) {
+
+        GetBillingDetail(d.Expr7);
+
+        $('#hiddenAction').val('EDIT');
+        $('#pCustomer').show();
+
+        $('#btnUpdateBillingCustomer').show();
+        $('#btnUpdateCustomer').show();
+
+        $('#btnUpdateBillingCustomer').removeAttr("disabled", "disabled");
+        $('#btnUpdateCustomer').removeAttr("disabled", "disabled");
+
+        $('#btnSaveBillingCustomer').hide();
+        $('#btnSaveCustomer').hide();
+
+        var customerId = d.CustomerID;
+
+        // TODO: Get customer info
+        $('#txtCustomerID').val(d.CustomerID);
+        $('#txtCustomerName').val(d.CustomerName);
+        $('#txtStoreCode').val(d.StoreCode);
+        $('#txtDefaultContact').val(d.DefaultContactPerson);
+        $('#txtTelephone').val(d.TelephoneNo);
+        $('#txtSuburb').val(d.Suburb);
+        $('#txtCustomerGroup').val(d.CustomerGroupID);
+        $('#txtCellNo').val(d.CellNo);
+        $('#txtFaxNo').val(d.FaxNo);
+        $('#txtEmail').val(d.EmailAddress);
+        $('#txtStreetAddress1').val(d.StreetAddress1);
+        $('#txtStreetAddress2').val(d.StreetAddress2);
+        $('#txtSuburb').val(d.Suburb);
+        $('#txtArea').val(d.Area);
+        $('#txtPostalCode').val(d.PostalCode);
+        $('#txtHub').val(d.HubID);
+        $('#txtInternational').val(d.International);
+        $('#hiddenZoneID').val(d.ZoneID);
+
+
+        $('#txtCustomerIDBilling').attr("disabled", "disabled");
+        $('#txtCustomerNameBilling').attr("disabled", "disabled");
+        $('#txtStoreCodeBilling').attr("disabled", "disabled");
+        $('#txtDefaultContactBilling').attr("disabled", "disabled");
+        $('#txtTelephoneBilling').attr("disabled", "disabled");
+        $('#txtSuburbBilling').attr("disabled", "disabled");
+        $('#txtCustomerGroupBilling').attr("disabled", "disabled");
+        $('#txtCellNoBilling').attr("disabled", "disabled");
+        $('#txtFaxNoBilling').attr("disabled", "disabled");
+        $('#txtEmailBilling').attr("disabled", "disabled");
+        $('#txtStreetAddress1Billing').attr("disabled", "disabled");
+        $('#txtStreetAddress2Billing').attr("disabled", "disabled");
+        $('#txtSuburbBilling').attr("disabled", "disabled");
+        $('#txtAreaBilling').attr("disabled", "disabled");
+        $('#txtPostalCodeBilling').attr("disabled", "disabled");
+        $('#txtHubBilling').attr("disabled", "disabled");
+        $('#txtInternationalBilling').attr("disabled", "disabled");
+        $('#btnSaveBillingCustomer').attr("disabled", "disabled");
+        $('#btnUpdateBillingCustomer').attr("disabled", "disabled");
+
+        $('#chkBilltoShip').removeAttr("disabled", "disabled");
+        if (d.Expr7 == d.CustomerID) {
+            $('#chkBilltoShip').prop('checked', true);
+
+            $('#txtCustomerIDBilling').attr("disabled", "disabled");
+            $('#txtCustomerNameBilling').attr("disabled", "disabled");
+            $('#txtStoreCodeBilling').attr("disabled", "disabled");
+            $('#txtDefaultContactBilling').attr("disabled", "disabled");
+            $('#txtTelephoneBilling').attr("disabled", "disabled");
+            $('#txtSuburbBilling').attr("disabled", "disabled");
+            $('#txtCustomerGroupBilling').attr("disabled", "disabled");
+            $('#txtCellNoBilling').attr("disabled", "disabled");
+            $('#txtFaxNoBilling').attr("disabled", "disabled");
+            $('#txtEmailBilling').attr("disabled", "disabled");
+            $('#txtStreetAddress1Billing').attr("disabled", "disabled");
+            $('#txtStreetAddress2Billing').attr("disabled", "disabled");
+            $('#txtSuburbBilling').attr("disabled", "disabled");
+            $('#txtAreaBilling').attr("disabled", "disabled");
+            $('#txtPostalCodeBilling').attr("disabled", "disabled");
+            $('#txtHubIDBilling').attr("disabled", "disabled");
+            $('#txtInternationalBilling').attr("disabled", "disabled");
+            $('#btnUpdateBillingCustomer').attr("disabled", "disabled");
+        }
+        else {
+            $('#chkBilltoShip').prop('checked', false);
+
+            $('#txtCustomerNameBilling').removeAttr("disabled", "disabled");
+            $('#txtStoreCodeBilling').removeAttr("disabled", "disabled");
+            $('#txtDefaultContactBilling').removeAttr("disabled", "disabled");
+            $('#txtTelephoneBilling').removeAttr("disabled", "disabled");
+            $('#txtSuburbBilling').removeAttr("disabled", "disabled");
+            $('#txtCellNoBilling').removeAttr("disabled", "disabled");
+            $('#txtFaxNoBilling').removeAttr("disabled", "disabled");
+            $('#txtEmailBilling').removeAttr("disabled", "disabled");
+            $('#txtStreetAddress1Billing').removeAttr("disabled", "disabled");
+            $('#txtStreetAddress2Billing').removeAttr("disabled", "disabled");
+            $('#txtSuburbBilling').removeAttr("disabled", "disabled");
+            $('#btnUpdateBillingCustomer').removeAttr("disabled", "disabled");
+        }
+
+        // Set modal defaults
+        $('#myModalLabel2').text('Customer Edit');
+        $('button[data-dismiss]').last().text('Close');
+        gBillingID = d.Expr7;
+        CustomerNameAutoComplete();
+        BillingSuburbLookup();
+
+        var autoComplete,
+     dlg = $("#modalAddNew"),
+     input = $("#txtSuburb", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalAddNew",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalAddNew');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Suburb_Lookup", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var displayText = "";
+                            if (item.Area != "")
+                                displayText = item.Suburb + ", " + item.Area + ", " + item.PostalCode;
+                            else
+                                displayText = item.Suburb + ", " + item.PostalCode;
+
+                            return {
+                                value: item.Suburb,
+                                label: displayText,
+                                area: item.Area,
+                                zoneid: item.ZoneID,
+                                postalcode: item.PostalCode,
+                                hubID: item.HubID,
+                                international: item.International,
+                                township: item.Township
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#" + event.target.id).val(ui.item.value);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#" + event.target.id).attr('style', 'background-color:lightgreen;');
+                $("#" + event.target.id).val(ui.item.value);
+                $("#txtArea").val(ui.item.area);
+                $("#txtPostalCode").val(ui.item.postalcode);
+                $("#txtHubID").val(ui.item.hubID);
+                $("#txtInternational").val(ui.item.international);
+                $("#hiddenZoneID").val(ui.item.zoneid);
+
+                var international = ui.item.international;
+                // apply mask
+                if (international == '1') {
+                    $(".ContactNumbers").unmask();
+                }
+                else {
+                    $(".ContactNumbers").mask("999 999 9999");
+                }
+
+                var divSuburbDetails = $('#divSuburbDetails');
+                divSuburbDetails.css('display', 'none');
+
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+
+    }
+
+    function SaveBillingCustomerID(ShippingCustomerID, BillingCustomerID) {
+
+        var parameters = JSON.stringify({
+            pCustomerID: ShippingCustomerID,
+            pBillingCustomerID: BillingCustomerID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveBillingCustomerID", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                if (result.search(/error/i) == -1) {
+                    var info = 'Customer ID: ' + ShippingCustomerID + '\n' + 'Billing ID: ' + BillingCustomerID;
+                }
+
+                ResetDataTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function SaveCustomer() {
+
+        $("#btnSaveBillingCustomer").attr("disabled", "disabled");
+        $("#btnSaveCustomer").attr("disabled", "disabled");
+
+        var customer = new Object();
+        customer.CustomerID = $('#txtCustomerID').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroup = $('#txtCustomerGroup').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.StoreCode = $('#txtStoreCode').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroupID = $('#hiddenCustomerGroupID').val();
+        customer.CustomerName = $('#txtCustomerName').val();
+        customer.TelephoneNo = $('#txtTelephone').val();
+        customer.FaxNo = $('#txtFaxNo').val();
+        customer.EmailAddress = $('#txtEmail').val();
+        customer.StreetAddress1 = $('#txtStreetAddress1').val();
+        customer.StreetAddress2 = $('#txtStreetAddress2').val();
+        customer.ZoneID = $.trim($('#hiddenZoneID').val());
+        customer.isShipper = 0;
+        customer.isActive = 1;
+        customer.EmployeeID = "";
+        customer.TerminalID = "";
+        customer.CellNo = $('#txtCellNo').val();
+        customer.DefaultContactPerson = $('#txtDefaultContact').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+
+        if (echeck($.trim($('#txtEmail').val())) == false) {
+            $("#btnSaveCustomer").removeAttr("disabled", "disabled");
+            $("#btnSaveBillingCustomer").removeAttr("disabled", "disabled");
+            $('#txtEmail').focus();
+            swal("Invalid E-mail Address", "", "error");
+            return;
+        }
+
+        var parameters = JSON.stringify({
+            customer: customer
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveCustomer", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+                ShippingCustomerID = (result.split(':'))[1];
+
+                if (result.search(/error/i) == -1) {
+
+                    $("#btnSaveCustomer").attr("disabled", "disabled");
+                    var new_customerID = response.SaveResponse.CustomerID;
+
+                    if (new_customerID != '') {
+                        swal(result);
+                        var chkShipBilling = $("#chkBilltoShip").is(':checked');
+
+                        if (chkShipBilling == false) {
+                            if ($('#txtCustomerIDBilling').val() != 'NEW') {
+                                SaveBillingCustomerID(ShippingCustomerID, $('#txtCustomerIDBilling').val())
+                            }
+                            else if ($('#txtCustomerIDBilling').val() == 'NEW') {
+                                SaveBillingCustomer();
+                            }
+                        }
+                        
+                    }
+                    else {
+                        swal("Unable to determine new CustomerID.","", "error");
+                    }
+                    $('#modalAddNew').modal('hide');
+                }
+                else {
+                    $("#btnSaveCustomer").removeAttr("disabled", "disabled");
+                    $("#btnSaveBillingCustomer").removeAttr("disabled", "disabled");
+                    swal(response.SaveResponse.Details);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function UpdateCustomer() {
+
+        $("#btnUpdateCustomer").attr("disabled", "disabled");
+        var customer = new Object();
+        customer.CustomerID = $('#txtCustomerID').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroup = $('#txtCustomerGroup').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.StoreCode = $('#txtStoreCode').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroupID = $('#hiddenCustomerGroupID').val();
+        customer.CustomerName = $('#txtCustomerName').val();
+        customer.TelephoneNo = $('#txtTelephone').val();
+        customer.FaxNo = $('#txtFaxNo').val();
+        customer.EmailAddress = $('#txtEmail').val();
+        customer.StreetAddress1 = $('#txtStreetAddress1').val();
+        customer.StreetAddress2 = $('#txtStreetAddress2').val();
+        customer.ZoneID = $.trim($('#hiddenZoneID').val());
+        customer.isShipper = 0;
+        customer.isActive = 1;
+        //customer.EmployeeID = "";
+        //customer.TerminalID = "";
+        customer.CellNo = $('#txtCellNo').val();
+        customer.DefaultContactPerson = $('#txtDefaultContact').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+
+        if (echeck($.trim($('#txtEmail').val())) == false) {
+            $("#btnUpdateCustomer").removeAttr("disabled", "disabled");
+            $('#txtEmail').focus();
+            swal("Invalid E-mail Address","", "error");
+            return;
+        }
+
+        var parameters = JSON.stringify({
+            customer: customer
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveCustomer", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.indexOf('Cannot update shipper record') != -1) {
+                    swal(result);
+                }
+                else {
+
+                    if (result.search(/error/i) == -1) {
+                        if (result.indexOf('Customer Updated') != -1) {
+                            swal(result);
+                            ResetDataTable();
+                            $('#modalAddNew').modal('hide');
+                        }
+
+                    }
+                    else {
+                        $("#btnUpdateCustomer").removeAttr("disabled", "disabled");
+                        swal(response.SaveResponse.Details);
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function UpdateBillingCustomer() {
+
+        $("#btnUpdateBillingCustomer").attr("disabled", "disabled");
+        var customer = new Object();
+        customer.CustomerID = $('#txtCustomerIDBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroup = $('#txtCustomerGroupBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.StoreCode = $('#txtStoreCodeBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroupID = $('#hiddenCustomerGroupID').val();
+        customer.CustomerName = $('#txtCustomerNameBilling').val();
+        customer.TelephoneNo = $('#txtTelephoneBilling').val();
+        customer.FaxNo = $('#txtFaxNoBilling').val();
+        customer.EmailAddress = $('#txtEmailBilling').val();
+        customer.StreetAddress1 = $('#txtStreetAddress1Billing').val();
+        customer.StreetAddress2 = $('#txtStreetAddress2Billing').val();
+        customer.ZoneID = $.trim($('#hiddenBillingZoneID').val());
+        customer.isShipper = 0;
+        customer.isActive = 1;
+        customer.EmployeeID = "";
+        customer.TerminalID = "";
+        customer.CellNo = $('#txtCellNoBilling').val();
+        customer.DefaultContactPerson = $('#txtDefaultContactBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+
+        if (echeck($.trim($('#txtEmailBilling').val())) == false) {
+            $("#btnUpdateBillingCustomer").removeAttr("disabled", "disabled");
+            $('#txtEmailBilling').focus();
+            swal("Invalid E-mail Address","", "error");
+            return;
+        }
+
+        var parameters = JSON.stringify({
+            customer: customer
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveCustomer", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                    SaveBillingCustomerID($('#txtCustomerID').val(), $('#txtCustomerIDBilling').val())
+                    if (result.indexOf('Customer Updated') != -1) {
+                        swal(result);
+                        ResetDataTable();
+                    }
+                    $('#modalAddNew').modal('hide');
+                }
+                else {
+                    $("#btnUpdateBillingCustomer").removeAttr("disabled", "disabled");
+                    swal(response.SaveResponse.Details);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function SaveBillingCustomer() {
+
+        var customer = new Object();
+        customer.CustomerID = $('#txtCustomerIDBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroup = $('#txtCustomerGroupBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.StoreCode = $('#txtStoreCodeBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroupID = $('#hiddenCustomerGroupID').val();
+        customer.CustomerName = $('#txtCustomerNameBilling').val();
+        customer.TelephoneNo = $('#txtTelephoneBilling').val();
+        customer.FaxNo = $('#txtFaxNoBilling').val();
+        customer.EmailAddress = $('#txtEmailBilling').val();
+        customer.StreetAddress1 = $('#txtStreetAddress1Billing').val();
+        customer.StreetAddress2 = $('#txtStreetAddress2Billing').val();
+        customer.ZoneID = $.trim($('#hiddenBillingZoneID').val());
+        customer.isShipper = 0;
+        customer.isActive = 1;
+        customer.EmployeeID = "";
+        customer.TerminalID = "";
+        customer.CellNo = $('#txtCellNoBilling').val();
+        customer.DefaultContactPerson = $('#txtDefaultContactBilling').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+
+        if (echeck($.trim($('#txtEmailBilling').val())) == false) {
+            $('#txtEmailBilling').focus();
+            swal("Invalid E-mail Address","", "error");
+            return;
+        }
+
+        var parameters = JSON.stringify({
+            customer: customer
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveCustomer", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+                swal('Billing' + result);
+                BillingCustomerID = (result.split(':'))[1];
+                SaveBillingCustomerID(ShippingCustomerID, BillingCustomerID)
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    // save billing same as customer
+
+     function BSaveBillingCustomer() {
+
+        var customer = new Object();
+        customer.CustomerID = $('#txtCustomerID').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroup = $('#txtCustomerGroup').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.StoreCode = $('#txtStoreCode').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+        customer.CustomerGroupID = $('#hiddenCustomerGroupID').val();
+        customer.CustomerName = $('#txtCustomerName').val();
+        customer.TelephoneNo = $('#txtTelephone').val();
+        customer.FaxNo = $('#txtFaxNo').val();
+        customer.EmailAddress = $('#txtEmail').val();
+        customer.StreetAddress1 = $('#txtStreetAddress1').val();
+        customer.StreetAddress2 = $('#txtStreetAddress2').val();
+        customer.ZoneID = $.trim($('#hiddenBillingZoneID').val());
+        customer.isShipper = 0;
+        customer.isActive = 1;
+        customer.EmployeeID = "";
+        customer.TerminalID = "";
+        customer.CellNo = $('#txtCellNo').val();
+        customer.DefaultContactPerson = $('#txtDefaultContact').val().replace(/[!"#$%*+\/;<=>?[\\\]^`{|}~]/g, '');
+
+        if (echeck($.trim($('#txtEmail').val())) == false) {
+            $('#txtEmail').focus();
+            swal("Invalid E-mail Address","", "error");
+            return;
+        }
+
+        var parameters = JSON.stringify({
+            customer: customer
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveCustomer", "MasterData")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+                swal('Billing' + result);
+                BillingCustomerID = (result.split(':'))[1];
+                SaveBillingCustomerID(ShippingCustomerID, BillingCustomerID)
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+
+
+    function ConfigureCustomerSaveValidation() {
+        thisValidatedForm = $("#formShipping").validate({
+            onsubmit: true,
+            rules: {
+                txtCustomerName: {
+                    required: true,
+                    minlength: 3
+                },
+                txtTelephone: {
+                    required: true
+                },
+                txtEmail: {
+                    required: true
+                },
+                hiddenZoneID: {
+                    required: true
+                },
+                txtStreetAddress1: {
+                    required: true
+                },
+                txtStreetAddress2: {
+                    required: true
+                },
+                txtSuburb: {
+                    required: true
+                },
+            },
+            messages: {
+                txtCustomerName: {
+                    required: "Please enter a valid customer name",
+                    minlength: "The customer name must consist of at least 3 characters",
+                },
+                txtTelephone: {
+                    required: "Please enter a valid telephone number"
+                },
+                txtEmail: {
+                    required: "Please enter a valid email address"
+                },
+                hiddenZoneID: {
+                    required: "Please select a valid ZoneID"
+                },
+                txtStreetAddress1: {
+                    required: "Please enter a valid Street Address 1"
+                },
+                txtStreetAddress2: {
+                    required: "Please enter a valid Street Address 2"
+                },
+                txtSuburb: {
+                    required: "Please enter a valid Suburb"
+                },
+            }
+        });
+    }
+
+    function ConfigureCustomerBillingSaveValidation() {
+
+        thisValidatedBillingForm = $("#formBilling").validate({
+            onsubmit: true,
+            rules: {
+                txtCustomerNameBilling: {
+                    required: true,
+                    minlength: 3
+                },
+                txtTelephoneBilling: {
+                    required: true
+                },
+                txtEmailBilling: {
+                    required: true
+                },
+                hiddenZoneIDBilling: {
+                    required: true
+                },
+                txtStreetAddress1Billing: {
+                    required: true
+                },
+                txtStreetAddress2Billing: {
+                    required: true
+                },
+                txtSuburbBilling: {
+                    required: true
+                },
+
+            },
+            messages: {
+                txtCustomerNameBilling: {
+                    required: "Please enter a valid customer name",
+                    minlength: "The customer name must consist of at least 3 characters",
+                },
+                txtTelephoneBilling: {
+                    required: "Please enter a valid telephone number"
+                },
+                txtEmailBilling: {
+                    required: "Please enter a valid email address"
+                },
+                hiddenZoneIDBilling: {
+                    required: "Please select a valid ZoneID"
+                },
+                txtStreetAddress1Billing: {
+                    required: "Please enter a valid Street Address 1"
+                },
+                txtStreetAddress2Billing: {
+                    required: "Please enter a valid Street Address 2"
+                },
+                txtSuburbBilling: {
+                    required: "Please enter a valid Suburb"
+                },
+            }
+        });
+
+    }
+
+    function IsCustomerSaveValid() {
+        var isFormValid = $("#formShipping").valid();
+
+        return isFormValid;
+    }
+
+    function IsCustomerSaveBillingValid() {
+        var isBillingFormValid = $("#formBilling").valid();
+
+        return isBillingFormValid;
+    }
+
+    function ConfigureAddNewModal() {
+
+        $('#txtCustomerID').val("NEW");
+        $('#txtCustomerName').val("")
+        $('#txtStoreCode').val("");
+        $('#txtDefaultContact').val("");
+        $('#txtTelephone').val("");
+        $('#txtSuburb').val("");
+        $('#txtCustomerGroup').val("");
+        $('#txtCellNo').val("");
+        $('#txtFaxNo').val("");
+        $('#txtEmail').val("");
+        $('#txtStreetAddress1').val("");
+        $('#txtStreetAddress2').val("");
+        $('#txtSuburb').val("");
+        $('#txtArea').val("");
+        $('#txtPostalCode').val("");
+        $('#txtHubID').val("");
+        $('#txtInternational').val("");
+
+        $('#hiddenAction').val('ADD');
+
+        $('#txtCustomerIDBilling').val("NEW");
+        $('#txtCustomerNameBilling').val("")
+        $('#txtStoreCodeBilling').val("");
+        $('#txtDefaultContactBilling').val("");
+        $('#txtTelephoneBilling').val("");
+        $('#txtSuburbBilling').val("");
+        $('#txtCustomerGroupBilling').val("");
+        $('#txtCellNoBilling').val("");
+        $('#txtFaxNoBilling').val("");
+        $('#txtEmailBilling').val("");
+        $('#txtStreetAddress1Billing').val("");
+        $('#txtStreetAddress2Billing').val("");
+        $('#txtSuburbBilling').val("");
+        $('#txtAreaBilling').val("");
+        $('#txtPostalCodeBilling').val("");
+        $('#txtHubIDBilling').val("");
+        $('#txtInternationalBilling').val("");
+
+        $('#txtCustomerIDBilling').attr("disabled", "disabled");
+        $('#txtCustomerNameBilling').attr("disabled", "disabled");
+        $('#txtStoreCodeBilling').attr("disabled", "disabled");
+        $('#txtDefaultContactBilling').attr("disabled", "disabled");
+        $('#txtTelephoneBilling').attr("disabled", "disabled");
+        $('#txtSuburbBilling').attr("disabled", "disabled");
+        $('#txtCustomerGroupBilling').attr("disabled", "disabled");
+        $('#txtCellNoBilling').attr("disabled", "disabled");
+        $('#txtFaxNoBilling').attr("disabled", "disabled");
+        $('#txtEmailBilling').attr("disabled", "disabled");
+        $('#txtStreetAddress1Billing').attr("disabled", "disabled");
+        $('#txtStreetAddress2Billing').attr("disabled", "disabled");
+        $('#txtSuburbBilling').attr("disabled", "disabled");
+        $('#txtAreaBilling').attr("disabled", "disabled");
+        $('#txtPostalCodeBilling').attr("disabled", "disabled");
+        $('#txtHubIDBilling').attr("disabled", "disabled");
+        $('#txtInternationalBilling').attr("disabled", "disabled");
+        //$('#chkBilltoShip').attr("disabled", "disabled");
+        $('#btnSaveBillingCustomer').attr("disabled", "disabled");
+        $('#btnUpdateBillingCustomer').attr("disabled", "disabled");
+
+        // Set modal defaults
+        $('#myModalLabel2').text('Add New Customer');
+        $('button[data-dismiss]').last().text('Cancel');
+
+        var autoComplete,
+             dlg = $("#modalAddNew"),
+             input = $("#txtSuburb", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalAddNew",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalAddNew');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Suburb_Lookup", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var displayText = "";
+                            if (item.Area != "")
+                                displayText = item.Suburb + ", " + item.Area + ", " + item.PostalCode;
+                            else
+                                displayText = item.Suburb + ", " + item.PostalCode;
+
+                            return {
+                                value: item.Suburb,
+                                label: displayText,
+                                area: item.Area,
+                                zoneid: item.ZoneID,
+                                postalcode: item.PostalCode,
+                                hubID: item.HubID,
+                                international: item.International,
+                                township: item.Township
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#" + event.target.id).val(ui.item.value);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#" + event.target.id).attr('style', 'background-color:lightgreen;');
+                $("#" + event.target.id).val(ui.item.value);
+                $("#txtArea").val(ui.item.area);
+                $("#txtPostalCode").val(ui.item.postalcode);
+                $("#txtHubID").val(ui.item.hubID);
+                $("#txtInternational").val(ui.item.international);
+                $("#hiddenZoneID").val(ui.item.zoneid);
+
+                var international = ui.item.international;
+                // apply mask
+                if (international == '1') {
+                    $(".ContactNumbers").unmask();
+                }
+                else {
+                    $(".ContactNumbers").mask("999 999 9999");
+                }
+
+                var divSuburbDetails = $('#divSuburbDetails');
+                divSuburbDetails.css('display', 'none');
+
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+    }
+
+    function BillingSuburbLookup() {
+
+        var autoComplete,
+             dlg = $("#modalAddNew"),
+             input = $("#txtSuburbBilling", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalAddNew",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalAddNew');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("Suburb_Lookup", "MasterData")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var displayText = "";
+                            if (item.Area != "")
+                                displayText = item.Suburb + ", " + item.Area + ", " + item.PostalCode;
+                            else
+                                displayText = item.Suburb + ", " + item.PostalCode;
+
+                            return {
+                                value: item.Suburb,
+                                label: displayText,
+                                area: item.Area,
+                                zoneid: item.ZoneID,
+                                postalcode: item.PostalCode,
+                                hubID: item.HubID,
+                                international: item.International,
+                                township: item.Township
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $("#" + event.target.id).val(ui.item.value);
+                return false;
+            },
+            select: function (event, ui) {
+                $("#" + event.target.id).attr('style', 'background-color:lightgreen;');
+                $("#" + event.target.id).val(ui.item.value);
+                $("#txtAreaBilling").val(ui.item.area);
+                $("#txtPostalCodeBilling").val(ui.item.postalcode);
+                $("#txtHubIDBilling").val(ui.item.hubID);
+                $("#txtInternationalBilling").val(ui.item.international);
+                $("#hiddenBillingZoneID").val(ui.item.zoneid);
+
+                var international = ui.item.international;
+                // apply mask
+                if (international == '1') {
+                    $(".ContactNumbers").unmask();
+                }
+                else {
+                    $(".ContactNumbers").mask("999 999 9999");
+                }
+
+                var divSuburbDetails = $('#divSuburbDetails');
+                divSuburbDetails.css('display', 'none');
+
+                return false;
+            }
+        });
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+
+    }
+
+    function GetBillingDetail(pCustomerID) {
+
+        var DetailArray = null;
+        var parameters = JSON.stringify({
+            CustomerID: pCustomerID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("GetCustomerDetail", "Outbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+
+                if (result.search(/error/i) == -1) {
+                    if (response.RecordCount > 0) {
+                        $.each(response.Data, function (index, value) {
+                            DetailArray = value.CustomerAddress
+                        });
+
+                        var address = (DetailArray.split('|'))[3] + '; ' + (DetailArray.split('|'))[0] + '; ' + (DetailArray.split('|'))[1] + '; ' + (DetailArray.split('|'))[2] + '; ' + (DetailArray.split('|'))[4] + '; ' + (DetailArray.split('|'))[5] + '; ' + (DetailArray.split('|'))[6] + '; ' + (DetailArray.split('|'))[7] + '; ' + (DetailArray.split('|'))[8] + '; ' + (DetailArray.split('|'))[9] + '; ' + (DetailArray.split('|'))[10] + '; ' + (DetailArray.split('|'))[11] + '; ' + (DetailArray.split('|'))[12] + '; ' + (DetailArray.split('|'))[13] + '; ' + (DetailArray.split('|'))[14] + '; ' + (DetailArray.split('|'))[15] + '; ' + (DetailArray.split('|'))[16] + '; ' + (DetailArray.split('|'))[17] + '; ' + (DetailArray.split('|'))[18] + '; ' + (DetailArray.split('|'))[19] + '; ' + (DetailArray.split('|'))[20]
+                        var customerDetailArray = address.split(';');
+                        $.trim($("#txtCustomerNameBilling").val(customerDetailArray[0]));
+                        $.trim($("#txtCustomerIDBilling").val(customerDetailArray[1]));
+                        $.trim($("#txtCustomerGroupBilling").val(customerDetailArray[18]));
+                        $.trim($("#txtStoreCodeBilling").val(customerDetailArray[3]));
+                        $.trim($("#txtDefaultContactBilling").val(customerDetailArray[4]));
+                        $.trim($("#txtStreetAddress1Billing").val(customerDetailArray[5]));
+                        $.trim($("#txtStreetAddress2Billing").val(customerDetailArray[6]));
+                        $.trim($("#txtTelephoneBilling").val(customerDetailArray[7]));
+                        $.trim($("#txtEmailBilling").val(customerDetailArray[10]));
+                        $.trim($("#txtSuburbBilling").val(customerDetailArray[11]));
+                        $.trim($("#txtAreaBilling").val(customerDetailArray[12]));
+                        $.trim($("#txtHubIDBilling").val(customerDetailArray[13]));
+                        $.trim($("#txtInternationalBilling").val(customerDetailArray[14]));
+                        $.trim($("#txtCellNoBilling").val(customerDetailArray[15]));
+                        $.trim($("#txtFaxNoBilling").val(customerDetailArray[16]));
+                        $.trim($("#txtPostalCodeBilling").val(customerDetailArray[17]));
+                        $('#hiddenBillingZoneID').val(customerDetailArray[8]);
+                        $('#btnSaveBillingCustomer').removeAttr("disabled", "disabled");
+                        $('#btnUpdateBillingCustomer').removeAttr("disabled", "disabled");
+
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function CustomerNameAutoComplete() {
+
+        var customerArray = null;
+        var autoComplete,
+             dlg = $("#modalAddNew"),
+             input = $("#txtCustomerNameBilling", dlg);
+
+        // Initialize autocomplete
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                // To disable the Autocomplete changing the input text on mouseover/hover, simply return false from the focus callback
+                return true;
+            },
+            appendTo: "#modalAddNew",
+            open: function (event, ui) {
+                var dialog = $(this).closest('#modalAddNew');
+                if (dialog.length > 0) {
+                    $('.ui-autocomplete.ui-front').zIndex(dialog.zIndex() + 10);
+                }
+            },
+            minLength: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("OrderCustomerName_Lookup", "Outbound")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var label = '';
+
+                            label = item.CustomerName + ", " + item.CustomerID + ", " + item.StoreCode + ", " + item.StreetAddress1 + ", " + item.StreetAddress2 + ", " + item.Suburb + ", " + item.TelephoneNo + ", " + item.CellNo;
+
+                            return {
+                                value: item.CustomerID,
+                                label: label,
+                                CustomerID: item.CustomerID,
+                                CustomerName: item.CustomerName,
+                                BillingCustomerID: item.BillingCustomerID,
+                                CustomerDetailID: item.CustomerDetailID,
+                                StoreCode: item.StoreCode,
+                                DefaultContactPerson: item.DefaultContactPerson,
+                                StreetAddress1: item.StreetAddress1,
+                                StreetAddress2: item.StreetAddress2,
+                                TelephoneNo: item.TelephoneNo,
+                                ZoneID: item.ZoneID,
+                                isActive: item.isActive,
+                                EmailAddress: item.EmailAddress,
+                                Suburb: item.Suburb,
+                                HubID: item.HubID,
+                                International: item.International,
+                                CellNo: item.CellNo,
+                                FaxNo: item.FaxNo,
+                                PostalCode: item.PostalCode
+                            }
+                        }));
+                    },
+
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+
+            select: function (event, ui) {
+
+                $.trim($("#txtCustomerNameBilling").val(ui.item.CustomerName));
+                $.trim($("#txtCustomerIDBilling").val(ui.item.CustomerID));
+                $.trim($("#txtCustomerGroupBilling").val(''));
+                $.trim($("#txtStoreCodeBilling").val(ui.item.StoreCode));
+                $.trim($("#txtDefaultContactBilling").val(ui.item.DefaultContactPerson));
+                $.trim($("#txtStreetAddress1Billing").val(ui.item.StreetAddress1));
+                $.trim($("#txtStreetAddress2Billing").val(ui.item.StreetAddress2));
+                $.trim($("#txtTelephoneBilling").val(ui.item.TelephoneNo));
+                $.trim($("#txtEmailBilling").val(ui.item.EmailAddress));
+                $.trim($("#txtSuburbBilling").val(ui.item.Suburb));
+                $.trim($("#txtAreaBilling").val(''));
+                $.trim($("#txtHubIDBilling").val(ui.item.HubID));
+                $.trim($("#txtInternationalBilling").val(ui.item.International));
+                $.trim($("#txtCellNoBilling").val(ui.item.CellNo));
+                $.trim($("#txtFaxNoBilling").val(ui.item.FaxNo));
+                $.trim($("#txtPostalCodeBilling").val(ui.item.PostalCode));
+                $('#btnSaveBillingCustomer').removeAttr("disabled", "disabled");
+                $('#btnUpdateBillingCustomer').removeAttr("disabled", "disabled");
+                return false;
+            }
+        });
+
+        // get reference to autocomplete element
+        autoComplete = input.autocomplete("widget");
+
+        // init the dialog containing the input field
+        dlg.modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        // move the autocomplete element after the dialog in the DOM
+        autoComplete.insertAfter(dlg.parent());
+    }
+
+
+    function echeck(str) {
+
+        var at = "@@"
+        var dot = "."
+        var lat = str.indexOf(at)
+        var lstr = str.length
+        var ldot = str.indexOf(dot)
+        if (str.indexOf(at) == -1) {
+            return false
+        }
+        if (str.indexOf(at) == -1 || str.indexOf(at) == 0 || str.indexOf(at) == lstr) {
+            return false
+        }
+        if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 || str.indexOf(dot) == lstr) {
+            return false
+        }
+        if (str.indexOf(at, (lat + 1)) != -1) {
+            return false
+        }
+        if (str.substring(lat - 1, lat) == dot || str.substring(lat + 1, lat + 2) == dot) {
+            return false
+        }
+        if (str.indexOf(dot, (lat + 2)) == -1) {
+            return false
+        }
+        if (str.indexOf(" ") != -1) {
+            return false
+        }
+        return true
+    }
+
+    function chkBilling() {
+
+        $('#chkBilltoShip').click(function () {
+
+            if ($(this).is(':checked')) {
+
+                $('#txtCustomerIDBilling').val($('#txtCustomerID').val());
+                $('#txtCustomerNameBilling').val($('#txtCustomerName').val())
+                $('#txtStoreCodeBilling').val($('#txtStoreCode').val());
+                $('#txtDefaultContactBilling').val($('#txtDefaultContact').val());
+                $('#txtTelephoneBilling').val($('#txtTelephone').val());
+                $('#txtSuburbBilling').val($('#txtSuburb').val());
+                $('#txtCustomerGroupBilling').val($('#txtCustomerGroup').val());
+                $('#txtCellNoBilling').val($('#txtCellNo').val());
+                $('#txtFaxNoBilling').val($('#txtFaxNo').val());
+                $('#txtEmailBilling').val($('#txtEmail').val());
+                $('#txtStreetAddress1Billing').val($('#txtStreetAddress1').val());
+                $('#txtStreetAddress2Billing').val($('#txtStreetAddress2').val());
+                $('#txtSuburbBilling').val($('#txtSuburb').val());
+                $('#txtAreaBilling').val($('#txtArea').val());
+                $('#txtPostalCodeBilling').val($('#txtPostalCode').val());
+                $('#txtHubIDBilling').val($('#txtHub').val());
+                $('#txtInternationalBilling').val($('#txtInternational').val());
+
+                $('#txtCustomerIDBilling').attr("disabled", "disabled");
+                $('#txtCustomerNameBilling').attr("disabled", "disabled");
+                $('#txtStoreCodeBilling').attr("disabled", "disabled");
+                $('#txtDefaultContactBilling').attr("disabled", "disabled");
+                $('#txtTelephoneBilling').attr("disabled", "disabled");
+                $('#txtSuburbBilling').attr("disabled", "disabled");
+                $('#txtCustomerGroupBilling').attr("disabled", "disabled");
+                $('#txtCellNoBilling').attr("disabled", "disabled");
+                $('#txtFaxNoBilling').attr("disabled", "disabled");
+                $('#txtEmailBilling').attr("disabled", "disabled");
+                $('#txtStreetAddress1Billing').attr("disabled", "disabled");
+                $('#txtStreetAddress2Billing').attr("disabled", "disabled");
+                $('#txtSuburbBilling').attr("disabled", "disabled");
+                $('#txtAreaBilling').attr("disabled", "disabled");
+                $('#txtPostalCodeBilling').attr("disabled", "disabled");
+                $('#txtHubIDBilling').attr("disabled", "disabled");
+                $('#txtInternationalBilling').attr("disabled", "disabled");
+                $('#btnSaveBillingCustomer').attr("disabled", "disabled");
+                $('#btnUpdateBillingCustomer').attr("disabled", "disabled");
+            }
+            else {
+
+                //GetBillingDetail(gBillingID);
+
+                $('#txtCustomerNameBilling').removeAttr("disabled", "disabled");
+                $('#txtStoreCodeBilling').removeAttr("disabled", "disabled");
+                $('#txtDefaultContactBilling').removeAttr("disabled", "disabled");
+                $('#txtTelephoneBilling').removeAttr("disabled", "disabled");
+                $('#txtSuburbBilling').removeAttr("disabled", "disabled");
+                $('#txtCellNoBilling').removeAttr("disabled", "disabled");
+                $('#txtFaxNoBilling').removeAttr("disabled", "disabled");
+                $('#txtEmailBilling').removeAttr("disabled", "disabled");
+                $('#txtStreetAddress1Billing').removeAttr("disabled", "disabled");
+                $('#txtStreetAddress2Billing').removeAttr("disabled", "disabled");
+                $('#txtSuburbBilling').removeAttr("disabled", "disabled");
+                $('#btnSaveBillingCustomer').removeAttr("disabled", "disabled");
+                $('#btnUpdateBillingCustomer').removeAttr("disabled", "disabled");
+            }
+        });
+    }
+
+</script>
+
+<script id="tmplCustomers" type="text/x-jQuery-tmpl">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>CustomerDetailID</th>
+                <th>StoreCode</th>
+                <th>CustomerName</th>
+                <th>DefaultContactPerson</th>
+                <th>TelephoneNo</th>
+                <th>ZoneID</th>
+                <th>isActive</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each(i,record) Records}}
+            <tr>
+                <td>${record.CustomerID}</td>
+                <td>${record.CustomerDetailID}</td>
+                <td>${record.StoreCode}</td>
+                <td>${record.CustomerName}</td>
+                <td>${record.DefaultContactPerson}</td>
+                <td>${record.TelephoneNo}</td>
+                <td>${record.ZoneID}</td>
+                <td>${record.isActive}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</script>

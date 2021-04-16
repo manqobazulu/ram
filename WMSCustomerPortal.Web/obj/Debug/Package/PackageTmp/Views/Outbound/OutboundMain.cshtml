@@ -1,0 +1,539 @@
+﻿
+@model WMSCustomerPortal.Models.Common.UserLevelMainModel
+@{
+    ViewBag.Title = "Outbound Main";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Outbound Main</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#PendingOrders" data-toggle="tab">Pending Orders</a>
+                </li>
+                <li>
+                    <a href="#CompletedOrders " data-toggle="tab">Completed Orders</a>
+                </li>
+            </ul>
+            <div class="panel-heading">
+
+                Results
+
+                @*@if (HttpContext.Current.Session["WMSSession.UserLevel"].ToString() == "False")
+                {
+                    <div class="divResults" style="float:right; display:none">
+                        <button id="btnAddSingleOrder" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add Single Receiver</button>
+                        <button id="btnAddMultipleOrder" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add Multiple Receiver</button>
+                    </div>
+                }
+
+                @if (HttpContext.Current.Session["WMSSession.UserLevel"].ToString() == "True")
+                {
+                    <div class="divResults" style="float:right;">
+                        <button id="btnAddSingleOrder" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add Single Receiver</button>
+                        <button id="btnAddMultipleOrder" type="button" class="btn btn-primary btn-xs" data-dismiss="modal">Add Multiple Receiver</button>
+                    </div>
+                }*@
+
+            </div>
+                    
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="PendingOrders">
+                        <div class="panel panel-default">
+                            <div class="dataTable_wrapper" style="overflow:scroll;">
+                                <table id="Orders" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="width:20px;">OrderID</th>
+                                            <th style="width:20px;">DetailID</th>
+                                            <th style="width:120px;">OrderNumber</th>
+                                            <th style="width:120px;">Customer Order Number</th>
+                                            <th style="width:100px;">DateCreated</th>
+                                            <th style="width:100px;">ReceiverID</th>
+                                            <th style="width:100px;">BillingID</th>
+                                            <th style="width:100px;">StoreCode</th>
+                                            <th style="width:150px;">CustomerName</th>
+                                            <th style="width:100px;">GroupID</th>
+                                            <th style="width:50px;">EventUser</th>
+                                            <th style="width:100px;">EventDate</th>
+                                            <th style="width:120px;"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                    <div class="tab-pane fade" id="CompletedOrders">
+                        <div class="dataTable_wrapper" style="overflow:scroll;">
+                            <table id="SubmittedOrders" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+
+                                        <th style="width:20px;">OrderID</th>
+                                        <th style="width:20px;">DetailID</th>
+                                        <th style="width:120px;">OrderNumber</th>
+                                        <th style="width:120px;">Customer Order Number</th>
+                                        <th style="width:100px;">DateCreated</th>
+                                        <th style="width:100px;">ReceiverID</th>
+                                        <th style="width:100px;">BillingID</th>
+                                        <th style="width:100px;">StoreCode</th>
+                                        <th style="width:150px;">CustomerName</th>
+                                        <th style="width:100px;">GroupID</th>
+                                        <th style="width:50px;">Status</th>
+                                        <th style="width:50px;">EventUser</th>
+                                        <th style="width:100px;">LastStatusDate</th>
+                                        <th style="width:20px;"></th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="modal fade bs-example-modal-lg" id="modalOrderLineItem" tabindex="-1" role="dialog" aria-labelledby="myModalOrderLineItem" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalOrderLineItem">Order Line Item</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Results
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <table id="OrderLineItems" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Line Item ID</th>
+                                            <th>Order ID</th>
+                                            <th>Product ID</th>
+                                            <th>Product Code</th>
+                                            <th>EAN Code</th>
+                                            <th>Short Description</th>
+                                            <th>Long Description</th>
+                                            <th>Quantity</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                    <tfoot>
+                                        <tr id="trLineEntry">
+                                            <td></td>
+                                            <td style="width:50px;"><input id="txtLineItemID" type="text" class="cellLineItemID" disabled /></td>
+                                            <td><input id="txtOrderID" type="text" class="cellOrderID" disabled /></td>
+                                            <td><input id="txtProductStagingID" type="text" class="cellStagingProdID" disabled /></td>
+                                            <td><input id="txtProdCode" type="text" class="cellProdCode autocomplete" /></td>
+                                            <td><input id="txtEANCode" type="text" class="cellEANCode autocomplete" /></td>
+                                            <td><input id="txtShortDesc" type="text" class="cellShortDesc autocomplete" /></td>
+                                            <td><input id="txtLongDesc" type="text" class="cellLongDesc autocomplete" /></td>
+                                            <td><input id="txtQty" type="text" class="cellQty numeric" /></td>ERROR: No products have been added
+                                            <td><input id="btnReset" type="button" value="Remove" class="btn btn-primary btn-xs" /></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- /#tblOrderLineItems -->
+
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div id="loading" class="spinner">
+</div>
+
+<div id="divUserLevel" style="display: none;">
+    @Html.EditorFor(x => x.UserLevel)
+</div>
+
+<style>
+    .modal-dialog {
+        width: 900px;
+    }
+
+    .modal-dialog-sm {
+        width: 600px;
+        align-content: center;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+
+    .ContactNumbers {
+    }
+</style>
+
+
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script>
+    var CustomerDetail = "";
+    var QueryName = "";
+    var olOrderTable = null;
+    var olCompleteOrderTable = null;
+    var customerDetailID = "";
+    var OrderLineLineItemID = "";
+    var OrderLineOrderID = "";
+    var rowOrderLineOrder = "";
+    var mPrincipalID = 0;
+
+    $(document).ready(function () {
+
+        if (location.hash.indexOf('reloaded') === -1) {
+            location.hash += 'reloaded';
+            location.reload();
+        }
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+              $loading.show();
+        }).ajaxStop(function () {
+             $loading.hide();
+        });
+
+        PopulateOrders();
+        PopulateCompletedOrders();
+        OrderTableActions();
+        mPrincipalID = $('#PrincipalID').val();
+
+    });
+
+    function PopulateOrders() {
+
+        if (olOrderTable != null) {
+            olOrderTable.destroy();
+        }
+
+        olOrderTable = $('#Orders').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetOutboundOrderFilter", "Outbound")',
+            "bProcessing": true,
+
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": 0 });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    if (json.Result.search(/error/i) == -1) {
+                        fnCallback(json)
+                    }
+                    else {
+                        swal(json.Result);
+                    }
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal(errorThrown,"error");
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                { "data": "OrderID" },
+                { "data": "CustomerDetailID" },
+                { "data": "RAMOrderNumber" },
+                { "data": "CustomerOrderNumber" },
+                { "data": "DateCreated" },
+                { "data": "ReceiverRAMCustomerID" },
+                { "data": "BillingRAMCustomerID" },
+                { "data": "StoreCode" },
+                { "data": "CustomerName" },
+                { "data": "CustomerGroupID" },
+                { "data": "EventUser" },
+                { "data": "EventDate" },
+                {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button view class='btn btn-primary btn-xs'>Edit</button>&nbsp;<button delete class='btn btn-primary btn-xs'>Delete</button><button submit class='btn btn-primary btn-xs'>Submit</button>"
+                }
+            ]
+        });
+    }
+
+    function PopulateCompletedOrders() {
+
+        if (olCompleteOrderTable != null) {
+            olCompleteOrderTable.destroy();
+        }
+
+        olCompleteOrderTable = $('#SubmittedOrders').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetCompleteOutboundOrderFilter", "Outbound")',
+            "bProcessing": true,
+
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": 0 });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    if (json.Result.search(/error/i) == -1) {
+                        fnCallback(json)
+                    }
+                    else {
+                        swal(json.Result);
+                    }
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal(errorThrown, "error");
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                { "data": "OrderID" },
+                { "data": "CustomerDetailID" },
+                { "data": "RAMOrderNumber" },
+                { "data": "CustomerOrderNumber"},
+                { "data": "DateCreated" },
+                { "data": "ReceiverRAMCustomerID" },
+                { "data": "BillingRAMCustomerID" },
+                { "data": "StoreCode" },
+                { "data": "CustomerName" },
+                { "data": "CustomerGroupID" },
+                { "data": "Status" },
+                { "data": "EventUser" },
+                { "data": "EventDate" },
+                {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button view class='btn btn-primary btn-xs'>View</button>"
+                }
+            ]
+        });
+    }
+
+    function OrderTableActions() {
+
+        $('#SubmittedOrders tbody').on('click', 'button[view]', function () {
+            var row = olCompleteOrderTable.row($(this).parents('tr'));
+            var ordOrderID = row.data().OrderID;
+            var ordeReceiverCustomerID = row.data().ReceiverRAMCustomerID;
+            var ordeBillingCustomerID = row.data().BillingRAMCustomerID;
+            var ordCustomerName = row.data().CustomerName;
+            var ordRAMOrderNumber = row.data().RAMOrderNumber;
+            var ordDateCreated = row.data().DateCreated;
+            var ordCustomerGroupID = row.data().CustomerGroupID;
+            var ordCustomerDetailID = row.data().CustomerDetailID;
+            var btn = $(this);
+            var ordBtn = btn.text();
+            var idx = ordOrderID + '/' + 'C';
+            var ref = '@Url.Action("ItemLineEdit", "Outbound", new { OutboundOrderID = "__id__"})';
+            var ref2 = "";
+            ref2 = ref.replace("__id__", idx);
+            location.href = ref2;
+
+        });
+
+        $('#Orders tbody').on('click', 'button[view]', function () {
+            var row = olOrderTable.row($(this).parents('tr'));
+            var ordOrderID = row.data().OrderID;
+            var btn = $(this);
+            var ordBtn = btn.text();
+            var idx = ordOrderID + '/' + 'P';
+            var ref = '@Url.Action("ItemLineEdit", "Outbound", new { OutboundOrderID = "__id__"})';
+            var ref2 = "";
+            ref2 = ref.replace("__id__", idx);
+            location.href = ref2;
+        });
+
+        //Delete Order
+        $('#Orders tbody').on('click', 'button[delete]', function () {
+            var row = olOrderTable.row($(this).parents('tr'));
+            var DeleteOrderID = row.data().OrderID;
+            DeleteOrder(DeleteOrderID);
+        });
+
+        // Submit Order
+        $('#Orders tbody').on('click', 'button[submit]', function () {
+
+            var row = olOrderTable.row($(this).parents('tr'));
+            var ordOrderID = row.data().OrderID;
+
+            swal({
+                title: "Submit order " + ordOrderID + "  to WMS?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK",
+                closeOnConfirm: false
+            }, function () {
+                Submit(ordOrderID);
+            });
+        });
+
+        //$('#btnAddSingleOrder').click(function () {
+        //    window.location = "../Outbound/SingleReceiver";
+        //});
+        //$('#btnAddMultipleOrder').click(function () {
+        //    window.location = "../Outbound/OutboundMultipleReceiver";
+        //});
+    }
+
+    function DeleteOrder(OrderID) {
+
+        var parameters = JSON.stringify({
+            pOrderID: OrderID
+        });
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteOrder", "Outbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+
+                if (result == true) {
+                    swal({
+                        title: "Are you sure you want to delete Order ID " + OrderID + " ?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "OK",
+                        closeOnConfirm: false
+                    }, function () {
+                        swal("Deleted!", "Order ID " + OrderID + " deleted.", "success");
+                        //location.reload(true);
+                        window.location.reload();
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Process Error",
+                        text: "Unable to delete the Order ID " + OrderID + ", Order has Line Items.",
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    function Submit(OrderID) {
+
+        var parameters = JSON.stringify({
+            orderID: OrderID
+        });
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SubmitOrderWMS", "Outbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+
+                if (result == true) {
+                    swal("Submitted!", "Order ID: " + OrderID + ".", "success");
+                    //location.reload(true);
+                    window.location.reload();
+                }
+                else {
+                    swal({
+                        title: "Error",
+                        text: "Unable to Submit Order ID " + OrderID + ", Please add Line Items to Complete the Orders.",
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+</script>
+
+

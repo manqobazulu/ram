@@ -1,0 +1,36 @@
+2020-09-10 08:44:50,526 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetDispatchedSerials(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 906
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetDispatchedSerials(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 466
+ClientConnectionId:f8d56cc8-b424-4abb-becc-27fdf8936b2c
+Error Number:-2,State:0,Class:11
+2020-09-10 09:59:06,577 [GetDispatchedDataFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.Orders.GetOutbound(Int32 principalID, DateTime DateFrom, DateTime DateTo, String UserName) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\Orders.cs:line 616
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetOutbound(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 555
+ClientConnectionId:01e6e679-b81d-478d-ad23-309199608ec9
+Error Number:-2,State:0,Class:11
+2020-09-10 18:53:11,567 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 816
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 295
+ClientConnectionId:310ab6d5-6a23-41d7-a517-c42c714bd992
+Error Number:201,State:4,Class:16
+2020-09-10 18:53:27,292 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 816
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 295
+ClientConnectionId:310ab6d5-6a23-41d7-a517-c42c714bd992
+Error Number:201,State:4,Class:16
+2020-09-10 18:53:45,788 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 816
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 295
+ClientConnectionId:310ab6d5-6a23-41d7-a517-c42c714bd992
+Error Number:201,State:4,Class:16
+2020-09-10 19:00:47,348 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'USP_RPT_StockAgeDetail_QRY' expects parameter '@DateFrom', which was not supplied.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetNewStockAgeDetailData(Int32 principalID) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 818
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetNewStockAgeDetail(JQueryDataTableParamModel param, String formData) in C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 299
+ClientConnectionId:c6693df8-86d0-4f2f-af64-bb882c346116
+Error Number:201,State:4,Class:16

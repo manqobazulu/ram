@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B44DEC4-3F2C-470C-86CC-2CE1962BDCFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WMSCustomerPortal.Models</RootNamespace>
+    <AssemblyName>WMSCustomerPortal.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AuditMail.cs" />
+    <Compile Include="Common\CustomerLookUpName.cs" />
+    <Compile Include="Common\CustomerUpload.cs" />
+    <Compile Include="Common\ProductUpload.cs" />
+    <Compile Include="Common\ReturnMasterItem.cs" />
+    <Compile Include="Common\ReturnOrdersLookUpItem.cs" />
+    <Compile Include="Common\UserLevelMainModel.cs" />
+    <Compile Include="Common\CustomerMainModel.cs" />
+    <Compile Include="Common\OutboundOrder.cs" />
+    <Compile Include="Common\CustomerGroupLookUpItem.cs" />
+    <Compile Include="Common\CustomerLookUpItem.cs" />
+    <Compile Include="Common\CustomerAutocomplete.cs" />
+    <Compile Include="Common\ProductAutocomplete.cs" />
+    <Compile Include="Common\ProductLookUpItem.cs" />
+    <Compile Include="Common\CustomerOrdersLookUpItem.cs" />
+    <Compile Include="Common\EmployeeLookupItem.cs" />
+    <Compile Include="Common\HubLookupItem.cs" />
+    <Compile Include="Common\InboundMasterItem.cs" />
+    <Compile Include="Common\ResponseObjects.cs" />
+    <Compile Include="Common\SuburbLookupItem.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="DataAccess\SQLDataManager.cs" />
+    <Compile Include="DataAccess\SQLDataManager.Helpers.cs" />
+    <Compile Include="Entities\ApplicationGroupPrincipals.cs" />
+    <Compile Include="Entities\Audit.cs" />
+    <Compile Include="Entities\AuditRecord .cs" />
+    <Compile Include="Entities\Returns.cs" />
+    <Compile Include="Entities\Permissions.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Customers.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Hub.cs" />
+    <Compile Include="Entities\IGDStaging.cs" />
+    <Compile Include="Entities\InboundMaster.cs" />
+    <Compile Include="Entities\InboundMasterLineItem.cs" />
+    <Compile Include="Entities\LinkedBilledTo.cs" />
+    <Compile Include="Entities\LinkedPrincipalCustomers.cs" />
+    <Compile Include="Entities\OrderLineItems.cs" />
+    <Compile Include="Entities\Orders.cs" />
+    <Compile Include="Entities\Principal.cs" />
+    <Compile Include="Entities\ProductHelpers.cs" />
+    <Compile Include="Entities\ProductStaging.cs" />
+    <Compile Include="Entities\X_COMPANY.cs" />
+    <Compile Include="Entities\X_CONSIGN.cs" />
+    <Compile Include="Entities\X_CUSTOMER.cs" />
+    <Compile Include="Entities\X_ORDER.cs" />
+    <Compile Include="Entities\X_PICK.cs" />
+    <Compile Include="Entities\X_PRODUCT.cs" />
+    <Compile Include="Entities\X_RDT.cs" />
+    <Compile Include="Entities\X_REPLEN.cs" />
+    <Compile Include="Entities\X_SERIAL.cs" />
+    <Compile Include="Entities\X_STOCK.cs" />
+    <Compile Include="Entities\X_TM.cs" />
+    <Compile Include="Entities\Zones.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Library\RAM.Logging.Log4Net\RAM.Logging.Log4Net.csproj">
+      <Project>{f2d2869a-efb1-45ec-8d43-f9415759565f}</Project>
+      <Name>RAM.Logging.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\RAM.Logging\RAM.Logging.csproj">
+      <Project>{68877ecd-3d51-414b-a706-c7f8e6680c8a}</Project>
+      <Name>RAM.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\RAM.Utilities.Common\RAM.Utilities.Common.csproj">
+      <Project>{2175170b-755a-46f0-984b-9218ff45c208}</Project>
+      <Name>RAM.Utilities.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\RAM.Utilities.Extensions\RAM.Utilities.Extensions.csproj">
+      <Project>{647894d9-997f-456c-b00f-054af173ec1d}</Project>
+      <Name>RAM.Utilities.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_StartDate="2015/5/5" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.YearDayOfYear.TimeStamp" BuildVersion_IncrementBeforeBuild="True" BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

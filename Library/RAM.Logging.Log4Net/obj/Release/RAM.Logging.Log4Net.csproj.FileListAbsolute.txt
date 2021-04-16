@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\RAM.Logging.Log4Net.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\log4net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\bin\Release\log4net.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\obj\Release\RAM.Logging.Log4Net.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\obj\Release\RAM.Logging.Log4Net.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\obj\Release\RAM.Logging.Log4Net.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\obj\Release\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\Library\RAM.Logging.Log4Net\obj\Release\RAM.Logging.Log4Net.pdb

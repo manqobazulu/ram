@@ -1,0 +1,98 @@
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe.config
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\itextsharp.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csproj.CopyComplete
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.exe
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe.config
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\itextsharp.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csproj.CopyComplete
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.exe
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe.config
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.exe
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Utility.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\itextsharp.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Mvc.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.csproj.CopyComplete
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.exe
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\Utility\obj\Debug\Utility.pdb

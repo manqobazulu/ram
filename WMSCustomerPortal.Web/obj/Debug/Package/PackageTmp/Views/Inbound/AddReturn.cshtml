@@ -1,0 +1,630 @@
+﻿@{
+    ViewBag.Title = "Add Return";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4 id="pageHeader" class="page-header">Add Returns</h4>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="myModelDiv"></div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Full / Part Order Return</label>
+                                            <select id="selectReturnType" class="form-control">
+                                                <option selected="selected" disabled>--Please Select --</option>
+                                                <option value="Full Order">Full Order</option>
+                                                <option value="Part Order">Part Order</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>Outbound Order Number</label>
+                                                <input class="form-control" placeholder="Search by ConsignmentID / Order Number" id="txtOutboundOrderNumber" name="txtOutboundOrderNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Return To Principal</label>
+                                            <select id="selectReturnPrincipal" class="form-control">
+                                                <option selected="selected" value="" disabled>--Please Select --</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>Receiver Name</label>
+                                                <input class="form-control" placeholder="Receiver Name" id="txtReceiverName" name="txtReceiverName" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>Receiver Address</label>
+                                                <input class="form-control" placeholder="Receiver Address" id="txtReceiverAddress" name="txtReceiverAddress" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>BillTo Address</label>
+                                                <input class="form-control" placeholder="BillTo Address" id="txtBillToAddress" name="txtBillToAddress" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Products
+                            </div>
+                            <div class="panel-body">
+                                <div id="pnlTable" class="panel-body">
+                                    <form role="form" onsubmit="return false;">
+                                        <table id="tblOrderLineItems" class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Product ID</th>
+                                                    <th>Product Code</th>
+                                                    <th>EAN Code</th>
+                                                    <th>Short Description</th>
+                                                    <th>Long Description</th>
+                                                    <th>Quantity</th>
+                                                    <th style="display:none">OldQuantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                            <tfoot>
+                                                <tr id="trLineEntry">
+                                                    <td></td>
+                                                    <td><input id="txtProductStagingID" type="text" class="cellStagingProdID" disabled /></td>
+                                                    <td><input id="txtProdCode" type="text" class="cellProdCode autocomplete" /></td>
+                                                    <td><input id="txtEANCode" type="text" class="cellEANCode autocomplete" /></td>
+                                                    <td><input id="txtShortDesc" type="text" class="cellShortDesc autocomplete" /></td>
+                                                    <td><input id="txtLongDesc" type="text" class="cellLongDesc autocomplete" /></td>
+                                                    <td><input id="txtQty" type="text" class="cellQty numeric" />
+                                                    <td style="display:none"><input id="txtOldQty" type="text" class="cellOldQty numeric" />
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" id="btnSaveReturn">Save New Return</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+  input {
+     border: 1px solid #ccc;
+     width: 100%;
+     height: 100%;
+     padding: 0 4px 0 4px;
+   }
+
+  input:focus {
+      border: 1px solid #808080;
+      outline: none;
+   }
+
+    .numeric {
+    }
+
+    .autocomplete {
+    }
+
+    .cellStagingProdID {
+        width: 50px;
+    }
+
+    .cellProdCode {
+        width: 200px;
+    }
+
+    .cellEANCode {
+    }
+
+    .cellShortDesc {
+        width: 200px;
+    }
+
+    .cellLongDesc {
+        width: 300px;
+    }
+
+    .cellQty {
+        width: 50px;
+    }
+    .cellOldQty {
+        width: 50px;
+    }
+
+    .editRow {
+    }
+</style>
+
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+@*<link href="~/Content/Spinner.css" rel="stylesheet" />*@
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+<script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+
+<script>
+
+    var oReportTable = null;
+    var tableArray = [];
+    var TotalQty = 0;
+
+    $(document).ready(function () {
+
+        ReturnOrderNumberAutoComplete();
+        EditableGridPageDefaults();
+        EditableGridConfig();
+        WireAdditionalActions();
+        GetGroupPrincipals();
+   });
+
+    function WireAdditionalActions() {
+
+       $('#selectReturnType').change(function () {
+           if ($('#tblOrderLineItems tbody').children('tr').length > 0) {
+               ResetLineItems();
+           }
+
+           if ($('#selectReturnType :selected').text() == 'Full Order') {
+                $('.cellQty').addClass('disabled');
+           }
+           if ($('#selectReturnType :selected').text() == 'Part Order') {
+                $('.cellQty').removeClass('disabled');
+           }
+       });
+
+       $('#btnSaveReturn').click(function () {
+           if ($.trim($('#txtOutboundOrderNumber').val()) != '') {
+               var Entries = parseInt($('#tblOrderLineItems tbody').children('tr').length);
+               if (Entries > 0) {
+                   $("#btnSaveReturn").attr("disabled", "disabled");
+                   SubmitOrder();
+               }
+           }
+       });
+   }
+
+   function SubmitOrder() {
+
+        var j = 0;
+        TotalQty = 0;
+        $('#tblOrderLineItems tr').each(function (i, row) {
+            if (i != 0) {
+               var $row1 = $(row), $ProductStagingID = $row1.find('input[id*="txtProductStagingID"]');
+               var $row2 = $(row), $inputQuantity = $row2.find('input[id*="txtQty"]');
+               var $row3 = $(row), $inputOldQuantity = $row3.find('input[id*="txtOldQty"]');
+
+               TotalQty +=  $inputQuantity.val();
+               if (($ProductStagingID.val() != '')) {
+                   tableArray[j] = [$ProductStagingID.val() + '|' + $inputQuantity.val() + '|' + $inputOldQuantity.val()];
+                   j++;
+               }
+            }
+        });
+
+       if (parseInt(TotalQty) > 0) {
+           var Prn = $('#selectReturnPrincipal :selected').val();
+
+           if (Prn) {
+               SaveNewReturnedOrder();
+           } else {
+               swal("Please select principal to return order to", "", "error");
+               $("#btnSaveReturn").removeAttr("disabled", "disabled");
+           }
+        }
+        else {
+            swal("Invalid Line Item Quantity", "", "error");
+            $("#btnSaveReturn").removeAttr("disabled", "disabled");
+        }
+    }
+
+    function GetGroupPrincipals() {
+        var parameters = JSON.stringify({
+            Data: 'GroupPrincipals'
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetGroupPrincipals", "Returns")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var items = result.Data;
+
+                $.each(items, function (i, item) {
+                    $('#selectReturnPrincipal').append($('<option>', {
+                        value: item.PrincipalID,
+                        text: item.PrincipalCode
+                    }));
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'Failed to find group principals. Error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+   function SaveNewReturnedOrder() {
+
+       var session = 'WMSSession.TempReturnOrder';
+       var parameters = JSON.stringify({
+           pReturnOrderNumber: $('#txtOutboundOrderNumber').val(),
+           pReturnType: $('#selectReturnType :selected').text(),
+           pOrderLineItems: tableArray.join(','),
+           pViewSession: session,
+           pReturnPrincipalID: $('#selectReturnPrincipal :selected').val(),
+       });
+
+       $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SaveNewReturnOrder", "Returns")',
+            data: parameters,
+            dataType: "json",
+            success: function (result) {
+                var result = result.Result;
+
+                if (result.search(/error/i) == -1) {
+
+                    $('#trLineEntry').find('input:text').val('');
+                    $('#txtReceiverName').val('').focus();
+                    $('#txtOutboundOrderNumber').val('');
+                    $('#txtReceiverAddress').val('');
+                    $('#txtBillToAddress').val('');
+                    $('#txtReceivedDate').val('');
+                    $("#selectReturnType")[0].selectedIndex = 0;
+                    $("#btnSaveReturn").removeAttr("disabled", "disabled");
+                    tableArray = [];
+                    var templateContainer = $("#tblOrderLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+                    $("#tmplViewOrderLineItems").tmpl(json).appendTo(templateContainer);
+                    EditableGridConfig();
+
+                    swal({
+                        type: 'success',
+                        title: 'Returned Order Submitted!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                else {
+                    $("#btnSaveReturn").removeAttr("disabled", "disabled");
+                    swal(result);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+       });
+    }
+
+    function ClearLineItem() {
+
+        var session = 'WMSSession.TempReturnOrder';
+        var parameters = JSON.stringify({
+            viewSession: session
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ClearLineItem", "Returns")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                $("#btnSaveReturn").removeAttr("disabled", "disabled");
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblOrderLineItems tbody").empty();
+                var json = { 'Records': result.Data };          
+                $("#tmplViewOrderLineItems").tmpl(json).appendTo(templateContainer);
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function GetOrderLineItems(inOrderID) {
+
+       var session = 'WMSSession.TempReturnOrder';
+        var parameters = JSON.stringify({
+            OrderID: parseInt(inOrderID),
+            ReturnType: $('#selectReturnType :selected').text()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_PrepopulateLineItems", "Returns")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //Clear all inputs in line entry
+                $('#trLineEntry').find('input:text').val('');
+                var templateContainer = $("#tblOrderLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+                $("#tmplViewOrderLineItems").tmpl(json).appendTo(templateContainer);
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+   }
+
+   function ReturnOrderNumberAutoComplete() {
+        var autoComplete,
+            input = $("#txtOutboundOrderNumber");
+        
+        input.autocomplete({
+            autoFocus: true,
+            focus: function (e, ui) {
+                return true;
+            },
+
+            open: function (event, ui) {
+                $('.ui-autocomplete.ui-front').zIndex(10);
+            },
+
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("ReturnOrderNumberAutoComplete", "Returns")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{ startsWith: '" + request.term + "' }",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var label = '';
+                            var value = '';
+
+                            label = item.OrderNumber + ", " + item.ReceiverRAMCustomerID + ", " + item.BillingRAMCustomerID + ", " + item.InvName + ", " + item.InvAdd1 + ", " + item.Suburb + ", " + item.InvAdd2 + ", " + item.InvAdd3 + ", " + item.InvAdd4 + ", " + item.InvAdd5 + ", " + item.InvAdd6;
+                            value = item.OrderNumber + ", " + item.ReceiverRAMCustomerID + ", " + item.BillingRAMCustomerID + ", " + item.InvName + ", " + item.InvAdd1 + ", " + item.Suburb + ", " + item.InvAdd2 + ", " + item.InvAdd3 + ", " + item.InvAdd4 + ", " + item.InvAdd5 + ", " + item.InvAdd6;
+
+                            return {
+                                value: value,
+                                label: label,
+                                OrderNumber: item.OrderNumber,
+                                OrderID: item.OrderID,
+                                InvName: item.InvName,
+                                InvAdd1: item.InvAdd1,
+                                InvAdd2: item.InvAdd2,
+                                InvAdd3: item.InvAdd3,
+                                InvAdd4: item.InvAdd4,
+                                InvAdd5: item.InvAdd5,
+                                InvAdd6: item.InvAdd6,
+                                DeliveryAdd1: item.DeliveryAdd1,
+                                DeliveryAdd2: item.DeliveryAdd2,
+                                DeliveryAdd3: item.DeliveryAdd3,
+                                DeliveryAdd4: item.DeliveryAdd4,
+                                DeliveryAdd5: item.DeliveryAdd5,
+                                DeliveryAdd6: item.DeliveryAdd6,
+                                WMSPostCode: item.WMSPostCode
+                            }
+                        }));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        swal({
+                            title: 'Error',
+                            text: 'There was an error:' + errorThrown,
+                            type: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#D42E12'
+                        });
+                    }
+                });
+            },
+
+            response: function (event, ui) {
+                if (ui.content.length === 0) {
+                    swal("Invalid Order Number entered, please try again")
+                }
+            },
+
+            select: function (event, ui) {
+                if ($('#selectReturnType :selected').text() != '--Please Select --') {
+
+                    GetOrderLineItems(ui.item.OrderID)
+                    $.trim($("#txtOutboundOrderNumber").val(ui.item.OrderNumber));
+                    $.trim($("#txtReceivedDate").val(ui.item.ReceivedDate));
+                    $.trim($("#txtReceiverName").val(ui.item.InvName));
+                    $.trim($("#txtReceiverAddress").val(ui.item.InvAdd1 + ", " + ui.item.InvAdd2 + ", " + ui.item.InvAdd3 + ", " + ui.item.InvAdd4 + ", " + ui.item.InvAdd5 + ", " + ui.item.InvAdd6));
+                    $.trim($("#txtBillToAddress").val(ui.item.DeliveryAdd1 + ", " + ui.item.DeliveryAdd2 + ", " + ui.item.DeliveryAdd3 + ", " + ui.item.DeliveryAdd4 + ", " + ui.item.DeliveryAdd5 + ", " + ui.item.DeliveryAdd6 + ", " + ui.item.WMSPostCode));
+                }
+                else {
+                    swal("Please Select Order Type", "", "error");
+                    $('#selectReturnType').focus();
+                }
+                return false;
+            }
+        });
+        autoComplete = input.autocomplete("widget");
+   }
+
+   function EditableGridPageDefaults() {
+       $('#tblOrderLineItems').on('keydown', '#txtQty', function (e) {
+          var keyCode = e.keyCode || e.which;
+          if (keyCode === 9) {
+                e.preventDefault();
+                var LineItemQty = parseInt($('#txtQty').val() || 0);
+          }
+       });
+   }
+
+   function EditableGridConfig() {
+        $('.editRow').hide();
+        $('.saveRow').hide();
+
+        if ($('#selectReturnType :selected').text() == 'Part Order') {
+            $('.editRow').show();
+            $('.saveRow').hide();
+            $('.saveRow').click(SaveRow);
+            $('.editRow').click(EditRow);
+        }
+   }
+
+  function SaveRow() {
+       var tr = $(this).closest('tr');
+       var newQty = parseInt(tr.find(".cellQty").val());
+       var oldQty = parseInt(tr.find(".cellOldQty").val());
+
+       if (newQty > 0 && newQty <= oldQty) {
+           tr.find(".cellQty").attr('disabled', 'disabled');
+       }
+       else {
+           swal("Please Make Sure Returned Quantity Is Greater Than Zero And Less Than Or Equal Original Quantity", "", "error");
+           tr.find(".cellQty").focus();
+           tr.find(".cellQty").val(oldQty);
+       }
+  }
+
+  function EditRow() {
+      var tr = $(this).closest('tr');
+      tr.find(".cellQty").removeAttr('disabled', 'disabled');
+      tr.find(".saveRow").show()
+  }
+
+  function ResetLineItems() {
+      $('#txtReceiverName').val('').focus();
+      $('#txtOutboundOrderNumber').val('');
+      $('#txtReceiverAddress').val('');
+      $('#txtBillToAddress').val('');
+      $('#txtReceivedDate').val('');
+      //tableArray = [];
+      ClearLineItem();
+  }
+
+</script>
+
+<script id="tmplViewOrderLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+    <tr class="lineItem">
+        <td class="cellLineNumber" disabled>${record.LineNumber}</td>
+        <td><input id="txtProductStagingID${record.ProductStagingID}" type="text" class="cellStagingProdID" value="${record.ProductStagingID}" disabled /></td>
+        <td><input id="txtProdCode${record.ProductStagingID}" type="text" class="cellProdCode autocomplete" value="${record.ProductCode}" disabled /></td>
+        <td><input id="txtEANCode${record.ProductStagingID}" type="text" class="cellEANCode autocomplete" value="${record.EANCode}" disabled /></td>
+        <td><input id="txtShortDesc${record.ProductStagingID}" type="text" class="cellShortDesc autocomplete" value="${record.ShortDescription}" disabled /></td>
+        <td><input id="txtLongDesc${record.ProductStagingID}" type="text" class="cellLongDesc autocomplete" value="${record.LongDescription}" disabled /></td>
+        <td><input id="txtQty${record.ProductStagingID}" type="text" class="cellQty numeric" value="${record.OldQuantity}" disabled /></td>
+        <td style="display:none"><input id="txtOldQty${record.ProductStagingID}" type="text" class="cellOldQty numeric" value="${record.Quantity}" disabled/></td>
+        <td><input type="button" value="Edit" class="editRow" /></td>
+        <td><input type="button" value="Save" class="saveRow" /></td>
+
+        <td></td>
+    </tr>
+    {{/each}}
+</script>
+
+
+
+@*https://www.simple-talk.com/dotnet/.net-framework/-client-side-markup-with-jquery-cloning-and-templates/*@
+@*https://github.com/BorisMoore/jsrender*@
+@*http://www.jsviews.com/#jsviews*@
+
+
+
+

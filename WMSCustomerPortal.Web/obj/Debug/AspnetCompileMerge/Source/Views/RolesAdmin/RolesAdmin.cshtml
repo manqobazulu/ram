@@ -1,0 +1,380 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@* We will list the users here  *@
+<h3 class="page-header">Roles Master List</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px;">
+                <div style="float:left;">
+                    Results
+                </div>
+                <div style="float:right;">
+                    <button type="button" class="btn btn-primary btn-xs" id="btnCreateNewRole">Create New Role</button>
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                @* We will be populating the jQuery Templates Table here *@
+               @* <div id="divRolesList"></div>*@
+
+
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-striped table-bordered table-hover" id="dataTableRolesList">
+                        <thead>
+                            <tr>
+                                <th style="width:30px;">ID</th>
+                                <th style="width:100px;">Name</th>
+                                <th style="width:120px;">Description</th>
+                                <th style="width:30px;"></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+
+@*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*@
+
+<div class="modal fade bs-example-modal-lg" id="myModalEditRole" tabindex="-1" role="dialog" aria-labelledby="myModalEditRoleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalEditRoleLabel">Edit Role</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <form role="form">
+
+
+                            <div class="form-group">
+                                <label style="display:none;" for="disabledSelect">RoleID</label>
+                                <input style="display:none;" class="form-control" id="txtRoleID" name="txtRoleID" type="text" placeholder="Role ID" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Role Name</label>
+                                <input class="form-control" id="txtRoleName" name="txtRoleName" type="text" placeholder="Role Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Role Description</label>
+                                <input class="form-control" id="txtRoleDescription" name="txtRoleDescription" type="text" placeholder="Role Description">
+                            </div>
+
+                            <div id="loading" class="spinner">
+                            </div>
+
+                            <div class="form-group" style="float:right;">
+                                <button type="button" id="btnSaveRole" class="btn btn-primary">Save Role</button>&nbsp;
+                               
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+@*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*@
+
+
+
+
+
+
+@* References *@
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+
+<script>
+    var oRolesTable = null;
+
+    $(document).ready(function () {
+
+        PopulateRolesDataGrid();
+        WireAdditionalActions();
+    });
+
+    //populate the modal dialog for the roles
+    function PopulateRolesModal(dRow) {
+
+        $('#txtRoleID').val(dRow.Id) ;
+        $('#txtRoleName').val(dRow.Name) ;
+        $('#txtRoleDescription').val(dRow.Description)  ;
+    }
+
+    function DeleteRole(dRow) {
+
+        var roleID = dRow.Id;
+        var parameters = JSON.stringify({
+            roleID: roleID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("DeleteRole", "RolesAdmin")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+
+                    PopulateUsersDataGrid();
+
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    //calls the save group details
+    function SaveRoleDetails() {
+
+        $("#btnSaveRole").attr("disabled", "disabled");
+
+        var selectedRoleID = $('#txtRoleID').val();
+        var selectedRoleName = $('#txtRoleName').val();
+        var selectedRoleDescription = $('#txtRoleDescription').val();
+
+
+        var parameters = JSON.stringify({
+            roleName: selectedRoleName,
+            roleID: selectedRoleID,
+            roleDescription: selectedRoleDescription
+        });
+
+        try {
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveRoleDetails", "RolesAdmin")',
+                data: parameters,
+                dataType: "json",
+
+                success: function (response) {
+
+                    var result = response.Result;
+                    var saveResponse = response.SaveResponse;
+
+                    if (result.search(/error/i) == -1) {
+
+                        PopulateRolesDataGrid();
+                        $('#myModalEditRole').hide();
+                    }
+                    else {
+
+                        $("#btnSaveRole").removeAttr("disabled", "disabled");
+                        swal(response.SaveResponse.Details);
+
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+        }
+        catch (err) {
+            alert(err);
+        }
+
+    }
+
+
+    function PopulateRolesDataGrid() {
+        //we will use the datagrid to populate the users instead of the templates
+        //alert("in PopulateInboundMasterData");
+        if (oRolesTable != null) {
+            oRolesTable.destroy();
+        }
+
+        oRolesTable = $('#dataTableRolesList').DataTable({
+            "order": [[0, "desc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetRolesItemList", "RolesAdmin")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+                //TODO: we need to gret the datarow id
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                });
+            },
+            "columns": [
+                            {
+                                "data": "Id",
+                                "visible": false
+                            },
+                            { "data": "Name" },
+                            { "data": "Description" },
+
+                            {
+                                "targets": -1,
+                                "data": null,
+                                "defaultContent": "<button edit class='btn btn-primary btn-xs'>Edit</button>&nbsp;<button delete class='btn btn-primary btn-xs'>Delete</button>  "
+                            }
+            ]
+        });
+
+
+        //wire the onclick event
+
+        $('#dataTableRolesList tbody').on('click', 'button[edit]', function () {
+
+            $("#btnSaveRole").removeAttr("disabled", "disabled");
+
+            var row = oRolesTable.row($(this).parents('tr'));
+
+            PopulateRolesModal(row.data());
+
+            $('#myModalEditRole').modal({
+                keyboard: false
+            });
+
+        });
+
+
+        $('#dataTableRolesList tbody').on('click', 'button[delete]', function () {
+
+            var row = oRolesTable.row($(this).parents('tr'));
+
+            swal({
+                title: "Are you sure you want to delete Role?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK",
+                closeOnConfirm: false
+            }, function () {
+                swal("Deleted!", "Role deleted.", "success");
+                DeleteRole(row.data());
+            });
+
+            PopulateRolesDataGrid();
+
+        });
+
+    }
+
+    function WireAdditionalActions() {
+
+        //<div class="form-group" style="float:right;">
+        //           <button type="submit" class="btn btn-primary" id="btnCreateNewRole">Create New Role</button>
+        //       </div>
+         
+        $("#btnCreateNewRole").on('click', function () {
+            //redirect to the create new role action
+
+            var ref = '@Url.Action("CreateRole", "RolesAdmin")';
+            location.href = ref;
+        });
+
+        $('#btnSaveRole').on('click', function () {
+
+            SaveRoleDetails();
+        });
+
+
+
+
+    }
+    function OpenEdit(id) {
+        swal(id);
+    }
+
+    function ViewGroups(id) {
+        swal(id);
+    }
+</script>
+
+
+
+
+
+<style>
+    .modal-dialog {
+        width: 1000px;
+    }
+</style>
+
+
+
+@* Defintions of the Users table *@
+
+
+
+
+
+

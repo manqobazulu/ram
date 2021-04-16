@@ -1,0 +1,267 @@
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojResolveAssemblyReference.cache
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\RAM\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CoreCompileInputs.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll.config
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\ClassLibrary6.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\itextsharp.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Mvc.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csprojAssemblyReference.cache
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.csproj.CopyComplete
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\ClassLibrary6\obj\Debug\ClassLibrary6.pdb

@@ -1,0 +1,453 @@
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Joseph Radebe\source\Workspaces\Apex\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+F:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\RAM\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojResolveAssemblyReference.cache
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Administrator\Desktop\RAMPortal\HostService\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\Documents\Khodani 12-11-2019\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CoreCompileInputs.cache
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\Clive\WorkSpace\SourceTree\RAM\CustomerPortal\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll.config
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Business.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\itextsharp.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.Log4Net.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Logging.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Common.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\RAM.Utilities.Extensions.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\WMSCustomerPortal.Models.pdb
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Helpers.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Mvc.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\log4net.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csprojAssemblyReference.cache
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.csproj.CopyComplete
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.dll
+C:\Users\27815\Documents\RamCustomerPortal2\RAM.WMSCustomerPortal\WMSCustomerPortal.Business\obj\Debug\WMSCustomerPortal.Business.pdb

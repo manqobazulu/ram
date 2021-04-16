@@ -1,0 +1,38 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container body-content">
+        @*<h1 class="text-danger">Error</h1>*@
+
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+        <p class="text-danger">
+            @Model.Exception.Message
+        </p>
+
+        <div>
+            @Html.ActionLink("Back", @Model.ActionName, @Model.ControllerName)&nbsp;|&nbsp;@Html.ActionLink("Home", "Index", "Dashboard")
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - WMS Customer Portal</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

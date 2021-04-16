@@ -1,0 +1,1372 @@
+﻿@{
+    ViewBag.Title = "Inbound Add Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model WMSCustomerPortal.Models.Common.InboundMasterItem
+
+<h4 id="pageHeader" class="page-header"> </h4>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>
+                    @Html.ActionLink("Back to Receiving Main", "InboundList", "Inbound")
+                </div>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="myModelDiv" data-model="@Json.Encode(@Model)"></div>
+                                @Html.HiddenFor(model => model.InboundMasterID, new { id = "hdnInboundMasterIDXXX" })
+                                <input type="hidden" id="hdnSaveInboundMasterID" name="hdnSaveInboundMasterID" value="">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form role="form" id="frmAddInbound" onsubmit="return false;">
+                                            <div class="row">
+                                                <div class="col-xs-8 col-sm-6">
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Purchase Order Reference</label>
+                                                            <input class="form-control" placeholder="Purchase Order Reference" id="txtPORef" name="txtPORef">
+                                                            @*<p class="help-block">Example block-level help text here.</p>*@
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Supplier Name</label>
+                                                            <input class="form-control" placeholder="Supplier Name" id="txtSupplierName" name="txtSupplierName">
+                                                            @*<p class="help-block">Example block-level help text here.</p>*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4 col-sm-6">
+                                                    <div>
+                                                        <div class="form-group">
+
+                                                            <label id="labelName">Purchase Order Date</label>
+                                                            <div class='input-group date' id='datetimepickerPODate'>
+                                                                <input type='text' id="txtPODate" placeholder="Purchase Order Date" class="form-control" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label id="labelName">Expected Delivery Date</label>
+                                                            @* <input class="form-control" placeholder="Expected Delivery Date" id="txtExpectedDeliveryDate" name="txtExpectedDeliveryDate">*@
+                                                            <div class='input-group date' id='datetimepickerExpectedDeliveryDate'>
+                                                                <input type='text' id="txtExpectedDate" placeholder="Expected Delivery Date" class="form-control" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                       Products
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div id="pnlTable" class="panel-body">
+                                            <table id="tblInboundLineItems" class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>LineItemID</th>
+                                                        <th style="display: none">Product ID</th>
+                                                        <th>Product Code</th>
+                                                        <th>EAN Code</th>
+                                                        <th>Short Description</th>
+                                                        <th>Long Description</th>
+                                                        <th>Unit Cost</th>
+                                                        @*<th>Sales Price</th>*@
+                                                        <th>Qty</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                                <tfoot>
+                                                    <tr id="trLineEntry">
+                                                        <td></td>
+                                                        <td><input id="txtInboundMasterLineItemID" type="text" class="cellInboundMasterLineItemID" disabled /></td>
+                                                        <td style="display: none"><input id="txtProductStagingID" type="text" class="cellStagingProdID" disabled style="display: none;" /></td>
+                                                        <td><input id="txtProdCode" type="text" class="cellProdCode autocomplete" /></td>
+                                                        <td><input id="txtEANCode" type="text" class="cellEANCode autocomplete" /></td>
+                                                        <td><input id="txtShortDesc" type="text" class="cellShortDesc autocomplete" /></td>
+                                                        <td><input id="txtLongDesc" type="text" class="cellLongDesc autocomplete" /></td>
+                                                        <td><input id="txtUnitCost" type="text" class="cellUnitCost numeric" /></td>
+                                                        @*<td><input id="txtSalesPrice" type="text" class="cellSalesPrice" disabled /></td>*@
+                                                        <td><input id="txtQty" type="text" class="cellQty numeric" /></td>
+                                                        <td><input id="btnAddLineItem" type="button" value="Add" style="display:;" /></td>
+                                                        <td><input id="btnReset" type="button" value="Reset" /></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                            <!-- /#tblInboundLineItems -->
+                                        </div>
+
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+                <div class="form-group" style="float:right;">
+                    <button type="button" class="btn btn-primary" id="btnClear">Clear Line Items</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveAll">Save Inbound</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div id="loading" class="spinner">
+</div>
+
+
+<!-- /.col-lg-12 -->
+@*</div>*@
+<!-- /.row -->
+
+<style>
+    input {
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 100%;
+        padding: 0 4px 0 4px;
+    }
+
+        input:focus {
+            border: 1px solid #808080;
+            outline: none;
+        }
+
+    .numeric {
+    }
+
+    .autocomplete {
+    }
+
+    .cellInboundMasterLineItemID {
+        /*width: 50px;*/
+        width: 51px;
+        /*display:none;*/
+    }
+
+    .cellLineNumber {
+        width: 50px;
+    }
+
+    .cellStagingProdID {
+        /*width: 50px;*/
+        width: 1px;
+        display: none;
+    }
+
+    .cellProdCode {
+        width: 200px;
+    }
+
+    .cellEANCode {
+    }
+
+    .cellShortDesc {
+        width: 200px;
+    }
+
+    .cellLongDesc {
+        width: 300px;
+    }
+
+    .cellUnitCost {
+        width: 50px;
+    }
+
+    .cellSalesPrice {
+        width: 50px;
+    }
+
+    .cellQty {
+        width: 50px;
+    }
+
+    .lineItem {
+    }
+
+    .deleteRow {
+    }
+
+</style>
+
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+<script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+
+
+@* Hidden values *@
+<input id="hiddenInboundMasterID" type="hidden" value="0" />
+
+<script>
+
+    //var oInboundMasterLineItemsTable = null;
+
+    var currentlyUpdating = false;
+    var mdlID;
+    var url;
+    var CompletedRecord;
+    var Status;
+
+    $(document).ready(function () {
+
+        url = window.location.href.split(';');
+        
+        var Arr = [];
+        Arr = $("#hdnInboundMasterIDXXX").val().split('/');
+
+        mdlID = Arr[0];
+        Status = Arr[1];
+        $('#pageHeader').text('Pending Receipts');
+
+        $("#hiddenInboundMasterID").val(mdlID);
+
+        if (mdlID == null) {
+            $("#pnlTable").attr("hidden", true);
+            $("#pnlTable2").attr("hidden", true);
+            $('#pageHeader').text('');
+        }
+
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        if (Status == 'C') {
+            $('#pageHeader').text('Completed Receipts');
+            $('#txtPORef').attr('disabled', 'disabled');
+            $('#txtSupplierName').attr('disabled', 'disabled');
+            $('#txtPODate').attr('disabled', 'disabled');
+            $('#txtExpectedDate').attr('disabled', 'disabled');
+            $('#txtQty').attr('disabled', 'disabled');
+            $('#btnAddLineItem').attr('disabled', 'disabled');
+            $('#btnReset').attr('disabled', 'disabled');
+            $('#btnSaveAll').attr('disabled', 'disabled');
+            $('#btnSaveAll').hide();
+            $('#trLineEntry').hide();
+
+        }
+
+        EditableGridPageDefaults();
+        EditableGridConfig();
+
+        //GetLineItems();
+        //init the date picker
+        $('#datetimepickerExpectedDeliveryDate').datepicker({
+            format: "yyyy/mm/dd",
+            autoclose: true
+        });
+
+        //init the date picker
+        $('#datetimepickerPODate').datepicker({
+            format: "yyyy/mm/dd",
+            autoclose: true
+        });
+        //alert(mdlID);
+        //load the inbound master data
+        PopulateInboundMasterRecord(mdlID);
+        //PopulateInboundMasterRecord($("#hiddenInboundMasterID").val());
+        //load the inbound master line items data for this inbound record
+        PopulateInboundMasterLineItemsList(mdlID);
+
+
+        $("input.form-control").bestupper(); //forces all inputs to be capitals by using the bestupper plugin
+
+        ConfigureInboundMasterSaveValidation();  // validation for the inbound master record
+
+        WireAdditionalActions(); //onclick events etc
+
+    });
+
+    //configures the inbound masterlineitem validation
+    function ConfigureInboundMasterSaveValidation() {
+        //  alert("in ConfigureInboundMastersaveValidation ");
+
+        thisValidatedForm = $("#frmAddInbound").validate({
+            onsubmit: true,
+            rules: {
+                txtPORef: {
+                    required: true
+
+                },
+                txtSupplierName: {
+                    required: true
+                },
+                txtPODate: {
+                    required: true
+                },
+                txtExpectedDate: {
+                    required: true
+                }
+
+
+            },
+            messages: {
+                txtPORef: {
+                    required: "Please enter a valid Purchase Order Reference."
+
+                },
+                txtSupplierName: {
+                    required: "Please enter a valid Supplier Name."
+                },
+                txtPODate: {
+                    required: "Please enter a valid Date."
+                },
+                txtExpectedDate: {
+                    required: "Please enter a valid Date."
+                }
+
+            }
+        });
+        //  alert("after ConfigureInboundMasterSaveValidation ");
+    }
+
+
+    //determines the validity of the inbound master data
+    function IsInboundMasterSaveValid() {
+
+        var isFormValid = $('#frmAddInbound').valid();
+        return isFormValid;
+    }
+
+
+
+
+    //Populate the inbound master details
+    function PopulateInboundMasterRecord(pInboundMasterID) {
+
+        if (pInboundMasterID == 0) {
+            //set up as if for a new record
+
+            ClearAllTempLineItems();
+            //also set the focus of the first item
+            $("#txtPORef").focus();
+
+            return;
+        }
+
+        // alert("inboundmasterid xxx" + pInboundMasterID);
+        var parameters = JSON.stringify({
+            inboundMasterID: pInboundMasterID
+        });
+
+        //do an ajax call to get the inbound master record
+        var InboundMasterRecord;
+
+        $.ajax({
+            url: '@Url.Action("GetInboundMasterRecord", "Inbound")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+
+            success: function (response) {
+                CompleteFormData(response.InboundMaster);  //send the data to be populated
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    //clears any line items which may be lurking
+    function ClearAllTempLineItems() {
+
+        $.ajax({
+            url: '@Url.Action("EditableGrid_ClearAllLineItems", "Inbound")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                //CompleteFormData(response.InboundMaster);  //send the data to be populated
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+    function ClearLineItem() {
+
+        var session = 'WMSSession.TempInboundOrder';
+
+        var parameters = JSON.stringify({
+            viewSession: session
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ClearLineItem", "Inbound")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblInboundLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+
+                window.location = "../Inbound/InboundList";
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+    //populate the inbound line items list according to the master id specified
+    function PopulateInboundMasterLineItemsList(pInboundMasterID) {
+
+        if (pInboundMasterID == 0) {
+            //set up as if for a new record
+
+
+            return;
+        }
+        //let's clear the grid
+        var templateContainer = $("#tblInboundLineItems tbody").empty();
+
+        // alert("inboundmasterid xxx" + pInboundMasterID);
+        var parameters = JSON.stringify({
+            inboundMasterID: pInboundMasterID
+        });
+
+        //do an ajax call to get the inbound master record
+        var InboundMasterRecord;
+
+        $.ajax({
+            url: '@Url.Action("EditableGrid_PrepopulateLineItems", "Inbound")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+
+            success: function (response) {
+
+                //CompleteFormData(response.InboundMaster);  //send the data to be populated
+                // Load the data into the grid
+                GetLineItems();
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function CompleteFormData(inboundMaster) {
+
+        $('#hiddenInboundMasterID').val(inboundMaster.InboundMasterID);
+        $('#txtPORef').val(inboundMaster.PORef);
+
+        $('#txtPODate').val(inboundMaster.PODate);
+        $('#datetimepickerPODate').datepicker('update', new Date(inboundMaster.PODate));
+
+        $('#txtExpectedDate').val(inboundMaster.ExpectedDeliveryDateTime);
+        $('#datetimepickerExpectedDeliveryDate').datepicker('update', new Date(inboundMaster.ExpectedDeliveryDateTime));
+        $('#txtSupplierName').val(inboundMaster.SupplierName);
+    }
+
+    function checkInputQuantity() {
+
+        var LineItemQty = parseInt($('#txtQty').val() || 0);
+        var parameters = JSON.stringify({
+            ProductCode: $('#txtProdCode').val(),
+            Quantity: LineItemQty
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("CheckStockQuantity", "Outbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                if (result == 'OK') {
+                    AddLineItem();
+                }
+                else {
+                    $('#txtQty').val("");
+                    $('#txtQty').focus();
+                    swal({
+                        title: "Error",
+                        text: result,
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+    }
+
+
+    function WireAdditionalActions() {
+        //init the date picker
+        $('#datetimepickerExpectedDeliveryDate').datepicker({
+            format: "yyyy/mm/dd",
+            autoclose: true
+        });
+
+        //init the date picker
+        $('#datetimepickerPODate').datepicker({
+            format: "yyyy/mm/dd",
+            autoclose: true
+        });
+
+
+        $("#btnSaveAll").click(function () {
+
+            $("btnSaveAll").attr("disabled", "disabled");
+
+            var inboundMaster = new Object();
+            //check to see if the form is valid
+            if (IsInboundMasterSaveValid() == false) {
+                return;
+            }
+
+            var Entries = parseInt($('#tblInboundLineItems tbody').children('tr').length);
+
+            if (Entries < 1) {
+
+                swal({
+                    title: "Error",
+                    text: "Please Add Products to Order.",
+                    type: "error",
+                    confirmButtonText: "OK",
+                    confirmButtonColor: "#D42E12"
+                });
+
+                return;
+            }
+
+            var hiddenInbound = $("#hiddenInboundMasterID").val();
+            inboundMaster.InboundMasterID = hiddenInbound;
+            inboundMaster.PORef = $('#txtPORef').val();
+            inboundMaster.PODate = $("#txtPODate").val();
+            inboundMaster.ExpectedDeliveryDateTime = $("#txtExpectedDate").val();
+            inboundMaster.SupplierName = $('#txtSupplierName').val();
+
+            var parameters = JSON.stringify({
+                inboundMaster: inboundMaster
+            });
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveInbound", "Inbound")',
+                data: parameters,
+                dataType: "json",
+                success: function (response) {
+
+                    var result = response.Result;
+                    var saveResponse = response.SaveResponse;
+
+                    if (result.search(/error/i) == -1) {
+
+                        var new_inboundMasterID = response.InboundMasterID;
+                        //set the hidden value
+                        $('#hiddenInboundMasterID').val(new_inboundMasterID);
+                        $("#hdnInboundMasterIDXXX").val(new_inboundMasterID);
+                        $("#pnlTable").removeAttr("hidden");
+
+                        var inboundMasterID = $("#hiddenInboundMasterID").val();
+
+                        $("btnSaveAll").removeAttr("disabled", "disabled");
+                        ClearLineItem();
+                    }
+                    else {
+                        $("#pnlTable").attr("hidden", true);
+                        $("btnSaveAll").removeAttr("disabled", "disabled");
+
+                        swal({
+                            title: "Error",
+                            text: response.SaveResponse.Details,
+                            type: "error",
+                            confirmButtonText: "OK",
+                            confirmButtonColor: "#D42E12"
+                        });
+
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+            return false;
+
+        });
+
+        $("#btnClear").click(function () {
+
+            var session = 'WMSSession.TempInboundOrder';
+
+            var parameters = JSON.stringify({
+                viewSession: session
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ClearLineItem", "Inbound")',
+                data: parameters,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+
+                    $('#trLineEntry').find('input:text').val('');
+
+                    var templateContainer = $("#tblInboundLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+
+                    $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    swal({
+                        title: 'Error',
+                        text: 'There was an error:' + errorThrown,
+                        type: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#D42E12'
+                    });
+                }
+            });
+        
+        });
+
+    }
+
+    function GetLineItems() {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_GetLineItems", "Inbound")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                // Clear all inputs in line entry
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblInboundLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                if (Status == 'C') {
+                    $("#tmplViewInboundLineItems").tmpl(json).appendTo(templateContainer);
+                }
+                else if (Status == 'P'){
+                    $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+                }
+   
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+    function EditableGridPageDefaults() {
+
+        $('#btnAddLineItem').click(function () {
+            if (IsLineItemAddValid()) {
+                //checkInputQuantity();
+                AddLineItem();
+            }
+        });
+
+        $('#btnReset').click(function () {
+            $('#trLineEntry').find('input:text').val('');
+            $('#txtProdCode').focus();
+        });
+
+        $('#tblInboundLineItems').on('keydown', '#txtQty', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 9) {
+                e.preventDefault();
+
+                //checkInputQuantity();
+                AddLineItem();
+            }
+        });
+
+        // Binding keys
+        $(document).bind('keydown', 'ctrl+a', function assets() {
+
+            SaveLineItems();
+
+            return false;
+        });
+        $('#txtProdCode').bind('keydown', 'ctrl+a', function assets() {
+
+            SaveLineItems();
+
+            return false;
+        });
+    }
+
+    function EditableGridConfig() {
+
+        BindAutocomplete();
+
+
+        $(".numeric").numeric({ decimal: false, negative: false }, function () { swal("Positive integers only"); this.value = ""; this.focus(); });
+
+        $(".currency").numeric({ decimal: true, decimalPlaces: 2, negative: false }, function () { swal("Positive currency values only"); this.value = "0.00"; this.focus(); });
+
+        $('.deleteRow').click(DeleteRow);
+
+        $('.lineItem .cellUnitCost').blur(UpdateRow);
+
+        $('.lineItem .cellQty').blur(UpdateRow);
+        //$('.lineItem .cellQty').blur(checkUpdateInputQuantity);
+
+        $('#txtProdCode').focus();
+
+        //Do a refresh of the line items
+
+    }
+
+    /* Add **********************************************************************************/
+    function AddLineItem() {
+
+        //first check to see if the inbound master has already been saved
+        var inboundMasterID = $('#hiddenInboundMasterID').val();
+
+        inboundMasterID = $('#hiddenInboundMasterID').val();
+
+        var lineItem = new Object();
+
+        lineItem.LineNumber = (parseInt($('#tblInboundLineItems tbody').children('tr').length) + 1);
+        lineItem.InboundMasterLineItemID = $("#txtInboundMasterLineItemID").val();
+        lineItem.ProductStagingID = $('#txtProductStagingID').val();
+        lineItem.ProdCode = $('#txtProdCode').val();
+        lineItem.EANCode = $('#txtEANCode').val();
+        lineItem.ShortDesc = $('#txtShortDesc').val();
+        lineItem.LongDesc = $('#txtLongDesc').val();
+        var UnitCost = $.trim($('#txtUnitCost').val());
+        var FloatUnitCost = parseFloat(UnitCost).toFixed(0);
+
+        lineItem.UnitCost = FloatUnitCost;
+        //lineItem.SalesPrice = $('#txtSalesPrice').val();
+        lineItem.Qty = $('#txtQty').val();
+        lineItem.InboundMasterID = inboundMasterID;
+
+        var parameters = JSON.stringify({
+            lineItem: lineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_AddLineItem", "Inbound")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                if (result.Result.search(/error/i) == -1) {
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+
+                    var templateContainer = $("#tblInboundLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+
+                    $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+
+                    // Reapply plugins/bind controls
+                    EditableGridConfig();
+                    //reload the line items
+                }
+                else {
+                    swal(result.Result);
+                    // Clear all inputs in line entry
+                    $('#txtQty').val('');
+                    $('#txtQty').focus()
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function IsLineItemAddValid() {
+        var isAddValid = true;
+
+        if ($('#txtProdCode').val() == '') {
+            $('#txtProdCode').focus();
+
+            swal("Please select a product");
+
+            isAddValid = false;
+        }
+
+        return isAddValid;
+    }
+
+
+    /* Delete **********************************************************************************/
+    function DeleteRow() {
+
+        if (Status == 'P') {
+            var tr = $(this).closest('tr');
+
+            //if (confirm("Really Remove this Line Item?") == false) {
+            //    return;
+            //}
+
+
+            //var productstagingid = tr.find(".cellStagingProdID").val();
+            var lineNumber = tr.find(".cellLineNumber").html();
+
+            swal({
+                title: "Are you sure you want to delete No. " + lineNumber + " ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK",
+                closeOnConfirm: false
+            }, function () {
+                $(this).parents('tr').first().remove();
+                RemoveLineItem(lineNumber);
+            });
+
+
+        }
+    }
+
+    function RemoveLineItem(lineNumber) {
+
+        var parameters = JSON.stringify({
+            lineNumber: lineNumber
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_RemoveLineItem", "Inbound")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblInboundLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+
+                //reload the line items
+                PopulateInboundMasterLineItemsList($("#hiddenInboundMasterID").val());
+                swal("Deleted!", "Line No. " + lineNumber + " deleted.", "", "success");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function checkUpdateInputQuantity() {
+
+        var tr = $(this).closest('tr');
+
+        if (currentlyUpdating == true) {
+            return;
+        }
+        else {
+            currentlyUpdating = !currentlyUpdating;
+        }
+
+        var lineItem = new Object();
+
+        lineItem.InboundMasterLineItemID = tr.find(".cellInboundMasterLineItemID").val();
+        lineItem.LineNumber = tr.find(".cellLineNumber").html();
+        lineItem.ProductStagingID = tr.find(".cellStagingProdID").val();
+        lineItem.ProdCode = tr.find(".cellProdCode").val();
+        lineItem.EANCode = tr.find(".cellEANCode").val();
+        lineItem.ShortDesc = tr.find(".cellShortDesc").val();
+        lineItem.LongDesc = tr.find(".cellLongDesc").val();
+        lineItem.UnitCost = tr.find(".cellUnitCost").val();
+        //lineItem.SalesPrice = tr.find(".cellSalesPrice").val();
+        lineItem.Qty = tr.find(".cellQty").val();
+        var inboundMasterID = $('#hiddenInboundMasterID').val();
+        lineItem.InboundMasterID = inboundMasterID;
+
+        var pProductCode = tr.find(".cellProdCode").val();
+        var pQuantity = tr.find(".cellQty").val();
+
+        var parameters = JSON.stringify({
+            ProductCode: pProductCode,
+            Quantity: pQuantity
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("CheckStockQuantity", "Outbound")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+                var result = response.Result;
+                if (result == 'OK') {
+                    //UpdateLineItem(lineItem);
+                    UpdateRow(lineItem);
+                    tr.find(".cellQty").val(pQuantity);
+                }
+                else {
+                    $('#txtQty').focus();
+                    $('#txtQty').val('');
+                    tr.find(".cellQty").val('');
+
+                    swal({
+                        title: "Error",
+                        text: result,
+                        type: "error",
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#D42E12"
+                    });
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    /* Update **********************************************************************************/
+    function UpdateRow() {
+
+        var tr = $(this).closest('tr');
+
+        if (currentlyUpdating == true) {
+            return;
+        }
+        else {
+            currentlyUpdating = !currentlyUpdating;
+        }
+
+        var lineItem = new Object();
+
+        lineItem.InboundMasterLineItemID = tr.find(".cellInboundMasterLineItemID").val();
+        lineItem.LineNumber = tr.find(".cellLineNumber").html();
+        lineItem.ProductStagingID = tr.find(".cellStagingProdID").val();
+        lineItem.ProdCode = tr.find(".cellProdCode").val();
+        lineItem.EANCode = tr.find(".cellEANCode").val();
+        lineItem.ShortDesc = tr.find(".cellShortDesc").val();
+        lineItem.LongDesc = tr.find(".cellLongDesc").val();
+        lineItem.UnitCost = tr.find(".cellUnitCost").val();
+        //lineItem.SalesPrice = tr.find(".cellSalesPrice").val();
+        lineItem.Qty = tr.find(".cellQty").val();
+        var inboundMasterID = $('#hiddenInboundMasterID').val();
+        lineItem.InboundMasterID = inboundMasterID;
+
+        var parameters = JSON.stringify({
+            lineItem: lineItem
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_UpdateLineItem", "Inbound")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblInboundLineItems tbody").empty();
+                var json = { 'Records': result.Data };
+
+                $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+
+                // Reapply plugins/bind controls
+                EditableGridConfig();
+                //reload the line items
+                //PopulateInboundMasterLineItemsList($("#hiddenInboundMasterID").val());
+
+                currentlyUpdating = false;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+
+
+
+    }
+
+
+
+    /* Save **********************************************************************************/
+    function SaveLineItems() {
+
+        // alert("In savelineitems");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_SaveLineItems", "Inbound")',
+            //data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                var result = result.Result;
+
+                if (result.search(/error/i) == -1) {
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+                    $('#txtProdCode').focus();
+
+                    var templateContainer = $("#tblInboundLineItems tbody").empty();
+                    var json = { 'Records': result.Data };
+
+                    $("#tmplInboundLineItems").tmpl(json).appendTo(templateContainer);
+
+                    // Reapply plugins/bind controls
+                    EditableGridConfig();
+                }
+                else {
+                    swal(result);
+
+                    $('#txtProdCode').focus();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+
+    /* jQuery UI Autocomplete **********************************************************************************/
+    function BindAutocomplete() {
+        $(".autocomplete").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+
+                // 'this.element' - element the autocomplete widget is attached to
+                var searchType = '';
+                if ($(this.element).hasClass('cellProdCode')) {
+                    searchType = 'ProdCode';
+                }
+                else if ($(this.element).hasClass('cellEANCode')) {
+                    searchType = 'EANCode';
+                }
+                else if ($(this.element).hasClass('cellShortDesc')) {
+                    searchType = 'ShortDesc';
+                }
+                else {
+                    searchType = 'LongDesc';
+                }
+
+                $.ajax({
+                    url: '@Url.Action("EditableGrid_ProductLookup", "Inbound")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ startsWith: request.term, searchType: searchType }),
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            var label = '';
+                            switch (searchType) {
+                                case 'ProdCode':
+                                    label = item.ProdCode;
+                                    break;
+                                case 'EANCode':
+                                    label = item.EANCode;
+                                    break;
+                                case 'ShortDesc':
+                                    label = item.ShortDesc; //(item.ShortDesc == null || item.ShortDesc == '') ? item.ProdCode : item.ShortDesc;
+                                    break;
+                                default:
+                                    label = item.LongDesc;
+                            }
+
+                            return {
+                                value: item.ProdCode,
+                                label: label,
+                                ProductStagingID: item.ProductStagingID,
+                                ProdCode: item.ProdCode,
+                                EANCode: item.EANCode,
+                                ShortDesc: item.ShortDesc,
+                                LongDesc: item.LongDesc,
+                                UnitCost: item.UnitCost
+                                //SalesPrice: item.SalesPrice
+                            }
+                        }));
+                    }
+                });
+            },
+            focus: autocomplete_OnFocus,
+            select: autocomplete_OnSelect
+        });
+    }
+    function autocomplete_OnFocus(event, ui) {
+        //$("#" + event.target.id).val(ui.item.value);
+
+        var tr = $(this).closest('tr');
+
+        tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        tr.find(".cellProdCode").val(ui.item.ProdCode);
+        tr.find(".cellEANCode").val(ui.item.EANCode);
+        tr.find(".cellShortDesc").val(ui.item.ShortDesc);
+        tr.find(".cellLongDesc").val(ui.item.LongDesc);
+        tr.find(".cellUnitCost").val(ui.item.UnitCost);
+        //tr.find(".cellSalesPrice").val(ui.item.SalesPrice);
+
+        // This is causing a selection as soon as an item has focus
+        //tr.find(".cellQty").focus();
+
+        return false;
+    }
+    function autocomplete_OnSelect(event, ui) {
+        $("#" + event.target.id).val(ui.item.value);
+
+        var tr = $(this).closest('tr');
+
+        tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        tr.find(".cellProdCode").val(ui.item.ProdCode);
+        tr.find(".cellEANCode").val(ui.item.EANCode);
+        tr.find(".cellShortDesc").val(ui.item.ShortDesc);
+        tr.find(".cellLongDesc").val(ui.item.LongDesc);
+        tr.find(".cellUnitCost").val(ui.item.UnitCost);
+        //tr.find(".cellSalesPrice").val(ui.item.SalesPrice);
+
+        var keyCode = event.keyCode || event.which;
+        if (keyCode == 9) {
+            $(this).last("input:text").focus().select();
+        }
+        else {
+            tr.find(".cellQty").focus();
+            //tr.find(".cellUnitCost").focus();
+        }
+
+        //if (tr.hasClass('lineItem')) {
+        //    // We're modifying the grid
+        //    tr.find(".cellStagingProdID").val(ui.item.ProductStagingID);
+        //    tr.find(".cellQty").focus();
+        //}
+        //else {
+        //    $("#txtProductStagingID").val(ui.item.ProductStagingID);
+        //    $('#txtQty').focus();
+        //}
+
+        return false;
+    }
+
+</script>
+
+<script id="tmplInboundLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+    <tr class="lineItem">
+
+        <td class="cellLineNumber" disabled>${record.LineNumber}</td>
+        @*<td><input id="txtInboundMasterLineItemID${record.InboundMasterLineItemID}" type="text" class="cellStagingLineItemID" value="${record.InboundMasterLineItemID}" disabled style="display: none;" /></td>*@
+        <td><input id="txtInboundMasterLineItemID${record.InboundMasterLineItemID}" type="text" class="cellInboundMasterLineItemID" value="${record.InboundMasterLineItemID}" disabled /></td>
+
+        <td style="display: none"><input id="txtProductStagingID${record.ProductStagingID}" type="text" class="cellStagingProdID" value="${record.ProductStagingID}" disabled style="display: none;" /></td>
+
+        <td><input id="txtProdCode${record.ProductStagingID}" type="text" class="cellProdCode autocomplete" value="${record.ProdCode}" /></td>
+        <td><input id="txtEANCode${record.ProductStagingID}" type="text" class="cellEANCode autocomplete" value="${record.EANCode}" /></td>
+        <td><input id="txtShortDesc${record.ProductStagingID}" type="text" class="cellShortDesc autocomplete" value="${record.ShortDesc}" /></td>
+        <td><input id="txtLongDesc${record.ProductStagingID}" type="text" class="cellLongDesc autocomplete" value="${record.LongDesc}" /></td>
+
+        <td><input id="txtUnitCost${record.UnitCost}" type="text" class="cellUnitCost numeric" value="${record.UnitCost}" /></td>
+        @*<td><input id="txtSalesPrice${record.ProductStagingID}" type="text" class="cellSalesPrice" value="${record.SalesPrice}" disabled /></td>*@
+        <td><input id="txtQty${record.Qty}" type="text" class="cellQty numeric" value="${record.Qty}" /></td>
+        <td><input type="button" value="Remove" class="deleteRow" /></td>
+        <td></td>
+    </tr>
+    {{/each}}
+</script>
+
+<script id="tmplViewInboundLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+    <tr class="lineItem">
+
+        <td class="cellLineNumber" disabled>${record.LineNumber}</td>
+        <td><input id="txtInboundMasterLineItemID${record.InboundMasterLineItemID}" type="text" class="cellInboundMasterLineItemID" value="${record.InboundMasterLineItemID}" disabled /></td>
+        <td style="display: none"><input id="txtProductStagingID${record.ProductStagingID}" type="text" class="cellStagingProdID" value="${record.ProductStagingID}" disabled style="display: none;" /></td>
+        <td><input id="txtProdCode${record.ProductStagingID}" type="text" class="cellProdCode autocomplete" value="${record.ProdCode}" disabled /></td>
+        <td><input id="txtEANCode${record.ProductStagingID}" type="text" class="cellEANCode autocomplete" value="${record.EANCode}" disabled /></td>
+        <td><input id="txtShortDesc${record.ProductStagingID}" type="text" class="cellShortDesc autocomplete" value="${record.ShortDesc}" disabled /></td>
+        <td><input id="txtLongDesc${record.ProductStagingID}" type="text" class="cellLongDesc autocomplete" value="${record.LongDesc}" disabled /></td>
+        <td><input id="txtUnitCost${record.UnitCost}" type="text" class="cellUnitCost numeric" value="${record.UnitCost}" disabled /></td>
+        <td><input id="txtQty${record.Qty}" type="text" class="cellQty numeric" value="${record.Qty}" disabled /></td>
+        <td><input type="button" value="Remove" class="deleteRow" disabled /></td>
+        <td></td>
+    </tr>
+    {{/each}}
+</script>
+
+
+
+
+@*https://www.simple-talk.com/dotnet/.net-framework/-client-side-markup-with-jquery-cloning-and-templates/*@
+@*https://github.com/BorisMoore/jsrender*@
+@*http://www.jsviews.com/#jsviews*@
+
+
+
+
+

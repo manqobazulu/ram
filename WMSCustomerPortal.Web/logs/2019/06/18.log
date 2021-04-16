@@ -1,0 +1,27 @@
+2019-06-18 11:45:43,091 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Failed to convert parameter value from a String to a Boolean.
+System.FormatException: Failed to convert parameter value from a String to a Boolean. ---> System.FormatException: String was not recognized as a valid Boolean.
+   at System.Boolean.Parse(String value)
+   at System.String.System.IConvertible.ToBoolean(IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- End of inner exception stack trace ---
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockOnHand(Int32 principalID, String showZeroInventory) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 703
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockOnHand(JQueryDataTableParamModel param, String formData) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 105
+2019-06-18 13:43:34,208 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Failed to convert parameter value from a String to a Boolean.
+System.FormatException: Failed to convert parameter value from a String to a Boolean. ---> System.FormatException: String was not recognized as a valid Boolean.
+   at System.Boolean.Parse(String value)
+   at System.String.System.IConvertible.ToBoolean(IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- End of inner exception stack trace ---
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockOnHand(Int32 principalID, String showZeroInventory, Int32 startDay, Int32 endDay) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 706
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockOnHand(JQueryDataTableParamModel param, String formData) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 112
+2019-06-18 13:47:47,063 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Failed to convert parameter value from a String to a Boolean.
+System.FormatException: Failed to convert parameter value from a String to a Boolean. ---> System.FormatException: String was not recognized as a valid Boolean.
+   at System.Boolean.Parse(String value)
+   at System.String.System.IConvertible.ToBoolean(IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- End of inner exception stack trace ---
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockOnHand(Int32 principalID, String showZeroInventory, Int32 startDay, Int32 endDay) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 706
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockOnHand(JQueryDataTableParamModel param, String formData) in C:\RAM\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 112

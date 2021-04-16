@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:dime="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:ATOWs" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ATOWs" targetNamespace="urn:ATOWs">
+  <http:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:ATOWs">
+      <xs:complexType name="TypeATORequest">
+        <xs:sequence>
+          <xs:element name="SiteCode" type="xs:string" />
+          <xs:element name="PrincipalCode" type="xs:string" />
+          <xs:element name="ProdCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TypeATOResponse">
+        <xs:sequence>
+          <xs:element name="Success" type="xs:boolean" />
+          <xs:element name="ReasonText" type="xs:string" />
+          <xs:element name="AvailableQty" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ATORequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="ATO" type="tns:TypeATORequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ATOResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="ATO" type="tns:TypeATOResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </http:types>
+  <http:message name="ATORequestRequest">
+    <http:part name="parameters" element="tns:ATORequest" />
+  </http:message>
+  <http:message name="ATORequestResponse">
+    <http:part name="parameters" element="tns:ATOResponse" />
+  </http:message>
+  <http:portType name="ATOWsPort">
+    <http:operation name="ATORequest">
+      <http:input message="tns:ATORequestRequest" />
+      <http:output message="tns:ATORequestResponse" />
+    </http:operation>
+  </http:portType>
+  <http:binding name="ATOWsBinding" type="tns:ATOWsPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <http:operation name="ATORequest">
+      <soap:operation soapAction="ATORequest" />
+      <http:input>
+        <soap:body use="literal" />
+      </http:input>
+      <http:output>
+        <soap:body use="literal" />
+      </http:output>
+    </http:operation>
+  </http:binding>
+  <http:service name="ATOWsService">
+    <http:port name="ATOWsPort" binding="tns:ATOWsBinding">
+      <soap:address location="http://192.168.56.101:8085" />
+    </http:port>
+  </http:service>
+</wsdl:definitions>

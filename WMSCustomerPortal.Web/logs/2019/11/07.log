@@ -1,0 +1,66 @@
+2019-11-07 12:46:54,023 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - OLE DB provider 'SQLNCLI11' for linked server 'RAMSQLCOL08' returned data that does not match expected data length for column '[RAMSQLCOL08].[WMSHostCustomerPortal].[dbo].[X_PICK].OrderId'. The (maximum) expected data length is 10, while the returned data length is 12.
+System.Data.SqlClient.SqlException (0x80131904): OLE DB provider 'SQLNCLI11' for linked server 'RAMSQLCOL08' returned data that does not match expected data length for column '[RAMSQLCOL08].[WMSHostCustomerPortal].[dbo].[X_PICK].OrderId'. The (maximum) expected data length is 10, while the returned data length is 12.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:c8361ed2-fb0b-4d07-baa9-13e99c2b8ddf
+Error Number:7347,State:1,Class:16
+2019-11-07 12:58:18,173 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - OLE DB provider 'SQLNCLI11' for linked server 'RAMSQLCOL08' returned data that does not match expected data length for column '[RAMSQLCOL08].[WMSHostCustomerPortal].[dbo].[X_PICK].OrderId'. The (maximum) expected data length is 10, while the returned data length is 12.
+System.Data.SqlClient.SqlException (0x80131904): OLE DB provider 'SQLNCLI11' for linked server 'RAMSQLCOL08' returned data that does not match expected data length for column '[RAMSQLCOL08].[WMSHostCustomerPortal].[dbo].[X_PICK].OrderId'. The (maximum) expected data length is 10, while the returned data length is 12.
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:c8361ed2-fb0b-4d07-baa9-13e99c2b8ddf
+Error Number:7347,State:1,Class:16
+2019-11-07 13:35:11,739 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:f2ca31f1-68f4-426a-b057-49638cd8bd7f
+Error Number:-2,State:0,Class:11
+2019-11-07 13:36:04,773 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:f2ca31f1-68f4-426a-b057-49638cd8bd7f
+Error Number:-2,State:0,Class:11
+2019-11-07 13:37:14,843 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:f2ca31f1-68f4-426a-b057-49638cd8bd7f
+Error Number:-2,State:0,Class:11
+2019-11-07 13:38:20,805 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:f2ca31f1-68f4-426a-b057-49638cd8bd7f
+Error Number:-2,State:0,Class:11
+2019-11-07 13:39:35,633 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:96dec847-6b52-4fe5-ad85-3b3572654ac7
+Error Number:-2,State:0,Class:11
+2019-11-07 13:40:34,300 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:96dec847-6b52-4fe5-ad85-3b3572654ac7
+Error Number:-2,State:0,Class:11
+2019-11-07 13:41:41,284 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:96dec847-6b52-4fe5-ad85-3b3572654ac7
+Error Number:-2,State:0,Class:11
+2019-11-07 14:33:22,902 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:4eb043ed-ebbf-47ee-82d8-e860f5d140cf
+Error Number:-2,State:0,Class:11
+2019-11-07 14:34:03,671 [GetStockOnHandFilter] [ERROR] WMSCustomerPortal.Web.Controllers.ReportsController - Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at WMSCustomerPortal.Models.Entities.ProductStaging.GetStockAging(Int32 principalID, DateTime DateFrom, DateTime DateTo) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Models\Entities\ProductStaging.cs:line 732
+   at WMSCustomerPortal.Web.Controllers.ReportsController.GetStockAging(JQueryDataTableParamModel param, String formData) in C:\Users\Apex1\Documents\Visual Studio 2017\RamBulkupload\RAM.WMSCustomerPortal\WMSCustomerPortal.Web\Controllers\ReportsController.cs:line 200
+ClientConnectionId:4eb043ed-ebbf-47ee-82d8-e860f5d140cf
+Error Number:-2,State:0,Class:11

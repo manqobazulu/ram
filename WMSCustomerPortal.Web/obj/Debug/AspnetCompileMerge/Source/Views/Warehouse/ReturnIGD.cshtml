@@ -1,0 +1,654 @@
+﻿@{
+    ViewBag.Title = ">Return IGD";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="page-header">Warehouse Return IGD</h3>
+
+<input type="button" id="btnTest" value="Reset Table" onclick="ResetDataTable()" style="display:none;" />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Results
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper" style="overflow:scroll;">
+                    <table class="table table-bordered table-hover table-striped" id="dataTableReports">
+                        <thead>
+                            <tr>
+                                <th style="width:70px;">Return Reference No.</th>
+                                <th style="width:70px;">Ram Order No.</th>
+                                <th style="width:70px;">Order Line No</th>
+                                <th style="width:70px;">Product Code</th>
+                                <th style="width:90px;">Long Description</th>
+                                <th style="width:100px;">Quantity</th>
+                                <th style="width:50px;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="modalViewLineItems" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalLabel3">Order Line Items</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Order Line Items
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div id="divLinkedRecords"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="myModalIGDItems" tabindex="-1" role="dialog" aria-labelledby="myModalIGDLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-whatever="mdo">&times;</button>
+                <h4 class="modal-title" id="myModalIGDLabel">IGD Records</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        @* We should indicate the amounts as recieved in the warehouse for each *@
+
+                        @* Lets also put some hidden values in here  *@
+                        @*<input id="hiddenIncomingMasterLineItemID" type="hidden" value="" />
+                            <input id="hiddenIncomingMasterID" type="hidden" value="" />*@
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="frmAddEditIGDRecords" role="form" onsubmit="return false;">
+                                    <div class="form-group">
+                                        @*<label style="display:none;">InboundLineItemID</label>
+                                            <input class="form-control" placeholder="InboundLineItemID" id="txtInboundLineItemID" name="txtInboundLineItemID" disabled style="display:none;">*@
+                                        <label>InboundLineItemID</label>
+                                        <input class="form-control" placeholder="InboundLineItemID" id="txtInboundLineItemID" name="txtInboundLineItemID" disabled>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label style="display:none;">ProductStagingID</label>
+                                        <input style="display:none;" class="form-control" placeholder="ProductStagingID" id="txtProductStagingID" name="txtProductStagingID" disabled>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Product Code</label>
+                                        <input class="form-control" placeholder="Product Code" id="txtProdCode" name="txtProdCode" disabled>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product EAN Code</label>
+                                        <input class="form-control" placeholder="Product EAN Code" id="txtEANCode" name="txtEANCode" disabled>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Expected Quantity</label>
+                                                <input class="form-control" placeholder="Expected Quantity" id="txtExpectedQuantity" name="txtExpectedQuantity" disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Received in Warehouse Quantity</label>
+                                                <input class="form-control" placeholder="Received in Warehouse Quantity" id="txtReceivedInWarehouseQuantity" name="txtReceivedInWarehouseQuantity" disabled>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div style="float:right;">
+                            @*<button type="button" id="btnAddNewIGD" class="btn btn-primary" data-dismiss="modal">+ IGD</button>*@
+                        </div>
+
+                        @* <div id="divIGDItemList"></div>*@
+                        <div class="dataTable_wrapper" style="overflow:scroll;">
+                            <table id="tblIGDLineItems" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>IGDStagingID</th>
+                                        <th>MoveRef</th>
+                                        <th>SubmittedToWMS</th>
+                                        <th>ReceivedQuantity</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                    <tr id="trLineEntry">
+                                        <td></td>
+                                        <td><input id="txtIGDStagingID" type="text" class="cellIGDStagingID" disabled style="display:none;" /></td>
+                                        <td><input id="txtMoveRef" type="text" class="cellMoveRef" disabled /></td>
+                                        <td><input id="chkSubmittedToWMS" type="text" class="cellSubmittedToWMS" disabled /></td>
+                                        <td><input id="txtReceivedQuantity" type="text" class="cellReceivedQuantity" /></td>
+                                        @*<td><input id="btnAddLineItem" type="button" value="Add" /></td>
+                                        <td><input id="btnReset" type="button" value="Reset" /></td>*@W
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="loading" class="spinner">
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group" style="float:right;">
+                        <button type="button" class="btn btn-primary" id="btnSubmitAllWMS">Submit To WMS</button>&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+
+    form label.error {
+        color: crimson;
+    }
+</style>
+
+<!-- DataTables CSS -->
+<link href="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<!-- DataTables Responsive CSS -->
+<link href="~/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<!-- jQuery UI CSS -->
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery.ui.autocomplete.css" rel="stylesheet" />
+
+@* This page requires 1.10.2 - but we will try 2.1.4 to see if all still works *@
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@*<script src="~/Scripts/jquery-2.1.4.min.js"></script>*@
+
+<!-- DataTables JavaScript -->
+<script src="~/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.tmpl.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/MaskedInput/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/BestUpper/jquery.bestupper.min.js"></script>
+<script src="~/Scripts/Numeric/jquery.numeric.min.js"></script>
+<script src="~/Scripts/jquery.HotKeys/jquery.hotkeys.js"></script>
+
+<script>
+    var oReportTable = null;
+
+    $(document).ready(function () {
+
+        $("input.form-control").bestupper();
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        GetReturnReceipt();
+        EditableGridPageDefaults();
+        WireAdditionalActions();
+    });
+
+    function ResetDataTable() {
+
+        var Browser = detectIE();
+        if (Browser == false) {
+
+            var data = new Object();
+            data.sEcho = null;
+            data.iTotalRecords = 0;
+            data.iTotalDisplayRecords = 0;
+            data.aaData = null;
+
+            oReportTable.destroy();
+
+            oReportTable = $('#dataTableReports').DataTable({
+                "order": [[2, "asc"]],
+                "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+                "bJQueryUI": true,
+                "bServerSide": false,
+                "bProcessing": true,
+                "data": data
+            });
+
+            GetReturnReceipt();
+        }
+        else {
+            //location.reload(true);
+            window.location.reload();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        return false;
+    }
+
+    function GetReturnReceipt() {
+
+        if (oReportTable != null) {
+            oReportTable.destroy();
+        }
+
+        oReportTable = $('#dataTableReports').DataTable({
+            "order": [[0, "asc"]],
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "bJQueryUI": true,
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetReturnReceiptLineItems_All", "Returns")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+                parameters.push({ "name": "filter", "value": "" });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+
+                })
+               .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [  
+                        { "data": "ReturnReferenceNumber" },
+                        { "data": "RAMOrderNumber" },
+                        { "data": "OrderLineNo" },
+                        { "data": "ProdCode" },
+                        { "data": "LongDesc" },
+                        { "data": "Quantity" },
+                                    {
+                                        "targets": -1,
+                                        "data": null,
+                                        "defaultContent": "<button viewIGDs class='btn btn-primary btn-xs'>View IGDs</button>"
+                                    }
+            ]
+        });
+    }
+
+    function WireAdditionalActions() {
+
+        $('#dataTableReports tbody').on('click', 'button[viewIGDs]', function () {           
+
+            var row = oReportTable.row($(this).parents('tr'));
+
+            if (row.data() != '' || row.data() != null) {
+
+                //$('#txtProductStagingID').val(row.data().ProductStagingID);
+                $('#txtReceivedInWarehouseQuantity').val(row.data().ReceivedInWHQuantity);
+                $('#txtExpectedQuantity').val(row.data().Quantity);
+                $('#txtEANCode').val(row.data().EANCode);
+                $('#txtProdCode').val(row.data().ProdCode);
+                $('#txtInboundLineItemID').val(row.data().LineItemID);
+                $('#txtProductStagingID').val(row.data().ProductStagingID);
+                             
+                PopulateWarehouseIGDData(row.data().LineItemID);
+
+                //wires up the submit this complete record to wms
+                $('#btnSubmitAllWMS').on('click', function () {
+                    // alert("btnSubmitAllWMS clicked");
+                    //lets get the lineitem id that needs to be submitted
+
+                    swal({
+                        title: "Submit to WMS?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "OK"
+                    }, function () {
+                        var lineItemIDForSubmission = $('#txtInboundLineItemID').val();
+
+                        console.log(row.data().IGDStagingID);
+                        SubmitSingleToWMS(row.data().IGDStagingID);
+                    });
+
+
+                });
+            }
+
+            $('#myModalIGDItems').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+
+        $('#myModalIGDItems').on('hidden.bs.modal', function (e) {
+        });
+    }
+
+    function PopulateWarehouseIGDData(lineItemID) {
+
+        if (lineItemID == 0) {
+            return;
+        }
+        
+        var parameters = JSON.stringify({
+            inboundMasterLineItemID: lineItemID
+        });
+
+        $.ajax({
+            url: '@Url.Action("GetReturnReceiptLineItems_All", "Returns")',
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: parameters,
+            success: function (response) {
+                
+                for (var i = 0; i < response.aaData.length; i++) {                   
+
+                    var obj = [];
+
+                    if (response.aaData[i].LineItemID == lineItemID) {
+                        
+                        obj.push(response.aaData[i]);
+
+                        console.log(obj);
+                        var templateContainer = $("#tblIGDLineItems tbody").empty();
+
+                        var json = { 'Records': obj };
+                        $("#tmplIGDLineItems").tmpl(json).appendTo(templateContainer);
+                    }
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function GetLineItems() {
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ReturnReceiptLineItems", "Returns")',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                $('#trLineEntry').find('input:text').val('');
+
+                var templateContainer = $("#tblIGDLineItems tbody").empty();           
+
+                var json = { 'Records': result};
+                console.log(json);
+
+                $("#tmplIGDLineItems").tmpl(json).appendTo(templateContainer);
+       
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    //submits a single line to wms
+    function SubmitSingleToWMS(id) {
+        //we will be getting a row item from the submit to wms button
+
+        var lineItemID = id;
+
+        var parameters = JSON.stringify({
+            InboundMasterLineItemID: lineItemID
+        });
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SubmitSingleToWMS", "Warehouse")',
+            data: parameters,
+            dataType: "json",
+            success: function (response) {
+
+                var result = response.Result;
+                var saveResponse = response.SaveResponse;
+
+                if (result.search(/error/i) == -1) {
+                    swal("Submitted!", "Line Item ID: " + lineItemID + ".", "success");
+
+                    PopulateWarehouseIGDData(lineItemID);
+                }
+                else {
+                    swal(response.SaveResponse.Details);
+
+                    PopulateWarehouseIGDData(lineItemID);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function AddLineItem() {
+
+        var inboundExpectedQuantity = $("#txtExpectedQuantity").val();
+        var lineItem = new Object();
+
+        var MoveRef = getJson();
+
+        lineItem.LineNumber = (parseInt($('#tblIGDLineItems tbody').children('tr').length) + 1);
+
+        lineItem.MoveRef = 0;
+
+        lineItem.ReceivedQuantity = $("#txtReceivedQuantity").val();
+
+        lineItem.IGDStagingID = 0;
+        lineItem.InboundMasterLineItemID = $("#txtInboundLineItemID").val();
+
+        lineItem.ProductStagingID = $('#txtProductStagingID').val();
+        lineItem.SubmittedToWMS = false;
+
+        var parameters = JSON.stringify({
+            lineItem: lineItem,
+            inboundExpectedQuantity: inboundExpectedQuantity,
+            ProductStagingID: $('#txtProductStagingID').val(),
+            PODate: $('#txtPODate').val(),
+            PORef: $('#txtPORef').val(),
+            ExpectedDate: $('#txtExpectedDate').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditableGrid_AddLineItem", "Warehouse")',
+            data: parameters,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                if (result.Result.search(/error/i) == -1) {
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+
+                    var templateContainer = $("#tblIGDLineItems tbody").empty();
+                    var json = [{ 'Records': result }];
+
+                    $("#tmplIGDLineItems").tmpl(json).appendTo(templateContainer);
+
+                    EditableGridConfig();
+                    var MoveRef = "";
+                    console.log(json);
+                }
+                else {
+                    alert(result.Result);
+                    // Clear all inputs in line entry
+                    $('#trLineEntry').find('input:text').val('');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                swal({
+                    title: 'Error',
+                    text: 'There was an error:' + errorThrown,
+                    type: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#D42E12'
+                });
+            }
+        });
+    }
+
+    function EditableGridPageDefaults() {
+
+        $('#btnAddLineItem').click(function () {
+            if (IsLineItemAddValid()) {
+               AddLineItem();
+            }
+           // AddLineItem();
+        });
+
+        $('#btnReset').click(function () {
+            $('#trLineEntry').find('input:text').val('');
+            $('#txtReceivedQuantity').focus();
+        });
+
+
+        $('#tblIGDLineItems').on('keydown', '#txtReceivedQuantity', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 9) {
+                e.preventDefault();
+
+                //AddLineItem();
+            }
+        });
+    }
+
+    function IsLineItemAddValid() {
+        var isAddValid = true;
+
+        if ($('#txtReceivedQuantity').val() == '') {
+            $('#txtReceivedQuantity').focus();
+
+            swal("Please enter a received quantity.");
+
+            isAddValid = false;
+        }
+
+        if ($('#txtReceivedQuantity').val() == '0') {
+            $('#txtReceivedQuantity').focus();
+
+            swal('Please enter a received quantity.');
+
+            isAddValid = false;
+        }
+
+        return isAddValid;
+    }
+
+    function getJson() {
+        return JSON.parse($.ajax({
+            type: 'GET',
+            url: '@Url.Action("GetNextIGDMoveRef", "Warehouse")',
+            dataType: 'jsonp',
+            global: false,
+            async: false,
+            success: function (data) {
+                return data;
+            }
+        }).responseText);
+    }    
+
+</script>
+
+<script id="tmplIGDLineItems" type="text/x-jQuery-tmpl">
+    {{each(i,record) Records}}
+    
+    <tr class="lineItem">
+        <td class="cellLineNumber" disabled></td>
+        <td><input id="txtIGDStagingID${record.IGDStagingID}" type="text" class="cellIGDStagingID" value="${record.IGDStagingID}" disabled /></td>
+        <td><input id="txtMoveRef${record.MoveRef}" type="text" class="cellMoveRef" value="${record.MoveRef}" disabled /></td>
+        <td><input id="chkSubmittedToWMS${record.SubmittedToWMS}" type="text" class="cellSubmittedToWMS" value="${record.SubmittedToWMS}" disabled /></td>
+        <td><input id="txtReceivedQuantity${record.ReceivedInWHQuantity}" type="text" class="cellReceivedQuantity numeric" value="${record.ReceivedInWHQuantity}"  disabled /></td>
+
+        @*<td></td>*@
+        @*<td><input type="button" value="Remove" class="deleteRow" /></td>*@
+
+    </tr>
+    {{/each}}
+
+</script>

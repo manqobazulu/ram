@@ -1,0 +1,321 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h3 class="page-header">Stock On Hand Report</h3>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <form role="form">
+                    <div class="row"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Report Type:</label>
+                            <select id="ReportList" class="form-control">
+                                <option selected="selected">Please Select Report</option>
+                                <option>OnHand Qty</option>
+                                <option>OnHand Serials</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row"></div>
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+
+    <div id="divReports" style="display: none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="height: 40px;" id="ZeroInclude">
+                    <div style="float:left;">
+                        <div>
+                            <input type="checkbox" id="chkZeroInventory" value="Active" />
+                            <label>
+                                Include Products with Zero Inventory
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="dataTable_wrapper" style="overflow:scroll;">
+                        <div id="divStockOnHandReports" style="display: none">
+                            <table class="table table-bordered table-hover table-striped" id="StockOnHandReports">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px;">Product Code</th>
+                                        <th style="width:100px;">EAN Code</th>
+                                        <th style="width:150px;">Short Description</th>
+                                        <th style="width:200px;">Long Description</th>
+                                        <th style="width:50px;">Quantity</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="divStockOnHandReportsSerials" style="display: none">
+                            <table class="table table-bordered table-hover table-striped" id="StockOnHandReportsSerials">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50px;">TmId</th>
+                                        <th style="width:50px;">Location</th>
+                                        <th style="width:100px;">Product Code</th>
+                                        <th style="width:100px;">EAN Code</th>
+                                        <th style="width:150px;">Short Description</th>
+                                        <th style="width:200px;">Long Description</th>
+                                        <th style="width:50px;">Quantity</th>
+                                        <th style="width:100px;">Serial Number</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+<div id="loading" class="spinner">
+</div>
+
+<link href="~/Content/Spinner.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bower_components/datatables 1.10.12/jquery/jquery-1.12.3.js"></script>
+<script src="~/bower_components/datatables 1.10.12/media/js/jquery.dataTables.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/dataTables.buttons.min.js"></script>
+<script src="~/bower_components/jszip/dist/jszip.min.js"></script>
+<script src="~/bower_components/pdfmake/pdfmake.min.js"></script>
+<script src="~/bower_components/vfs/vfs_fonts.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.flash.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.html5.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.print.min.js"></script>
+<script src="~/bower_components/datatables 1.10.12/extensions/Buttons-1.2.1/js/buttons.colVis.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker-1.4.0/js/bootstrap-datepicker.js"></script>
+<link href="~/Scripts/bootstrap-datepicker-1.4.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+
+
+<style>
+    .modal-dialog {
+        width: 750px;
+    }
+</style>
+
+<script>
+
+    var oReportTableSOH = null;
+    var oReportTableSOHSerials = null;
+    var oReportInboundMaster = null;
+    var oReportIGD = null;
+
+    $(document).ready(function () {
+
+        var $loading = $('#loading');
+        $(document).ajaxStart(function () {
+            $loading.show();
+        }).ajaxStop(function () {
+            $loading.hide();
+        });
+
+        $("#chkZeroInventory").change(function () {
+            var listVal = $('#ReportList :selected').text();
+
+            if (listVal == "OnHand Qty") {
+                GetStockOnHand();
+            } else if (listVal == "OnHand Serials") {
+                GetStockOnHandSerials();
+            } 
+        });
+
+        SelectReportType();
+    });
+
+    function SelectReportType() {
+
+        $('#ReportList').on('change', function (e) {
+
+            var listVal = $('#ReportList :selected').text();
+
+            if (listVal == "OnHand Qty") {
+                GetStockOnHand();
+            } else if (listVal == "OnHand Serials") {
+                GetStockOnHandSerials();
+            }
+
+            //$('#ReportList').prop('selectedIndex', 0);
+        });
+    }
+
+    function GetStockOnHand() {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        if (oReportTableSOH != null) {
+            oReportTableSOH.destroy();
+        }
+
+        $("#divReports").show();
+        $("#divStockOnHandReports").show();
+        $("#divStockOnHandReportsSerials").hide();
+        $("#ZeroInclude").show();
+
+        oReportTableSOH = $('#StockOnHandReports').DataTable({
+            "order": [[0, "asc"]],
+            "destroy": true,
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "dom": 'Bfrtip',
+
+            "buttons": [{
+                extend: 'excelHtml5',
+                title: 'Stock On Hand Report_' + dateTime
+            },
+            {
+
+                extend: 'pdfHtml5',
+                title: 'Stock On Hand Report_' + dateTime,
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+
+            },
+            {
+                extend: 'csvHtml5',
+                title: 'Stock On Hand Report_' + dateTime
+            },
+            {
+                extend: 'print',
+                message: 'Stock On Hand Report_' + dateTime
+            },
+            {
+                text: 'Reload',
+                action: function (e, dt, node, config) {
+                    dt.ajax.reload();
+                }
+            }
+            ],
+
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetStockOnHand", "Reports")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                var data = JSON.stringify({
+                    showZeroInventory: $('#chkZeroInventory').is(':checked')
+                });
+
+                parameters.push({ "name": "formData", "value": data });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                            { "data": "ProdCode" },
+                            { "data": "ProdEAN" },
+                            { "data": "ShortDesc" },
+                            { "data": "LongDesc" },
+                            { "data": "Qty" }
+            ]
+        });
+    }
+
+    function GetStockOnHandSerials() {
+
+        var d = new Date();
+        var dateTime = d.toLocaleString().replace('T', ' ').replace(/\..*$/, '');
+
+        if (oReportTableSOHSerials != null) {
+            oReportTableSOHSerials.destroy();
+        }
+
+        $("#divReports").show();
+        $("#divStockOnHandReportsSerials").show();
+        $("#divStockOnHandReports").hide();
+        $("#ZeroInclude").hide();
+
+        oReportTableSOHSerials = $('#StockOnHandReportsSerials').DataTable({
+            "order": [[0, "asc"]],
+            "destroy": true,
+            "lengthMenu": [[20, 30, 40, -1], [20, 30, 40, "All"]],
+            "dom": 'Bfrtip',
+
+            "buttons": [{
+                extend: 'excelHtml5',
+                title: 'Stock On Hand Report_' + dateTime
+            },
+            {
+
+                extend: 'pdfHtml5',
+                title: 'Stock On Hand Report_' + dateTime,
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+
+            },
+            {
+                extend: 'csvHtml5',
+                title: 'Stock On Hand Report_' + dateTime
+            },
+            {
+                extend: 'print',
+                message: 'Stock On Hand Report_' + dateTime
+            },
+            {
+                text: 'Reload',
+                action: function (e, dt, node, config) {
+                    dt.ajax.reload();
+                }
+            }
+            ],
+
+            "bServerSide": false,
+            "sAjaxSource": '@Url.Action("GetStockOnHandSerials", "Reports")',
+            "bProcessing": true,
+            "fnServerData": function (sSource, parameters, fnCallback) {
+
+                var data = JSON.stringify({
+                    showZeroInventory: $('#chkZeroInventory').is(':checked')
+                });
+
+                parameters.push({ "name": "formData", "value": data });
+
+                $.getJSON(sSource, parameters, function (json) {
+                    fnCallback(json)
+                })
+                .done(function () { })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    swal("ERROR: " + errorThrown);
+                    console.log("ERROR: " + errorThrown);
+                    console.log("RESPONSE TEXT: " + jqXHR.responseText);
+                })
+                .always(function () { });
+            },
+            "columns": [
+                { "data": "TmId" },
+                { "data": "Location" },
+                { "data": "ProdCode" },
+                { "data": "ProdEAN" },
+                { "data": "ShortDesc" },
+                { "data": "LongDesc" },
+                { "data": "Qty" },
+                { "data": "SerialNumber" }
+            ]
+        });
+    }
+</script>
